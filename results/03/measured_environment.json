@@ -8,24 +8,18 @@
   "paper_tuning": {
     "4864x896": {
       "best": {
-        "start_kb": 8,
-        "jump_cap_kb": 12,
-        "overhead_ms": 1.58,
-        "est_read_ms": 1.353,
-        "utility": 3246.608,
-        "rows_selected": 4376
+        "start_kb": 4,
+        "jump_cap_kb": 16,
+        "overhead_ms": 1.204
       },
-      "num_feasible": 245,
+      "num_feasible": 251,
       "num_evaluated": 256
     },
     "896x128": {
       "best": {
         "start_kb": 4,
         "jump_cap_kb": 4,
-        "overhead_ms": 0.167,
-        "est_read_ms": 0.037,
-        "utility": 21392.786,
-        "rows_selected": 800
+        "overhead_ms": 0.136
       },
       "num_feasible": 256,
       "num_evaluated": 256
@@ -34,10 +28,7 @@
       "best": {
         "start_kb": 4,
         "jump_cap_kb": 4,
-        "overhead_ms": 1.204,
-        "est_read_ms": 1.359,
-        "utility": 605.672,
-        "rows_selected": 807
+        "overhead_ms": 0.828
       },
       "num_feasible": 36,
       "num_evaluated": 36
@@ -46,10 +37,7 @@
       "best": {
         "start_kb": 4,
         "jump_cap_kb": 4,
-        "overhead_ms": 1.177,
-        "est_read_ms": 0.262,
-        "utility": 3112.827,
-        "rows_selected": 806
+        "overhead_ms": 0.682
       },
       "num_feasible": 256,
       "num_evaluated": 256
@@ -60,6 +48,18 @@
   "direct_io": true,
   "destination": "cpu",
   "tile_boundary_kib": 256.0,
+  "tile_scales": [
+    0.25,
+    0.5,
+    0.75,
+    1.0,
+    1.25,
+    1.5,
+    1.75,
+    2.0
+  ],
+  "dtype_bytes": 2,
+  "tile_offsets": "0, floor(B/2)",
   "paper_ceiling_kib": 768.0,
   "traces": 128,
   "warmup": 3,
