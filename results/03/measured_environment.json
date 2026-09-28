@@ -8,9 +8,9 @@
   "paper_tuning": {
     "4864x896": {
       "best": {
-        "start_kb": 4,
-        "jump_cap_kb": 16,
-        "overhead_ms": 1.204
+        "start_kb": 8,
+        "jump_cap_kb": 8,
+        "overhead_ms": 1.373
       },
       "num_feasible": 251,
       "num_evaluated": 256
@@ -19,7 +19,7 @@
       "best": {
         "start_kb": 4,
         "jump_cap_kb": 4,
-        "overhead_ms": 0.136
+        "overhead_ms": 0.142
       },
       "num_feasible": 256,
       "num_evaluated": 256
@@ -28,7 +28,7 @@
       "best": {
         "start_kb": 4,
         "jump_cap_kb": 4,
-        "overhead_ms": 0.828
+        "overhead_ms": 0.854
       },
       "num_feasible": 36,
       "num_evaluated": 36
@@ -37,7 +37,7 @@
       "best": {
         "start_kb": 4,
         "jump_cap_kb": 4,
-        "overhead_ms": 0.682
+        "overhead_ms": 0.759
       },
       "num_feasible": 256,
       "num_evaluated": 256
