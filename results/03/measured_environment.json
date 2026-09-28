@@ -1,0 +1,79 @@
+{
+  "platform": "Linux-7.2.5-200.fc44.x86_64-x86_64-with-glibc2.43",
+  "torch": "2.11.0+cu130",
+  "cuda_available": true,
+  "paper_sort_devices": [
+    "cuda"
+  ],
+  "paper_tuning": {
+    "4864x896": {
+      "best": {
+        "start_kb": 12,
+        "jump_cap_kb": 8,
+        "overhead_ms": 1.53
+      },
+      "num_feasible": 245,
+      "num_evaluated": 256
+    },
+    "896x128": {
+      "best": {
+        "start_kb": 4,
+        "jump_cap_kb": 4,
+        "overhead_ms": 0.156
+      },
+      "num_feasible": 256,
+      "num_evaluated": 256
+    },
+    "896x4864": {
+      "best": {
+        "start_kb": 4,
+        "jump_cap_kb": 4,
+        "overhead_ms": 1.146
+      },
+      "num_feasible": 36,
+      "num_evaluated": 36
+    },
+    "896x896": {
+      "best": {
+        "start_kb": 4,
+        "jump_cap_kb": 4,
+        "overhead_ms": 1.369
+      },
+      "num_feasible": 256,
+      "num_evaluated": 256
+    }
+  },
+  "torch_threads": 1,
+  "reader_threads": 6,
+  "direct_io": true,
+  "destination": "cpu",
+  "tile_boundary_kib": 240.0,
+  "coarse_scales": [
+    1,
+    1.25,
+    1.5,
+    1.75,
+    2
+  ],
+  "dtype_bytes": 2,
+  "tile_grid": "halving_to_one_row; unique widths per shape",
+  "tile_offsets": "0, floor(B/2)",
+  "paper_ceiling_kib": 768.0,
+  "traces": 128,
+  "warmup": 3,
+  "repeats": 30,
+  "fractions": [
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9,
+    1.0
+  ],
+  "max_read_kib": 768,
+  "measurement": "prepared CPU importance through selected bytes on CPU; no model compute",
+  "upstream_commit": "9023679ebfd1900fa2912c4098f51bfb9efa7bb8",
+  "mount": "/dev/nvme1n1p3[/home] btrfs /home"
+}
