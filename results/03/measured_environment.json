@@ -75,5 +75,19 @@
   "max_read_kib": 768,
   "measurement": "prepared CPU importance through selected bytes on CPU; no model compute",
   "upstream_commit": "9023679ebfd1900fa2912c4098f51bfb9efa7bb8",
-  "mount": "/dev/nvme1n1p3[/home] btrfs /home"
+  "mount": "/dev/nvme1n1p3[/home] btrfs /home",
+  "csv_parts": [
+    "part-00001.csv",
+    "part-00002.csv",
+    "part-00003.csv",
+    "part-00004.csv",
+    "part-00005.csv",
+    "part-00006.csv",
+    "part-00007.csv",
+    "part-00008.csv",
+    "part-00009.csv",
+    "part-00010.csv",
+    "part-00011.csv"
+  ],
+  "csv_part_max_bytes": 33554432
 }
