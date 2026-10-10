@@ -1,0 +1,6 @@
+{
+  "python.analysis.extraPaths": [
+    "./vlm-flash/scripts",
+    "./vlm-flash/src"
+  ]
+}
