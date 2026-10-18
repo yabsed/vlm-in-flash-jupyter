@@ -43,7 +43,7 @@ $$
 
 At a fixed row count, the first term is constant. Differences in modeled cost therefore come from the short-run penalty. Extrapolation beyond the measured chunk sizes and the actual read time of a complete mask require separate validation.
 
-Notebook 02 records attention and MLP projection inputs from dense forward passes of `Qwen/Qwen2.5-0.5B-Instruct` on three text prompts. The capture notebook pins the model revision. Channel importance is the mean absolute input activation over batch and token positions, normalized to have mean one for the comparison. The traces in this experiment come from text inputs to a language model.
+Notebook 02 records attention and MLP projection inputs from dense forward passes of `Qwen/Qwen2.5-0.5B-Instruct` on three text prompts. The capture notebook pins the model revision. Channel importance is the mean absolute input activation over batch and token positions, used directly by the selectors. Reports compare retained importance as a fraction of each trace's total and ratio gaps relative to its oracle. The traces in this experiment come from text inputs to a language model.
 
 The capture appends one dictionary per trace, containing `trace_id`, `shape`, `row_bytes`, and `values` in their original channel order. It writes these dictionaries directly to `activation_traces.json` with the weight element size. Readers load the JSON and convert the value lists to NumPy arrays. Model revision and prompts remain in the capture notebook's settings. The checked-in JSON preserves all 504 recordings and their numerical values from the former NPZ archive; the readable file occupies about 15 MiB.
 
@@ -65,7 +65,7 @@ $$B_j=\max(1,\lceil s/2^j\rceil),$$
 
 ending at one row, and the coarse multipliers $1,1.25,1.5,1.75,2$. Each shape retains only distinct integer widths. At one row, tiles equal stable Top-R: full-tile ranking becomes row ranking and there is no residual. The endpoint is recorded once. The report computes gaps, run counts, short-run deficit, trajectories and masks from `oracle_reference.csv` and `selector_results.csv`. Paper's gap is defined only when it fills the requested budget and importance is nonzero. Paired comparisons are made within each shape.
 
-The checked-in reference was produced by the Dinkelbach DP with `rtol=1e-6`. The CSV layout was simplified using the saved measurements; the masks, importance, latency, and ratio bounds were preserved.
+The existing saved results were generated with mean-one importance normalization; the current code uses captured importance directly. Regenerate 02_02, 02_03, and 02_04 in order, then 03_01 and 03_02 on the measurement setup, to update the saved results. The oracle uses the Dinkelbach DP with `rtol=1e-6`.
 
 Notebook 03 separates measurement from analysis and uses the same geometric and coarse width grid. Its saturation boundary minimizes measured cost per KiB in the profile from 01. That boundary is converted to rows before halving; it differs from the fitted two-line boundary in 02. Realized row widths provide the common axis for comparing modeled and measured behavior.
 

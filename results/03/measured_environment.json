@@ -5,8 +5,10 @@
   "paper_sort_devices": [
     "cuda"
   ],
-  "paper_tuning": {
-    "4864x896": {
+  "paper_tuning": [
+    {
+      "n": 4864,
+      "d": 896,
       "best": {
         "start_kb": 12,
         "jump_cap_kb": 8,
@@ -15,7 +17,9 @@
       "num_feasible": 247,
       "num_evaluated": 256
     },
-    "896x128": {
+    {
+      "n": 896,
+      "d": 128,
       "best": {
         "start_kb": 4,
         "jump_cap_kb": 4,
@@ -24,7 +28,9 @@
       "num_feasible": 256,
       "num_evaluated": 256
     },
-    "896x4864": {
+    {
+      "n": 896,
+      "d": 4864,
       "best": {
         "start_kb": 4,
         "jump_cap_kb": 4,
@@ -33,7 +39,9 @@
       "num_feasible": 36,
       "num_evaluated": 36
     },
-    "896x896": {
+    {
+      "n": 896,
+      "d": 896,
       "best": {
         "start_kb": 4,
         "jump_cap_kb": 4,
@@ -42,7 +50,7 @@
       "num_feasible": 256,
       "num_evaluated": 256
     }
-  },
+  ],
   "torch_threads": 1,
   "reader_threads": 6,
   "direct_io": true,
