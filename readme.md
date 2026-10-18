@@ -10,7 +10,7 @@ The analysis notebooks calculate comparisons from the saved measurements, includ
 | --- | --- | --- |
 | [01_01_measure_chunk_latency](results/01/01_01_measure_chunk_latency.ipynb) | Measure direct I/O by chunk size | `block_estimates.csv` |
 | [01_02_chunk_latency](results/01/01_02_chunk_latency.ipynb) | Fit read-cost models and evaluate held-out blocks | `latency_model.json` |
-| [02_01_capture_traces](results/02/02_01_capture_traces.ipynb) | Record projection inputs during dense forward passes | `activation_traces.npz` |
+| [02_01_capture_traces](results/02/02_01_capture_traces.ipynb) | Record projection inputs during dense forward passes | `activation_traces.json` |
 | [02_02_global_oracle](results/02/02_02_global_oracle.ipynb) | Generate fixed-budget DP reference masks and ratio bounds | `oracle_reference.csv` |
 | [02_03_selector_sweep](results/02/02_03_selector_sweep.ipynb) | Evaluate Paper and distinct tile widths against the saved reference | `selector_results.csv` |
 | [02_04_analyze_oracle](results/02/02_04_analyze_oracle.ipynb) | Examine ratio gaps and selected runs | Tables and figures |
@@ -45,6 +45,8 @@ At a fixed row count, the first term is constant. Differences in modeled cost th
 
 Notebook 02 records attention and MLP projection inputs from dense forward passes of `Qwen/Qwen2.5-0.5B-Instruct` on three text prompts. The capture notebook pins the model revision. Channel importance is the mean absolute input activation over batch and token positions, normalized to have mean one for the comparison. The traces in this experiment come from text inputs to a language model.
 
+The capture appends one dictionary per trace, containing `trace_id`, `shape`, `row_bytes`, and `values` in their original channel order. It writes these dictionaries directly to `activation_traces.json` with the weight element size. Readers load the JSON and convert the value lists to NumPy arrays. Model revision and prompts remain in the capture notebook's settings. The checked-in JSON preserves all 504 recordings and their numerical values from the former NPZ archive; the readable file occupies about 15 MiB.
+
 For exactly $R$ selected rows, the oracle maximizes the ratio of retained importance to modeled read cost:
 
 $$
@@ -53,7 +55,9 @@ $$
 
 The notebook solves the additive problem $I-qL$ with dynamic programming and narrows upper and lower bounds on the optimal ratio. With the two-line cost, one additive solve including mask recovery uses $O((N-R+1)(R+1))$ time and memory. The ratio search uses a relative tolerance of `1e-6`, with float64 arithmetic. The oracle serves as a reference for evaluating selection methods.
 
-The oracle notebook generates only the reference. It saves the feasible ratio `eta_lower`, the upper bound `eta_upper`, selected intervals and input hashes for each trace and budget. The selector notebook checks the archive and model hashes, then evaluates Paper and tiles using the saved bounds. Changing tile widths or offsets requires rerunning the sweep and report, without solving the DP again. A changed archive, model, case selection or solver configuration requires a new reference.
+The oracle notebook generates only the reference. Each dictionary appended to `records` becomes one CSV row, and its keys become the column names. The reference stores the trace and budget, importance, latency, selected intervals, ratio bounds, and the input totals and cost parameters needed for analysis. The selector CSV has seven columns: `trace_id`, `fraction`, `method`, `tile_width`, `importance`, `latency`, and `intervals`. Both files use the same names for the same measurements; intervals are JSON lists of `[start, end)` pairs inside one CSV cell.
+
+Notebook 02_04 matches selector rows to the reference by `trace_id` and `fraction`, then computes selected counts, percentages, ratio gaps, and fragmentation once. Changing tile widths or offsets requires rerunning the sweep and report, without solving the DP again. A changed archive, model, case selection or solver configuration requires rerunning 02_02, 02_03, and 02_04 in order. Files are not linked by hashes, so matching inputs and results is the experimenter's responsibility.
 
 For saturation boundary $s$ in rows, the tile family includes
 
@@ -61,7 +65,7 @@ $$B_j=\max(1,\lceil s/2^j\rceil),$$
 
 ending at one row, and the coarse multipliers $1,1.25,1.5,1.75,2$. Each shape retains only distinct integer widths. At one row, tiles equal stable Top-R: full-tile ranking becomes row ranking and there is no residual. The endpoint is recorded once. The report computes gaps, run counts, short-run deficit, trajectories and masks from `oracle_reference.csv` and `selector_results.csv`. Paper's gap is defined only when it fills the requested budget and importance is nonzero. Paired comparisons are made within each shape.
 
-The `reference_origin` column records how a reference was produced. Migrated recordings reconstruct the upper ratio bound from the saved oracle ratio and gap; their masks were checked against the current traces and model. The legacy `oracle_results_fixed_r.csv` is no longer an input to the notebooks.
+The checked-in reference was produced by the Dinkelbach DP with `rtol=1e-6`. The CSV layout was simplified using the saved measurements; the masks, importance, latency, and ratio bounds were preserved.
 
 Notebook 03 separates measurement from analysis and uses the same geometric and coarse width grid. Its saturation boundary minimizes measured cost per KiB in the profile from 01. That boundary is converted to rows before halving; it differs from the fitted two-line boundary in 02. Realized row widths provide the common axis for comparing modeled and measured behavior.
 
