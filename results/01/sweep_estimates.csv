@@ -1,4 +1,4 @@
-block,order,size_kib,latency_ms,throughput_mib_s,count_points,max_count
+sweep,order,size_kib,latency_ms,throughput_mib_s,count_points,max_count
 0,0,348,0.06364476752193426,5339.696619724123,13,256
 0,1,524,0.09756724387413805,5244.7802118928175,12,192
 0,2,146,0.030715018364673514,4641.967760109967,15,512

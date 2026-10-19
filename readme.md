@@ -8,8 +8,8 @@ The analysis notebooks calculate comparisons from the saved measurements, includ
 
 | Notebook | Purpose | Saved output |
 | --- | --- | --- |
-| [01_01_measure_chunk_latency](results/01/01_01_measure_chunk_latency.ipynb) | Measure direct I/O by chunk size | `block_estimates.csv` |
-| [01_02_chunk_latency](results/01/01_02_chunk_latency.ipynb) | Fit read-cost models and evaluate held-out blocks | `latency_model.json` |
+| [01_01_measure_chunk_latency](results/01/01_01_measure_chunk_latency.ipynb) | Measure direct I/O by chunk size | `sweep_estimates.csv` |
+| [01_02_chunk_latency](results/01/01_02_chunk_latency.ipynb) | Fit read-cost models and evaluate held-out sweeps | `latency_model.json` |
 | [02_01_capture_traces](results/02/02_01_capture_traces.ipynb) | Record projection inputs during dense forward passes | `activation_traces.json` |
 | [02_02_global_oracle](results/02/02_02_global_oracle.ipynb) | Generate fixed-budget DP reference masks and ratio bounds | `oracle_reference.csv` |
 | [02_03_selector_sweep](results/02/02_03_selector_sweep.ipynb) | Evaluate Paper and distinct tile widths against the saved reference | `selector_results.csv` |
@@ -17,9 +17,9 @@ The analysis notebooks calculate comparisons from the saved measurements, includ
 | [03_01_measure_selection_latency](results/03/03_01_measure_selection_latency.ipynb) | Measure selection and direct-I/O time for Paper and tile widths down to one row | `measured_results/part-*.csv`, `measured_environment.json` |
 | [03_02_analyze_selection_latency](results/03/03_02_analyze_selection_latency.ipynb) | Compare time, retained importance, tile sizes and selected masks | Tables, figures and computed findings |
 
-Notebook 01 measures sizes from 1 to 256 KiB in 1 KiB steps and from 260 to 768 KiB in 4 KiB steps. It randomizes the size order within each of seven measurement blocks and uses six read threads with `O_DIRECT`. It converts batch throughput into an amortized cost per chunk; this is not the response time of an isolated read.
+Notebook 01 measures sizes from 1 to 256 KiB in 1 KiB steps and from 260 to 768 KiB in 4 KiB steps. It randomizes the size order within each of seven measurement sweeps and uses six read threads with `O_DIRECT`. It converts batch throughput into an amortized cost per chunk; this is not the response time of an isolated read.
 
-The first four blocks are used to fit the models, and the remaining three are held out for evaluation. The two-line model is
+The first four sweeps are used to fit the models, and the remaining three are held out for evaluation. The two-line model is
 
 $$
 T_{\mathrm{2L}}(z)=c_1z+\delta\max(z_0,z),\qquad c_1,\delta\ge0,
