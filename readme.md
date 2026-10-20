@@ -8,8 +8,8 @@ The analysis notebooks calculate comparisons from the saved measurements, includ
 
 | Notebook | Purpose | Saved output |
 | --- | --- | --- |
-| [01_01_measure_chunk_latency](results/01/01_01_measure_chunk_latency.ipynb) | Measure direct I/O by chunk size | `sweep_estimates.csv` |
-| [01_02_chunk_latency](results/01/01_02_chunk_latency.ipynb) | Fit read-cost models and evaluate held-out sweeps | `latency_model.json` |
+| [01_01_measure_chunk_latency](results/01/01_01_measure_chunk_latency.ipynb) | Measure direct I/O by chunk size | `chunk_latency_measurements.csv` |
+| [01_02_chunk_latency](results/01/01_02_chunk_latency.ipynb) | Fit read-cost models and evaluate held-out repeats | `latency_model.json` |
 | [02_01_capture_traces](results/02/02_01_capture_traces.ipynb) | Record projection inputs during dense forward passes | `activation_traces.json` |
 | [02_02_global_oracle](results/02/02_02_global_oracle.ipynb) | Generate fixed-budget DP reference masks and ratio bounds | `oracle_reference.csv` |
 | [02_03_selector_sweep](results/02/02_03_selector_sweep.ipynb) | Evaluate Paper and distinct tile widths against the saved reference | `selector_results.csv` |
@@ -17,15 +17,15 @@ The analysis notebooks calculate comparisons from the saved measurements, includ
 | [03_01_measure_selection_latency](results/03/03_01_measure_selection_latency.ipynb) | Measure selection and direct-I/O time for Paper and tile widths down to one row | `measured_results/part-*.csv`, `measured_environment.json` |
 | [03_02_analyze_selection_latency](results/03/03_02_analyze_selection_latency.ipynb) | Compare time, retained importance, tile sizes and selected masks | Tables, figures and computed findings |
 
-Notebook 01 measures sizes from 1 to 256 KiB in 1 KiB steps and from 260 to 768 KiB in 4 KiB steps. It randomizes the size order within each of seven measurement sweeps and uses six read threads with `O_DIRECT`. It converts batch throughput into an amortized cost per chunk; this is not the response time of an isolated read.
+Notebook 01 measures sizes from 1 to 256 KiB in 1 KiB steps and from 260 to 768 KiB in 4 KiB steps. It randomizes the size order within each of seven measurement repeats and uses six read threads with `O_DIRECT`. It converts batch throughput into an amortized cost per chunk; this is not the response time of an isolated read.
 
-The first four sweeps are used to fit the models, and the remaining three are held out for evaluation. The two-line model is
+The first four repeats are used to fit the models, and the remaining three are held out for evaluation. The two-line model is
 
 $$
-T_{\mathrm{2L}}(z)=c_1z+\delta\max(z_0,z),\qquad c_1,\delta\ge0,
+T_{\mathrm{2L}}(z)=bz+\delta\max(z_0,z),\qquad b,\delta\ge0,
 $$
 
-where $z>0$ is the chunk length in KiB and $T$ is in milliseconds. The fitted free boundary $z_0$ is 207 KiB. Both the measured size with the lowest cost per KiB and the first size to reach 99% of the peak smoothed training throughput are 256 KiB. These sizes come from different criteria.
+where $z>0$ is the chunk length in KiB and $T$ is in milliseconds. The stored coefficients are `short_slope` ($b$) and `slope_change` ($\delta$); the slope beyond the boundary is $b+\delta$. JSON uses `short_slope_ms_per_kib` and `slope_change_ms_per_kib`, while the oracle CSV uses `short_slope_ms_per_row` and `slope_change_ms_per_row`. The fitted free boundary $z_0$ is 207 KiB. Both the measured size with the lowest cost per KiB and the first size to reach 99% of the peak smoothed training throughput are 256 KiB. These sizes come from different criteria.
 
 | Cost model | Boundary (KiB) | Held-out RMSE (µs/chunk) | Held-out MAPE (%) |
 | --- | ---: | ---: | ---: |
@@ -37,7 +37,7 @@ where $z>0$ is the chunk length in KiB and $T$ is in milliseconds. The fitted fr
 The hinge has the lowest approximation error in this comparison. The later analysis uses the two-line model because its cost separates into a term for the selected row count and a penalty for short runs. If each row is $w$ KiB, $M$ is a selection mask, and $\mathcal C(M)$ is the set of its maximal contiguous runs, then
 
 $$
-L(M)=(c_1+\delta)w|M|+
+L(M)=(b+\delta)w|M|+
 \delta\sum_{C\in\mathcal C(M)}(z_0-w|C|)_+.
 $$
 

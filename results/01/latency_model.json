@@ -4,37 +4,37 @@
       "boundary_kib": 208.0,
       "intercept_ms": 0.012220364624812506,
       "short_slope_ms_per_kib": 0.00012230567694281155,
-      "tail_slope_ms_per_kib": 0.00018105742994671783
+      "slope_change_ms_per_kib": 5.875175300390628e-05
     },
     "Two-line (efficiency)": {
       "boundary_kib": 240.0,
       "intercept_ms": 0.011294351579792526,
       "short_slope_ms_per_kib": 0.00013355838622550718,
-      "tail_slope_ms_per_kib": 0.0001806181844746427
+      "slope_change_ms_per_kib": 4.7059798249135525e-05
     },
     "Two-line (99%)": {
       "boundary_kib": 232.0,
       "intercept_ms": 0.011530291078838928,
       "short_slope_ms_per_kib": 0.00013102660916292829,
-      "tail_slope_ms_per_kib": 0.00018072613967516505
+      "slope_change_ms_per_kib": 4.969953051223676e-05
     },
     "Two-line (hinge boundary)": {
       "boundary_kib": 232.0,
       "intercept_ms": 0.011530291078838928,
       "short_slope_ms_per_kib": 0.00013102660916292829,
-      "tail_slope_ms_per_kib": 0.00018072613967516505
+      "slope_change_ms_per_kib": 4.969953051223676e-05
     },
     "Hinge": {
       "boundary_kib": 232.0,
       "intercept_ms": 0.012439767165232995,
       "short_slope_ms_per_kib": 0.00011931661663424923,
-      "tail_slope_ms_per_kib": 0.00018878246064495612
+      "slope_change_ms_per_kib": 6.94658440107069e-05
     },
     "Affine": {
-      "boundary_kib": null,
+      "boundary_kib": 0.0,
       "intercept_ms": 0.005865483385283759,
       "short_slope_ms_per_kib": 0.00016868996027983847,
-      "tail_slope_ms_per_kib": 0.00016868996027983847
+      "slope_change_ms_per_kib": 0.0
     }
   },
   "s99_kib": 232.0
