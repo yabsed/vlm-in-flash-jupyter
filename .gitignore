@@ -1,2 +1,5 @@
 # Legacy monolithic Experiment 03 CSV; split parts are tracked.
 /results/03/measured_results.csv
+
+# Generated profiling data.
+/results/01/profile_blob.data
