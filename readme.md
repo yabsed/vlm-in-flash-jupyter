@@ -12,7 +12,7 @@ The analysis notebooks calculate comparisons from the saved measurements, includ
 | [01_02_chunk_latency](results/01/01_02_chunk_latency.ipynb) | Fit read-cost models and evaluate held-out repeats | `latency_model.json` |
 | [02_01_capture_traces](results/02/02_01_capture_traces.ipynb) | Record projection inputs during dense forward passes | `activation_traces.json` |
 | [02_02_global_oracle](results/02/02_02_global_oracle.ipynb) | Generate fixed-budget DP reference masks and ratio bounds | `oracle_reference.csv` |
-| [02_03_selector_sweep](results/02/02_03_selector_sweep.ipynb) | Evaluate Paper and distinct tile widths against the saved reference | `selector_results.csv` |
+| [02_03_selector_sweep](results/02/02_03_selector_sweep.ipynb) | Evaluate Paper and distinct tile widths on all traces and row budgets | `selector_results.csv` |
 | [02_04_analyze_oracle](results/02/02_04_analyze_oracle.ipynb) | Examine ratio gaps and selected runs | Tables and figures |
 | [03_01_measure_selection_latency](results/03/03_01_measure_selection_latency.ipynb) | Measure selection and direct-I/O time for Paper and tile widths down to one row | `measured_results/part-*.csv`, `measured_environment.json` |
 | [03_02_analyze_selection_latency](results/03/03_02_analyze_selection_latency.ipynb) | Compare time, retained importance, tile sizes and selected masks | Tables, figures and computed findings |
@@ -57,7 +57,7 @@ The notebook solves the additive problem $I-qL$ with dynamic programming and nar
 
 The oracle notebook generates only the reference. Each dictionary appended to `records` becomes one CSV row, and its keys become the column names. The reference stores the trace and budget, importance, latency, selected intervals, ratio bounds, and the input totals and cost parameters needed for analysis. The selector CSV has seven columns: `trace_id`, `fraction`, `method`, `tile_width`, `importance`, `latency`, and `intervals`. Both files use the same names for the same measurements; intervals are JSON lists of `[start, end)` pairs inside one CSV cell.
 
-Notebook 02_04 matches selector rows to the reference by `trace_id` and `fraction`, then computes selected counts, percentages, ratio gaps, and fragmentation once. Changing tile widths or offsets requires rerunning the sweep and report, without solving the DP again. A changed archive, model, case selection or solver configuration requires rerunning 02_02, 02_03, and 02_04 in order. Files are not linked by hashes, so matching inputs and results is the experimenter's responsibility.
+Notebooks 02_02 and 02_03 independently use all captured traces and fractions from 0.1 through 0.9, with the same row-budget calculation. Notebook 02_03 does not read the oracle CSV. Notebook 02_04 matches selector rows to the reference by `trace_id` and `fraction`, then computes selected counts, percentages, ratio gaps, and fragmentation once. Changing tile widths or offsets requires rerunning the sweep and report, without solving the DP again. A changed archive, model, or budget grid requires rerunning both 02_02 and 02_03 before 02_04. A changed oracle solver requires rerunning 02_02 and 02_04. Files are not linked by hashes, so matching inputs and results is the experimenter's responsibility.
 
 For saturation boundary $s$ in rows, the tile family includes
 
