@@ -12,13 +12,45 @@ Jeong 등(2013)의 연구 결과에 따르면, 플래시 메모리는 HDD와 달
 
 ### 1.2 I/O-Efficient Sparsification에 대해 이영기 등이 진행한 연구(2025)
 
-LLM이나 VLM과 같은 모델을 휴대용 하드웨어에서 실행하는 데 있어서의 난점은, 해당 장치의 DRAM 용량이 모델 전체를 담기에 충분하지 않은 경우가 많다는 것이다. 따라서 행렬로 구성된 모델의 가중치를 전부 DRAM에 가져오는 것이 아니라, 중요할 것으로 예상되는 행들을 선별해 DRAM으로 가져오는 방법론에 대한 연구가 진행되어 왔다. 
+LLM과 같은 모델을 휴대용 하드웨어에서 실행하는 데 있어서의 난점은, 장치의 DRAM 용량이 모델 전체를 담기에 충분하지 않은 경우가 많다는 것이다. 따라서 가중치는 플래시에 저장해두고, 중요할 것으로 예상되는 행들을 선별해 DRAM으로 가져오는 Activation Sparsification 방법론에 대한 연구가 진행되어 왔다. 
 
-이영기 등(2025)의 연구팀은 I/O latency가 request size의 절대적인 양에 비례해서 증가할 것이라는 기존의 Activation Sparsification 방법론의 전제 조건에 의문을 제기하며, chunk-based latency model을 새롭게 제안했다. 
+이영기 등(2025)의 연구팀은 I/O latency가 request size의 절대적인 양에 비례해서 증가할 것이라는 기존 방법론의 전제 조건에 의문을 제기하였다. 같은 양의 가중치를 읽어도, 선택한 행들이 넓은 범위에 듬성하게 분포해 있다면, throughput이 낮아질 수 있다. VLM과 같이 channel의 중요도가 균일하게 분포한 모델 가중치의 경우에서는 그러한 효과가 더 두드러질 수 있다고 논문에서는 주장한다. 
 
-먼저 해당 연구팀은 
+이에 연구진은 모델 가중치의 행들의 물리적 연속성을 반영하여 읽기 지연시간을 예측할 수 있는 chunk-based latency model을 정의하였고,  중요도-지연시간 기반 선택 방법인 Neuron Chunking을 제안하였다. 
 
+가중치 행의 수를 $N$, 선택 mask를 $M\in\{0,1\}^N$라고 하자. $M_i=1$이면 $i$번째 행을 읽는다. 토큰 수가 $H$인 입력에서 $i$번째 채널의 중요도와 mask가 보존하는 중요도를 아래와 같이 정의한다. 
 
+$$
+v_i=\frac1H\sum_{t=1}^{H}|a_{t,i}|,
+\qquad
+I(M)=\sum_{i=0}^{N-1}v_iM_i
+$$
+
+여기서 $a_{t, i}$는 토큰 $t$의 채널 $i$ activation이다. 
+
+mask $M$에서 선택된 행들을 최대 연속 구간으로 분해하고 그 집합을 $\mathcal C(M)$라 하자. 길이가 $l$인 행 구간을 읽는데 걸리는 latency 비용을 $T[l]$로 정의하자. 원 논문의 chunk-based latency 모델은 다음과 같다. 
+
+$$
+\boxed{
+\widehat L_{\mathrm{table}}(M)
+=\sum_{C\in\mathcal C(M)}T[|C|]
+}
+$$
+
+연구팀은 각각의 행 구간 길이 $l$에 대해 충분한 수의 같은 크기 chunk를 읽어 처리량이 안정된 조건에서 $T[l]$를 측정하였다. 
+
+$\widehat L_{\mathrm{table}}$의 정의를 이용하면 Activation Sparcification 알고리즘이 선택한 $M$에 해당하는 열들을 읽어오는 데 걸리는 시간을 대략적으로 근사할 수 있다. 
+
+연구팀은 이 비용 모델을 이용하여, 행 예산 $R$ 아래에서의 단위 추정 지연시간당 보존 중요도를 최대화하는 mask $M$을 찾고자 하는 문제를 제안하였다. 
+
+$$
+\boxed{
+\max_{\substack{M\in\{0,1\}^N\\1\le\|M\|_1\le R}}
+\frac{I(M)}{\widehat L_{\mathrm{table}}(M)}.
+}
+$$
+
+실제 알고리즘은 
 
 
 - [ ] Selective Weight Loading이 필요한 배경을 설명한다.
