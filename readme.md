@@ -130,11 +130,96 @@ $$
 이러한 현상은 목표함수가 정확히 $R$개의 행을 선택하는 것이 아니라, 행 수의 상한에 제약을 거는 것으로 느슨하게 정의되어 있기 때문에 발생한다. 따라서 본 연구에서는 정확히 $R$개의 행을 선택하는 더 강한 문제에 대해 논의를 이어가고자 한다.
 
 $$
+\boxed{
 \max_{\substack{M\in\{0,1\}^N\\\|M\|_1=R}}
-\frac{I(M)}{\widehat L_{\mathrm{table}}(M)}.
+\frac{I(M)}{\widehat L(M)}.
+}
 $$
 
-2.2 Two-L
+### 2.2 Two-line 지연 모델
+
+#### 2.2.1 연속 구간의 읽기 비용
+
+SSD의 처리량은 요청 크기가 증가함에 따라 증가하다가 일정 수준에서 포화되는 경향을 보인다. 포화 구간의 행당 읽기 비용을 $\alpha>0$라 두면, 길이가 $\ell$행인 I/O 요청의 지연시간을 다음과 같이 근사할 수 있다.
+
+$$
+T[\ell]=\alpha\ell,
+\qquad \ell\gg1.
+$$
+
+작은 요청에서의 처리량 감소를 함께 반영하기 위해, 본 연구에서는 측정표 $T[\ell]$를 다음의 two-line 모델로 근사한다.
+
+길이가 $\ell$행인 구간의 비용을 $T_{\mathrm{2L}}(\ell)$이라 하자. 행 단위로 환산한 전환점을 $\ell_0>0$, 추가 비용의 계수를 $0\le\lambda\le\alpha$라 두면
+
+$$
+\boxed{
+\begin{aligned}
+T_{\mathrm{2L}}(\ell)
+&=\alpha\ell+\lambda(\ell_0-\ell)_+\\
+&=
+\begin{cases}
+(\alpha-\lambda)\ell+\lambda\ell_0,
+&0<\ell<\ell_0,\\
+\alpha\ell,
+&\ell\ge\ell_0.
+\end{cases}
+\end{aligned}
+}
+$$
+
+여기서 $(x)_+=\max(x,0)$이며, 읽을 행이 없는 경우는 별도로 $T_{\mathrm{2L}}(0)=0$이라 둔다.
+
+이때 두 직선은 $\ell=\ell_0$에서 연속이며, 행 단위 처리량은
+
+$$
+\frac{\ell}{T_{\mathrm{2L}}(\ell)}
+=
+\frac{1}{\alpha+\lambda(\ell_0/\ell-1)_+}
+\le\frac1\alpha
+$$
+
+이다. $\lambda>0$이면 전환점 이전에는 길이가 늘수록 처리량이 증가하고, 전환점 이후에는 $1/\alpha$로 일정해진다.
+
+모델의 계수 $\alpha,\lambda$와 전환점 $\ell_0$는 SSD 읽기 비용 측정값에 적합하여 결정한다.
+
+#### 2.2.2 고정된 행 예산에서의 전체 읽기 비용
+
+이제 이 모델을 이용해 정확히 $R$개 행을 선택한 mask $M$의 전체 읽기 비용을 살펴보자. 선택한 행 수가 같더라도 연속 구간의 구성에 따라 비용이 달라지며, two-line 모델에서는 이 차이를 짧은 구간의 추가 비용으로 표현할 수 있다.
+
+선행연구의 구간별 비용을 합산하는 구조에 two-line 모델을 적용하자. $\sum_{C\in\mathcal C(M)}|C|=R$이므로 전체 비용은 다음과 같이 분해된다.
+
+$$
+\begin{aligned}
+\widehat L_{\mathrm{2L}}(M)
+&=\sum_{C\in\mathcal C(M)}T_{\mathrm{2L}}(|C|)\\
+&=\alpha R
++\lambda\sum_{C\in\mathcal C(M)}(\ell_0-|C|)_+.
+\end{aligned}
+$$
+
+따라서 같은 $R$에서 모델 비용의 차이는 전환점보다 짧은 구간들의 길이 부족분으로 결정된다. 각 구간은 길이가 $\ell_0$에 도달할 때까지 추가 비용을 줄일 수 있으며, 그 이후에는 추가 비용이 없다.
+
+이 분해를 이용하면 고정된 행 예산에서의 비용 하한도 얻을 수 있다. 모든 구간의 길이가 $R$ 이하이므로 $\sum_C(\ell_0-|C|)_+\ge(\ell_0-R)_+$이고, 따라서
+
+$$
+\widehat L_{\mathrm{2L}}(M)
+\ge
+\alpha R+\lambda(\ell_0-R)_+
+=T_{\mathrm{2L}}(R).
+$$
+
+길이 $R$의 단일 구간은 이 하한을 달성한다. $\lambda>0$일 때 $R<\ell_0$이면 단일 구간만 하한을 달성하지만, $R\ge\ell_0$이면 모든 구간의 길이가 $\ell_0$ 이상인 mask가 하한을 달성한다. 즉, 여러 구간으로 나뉘어 있더라도 각 구간이 충분히 길면 모델 비용은 동일한 $\alpha R$이다.
+
+한편 행의 배치를 바꾸면 보존 중요도 $I(M)$도 달라진다. 따라서 다음 절에서는 중요도와 짧은 구간의 추가 비용을 함께 고려하는 다음 문제의 최적해를 구한다.
+
+$$
+\max_{\substack{M\in\{0,1\}^N\\\|M\|_1=R}}
+\frac{I(M)}
+{\displaystyle
+\alpha R+
+\lambda\sum_{C\in\mathcal C(M)}(\ell_0-|C|)_+
+}.
+$$
 
 
 - [ ] 행별 중요도, 선택 mask, 행 예산을 정의한다.
