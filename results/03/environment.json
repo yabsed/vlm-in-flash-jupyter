@@ -14,7 +14,7 @@
       "best": {
         "start_kb": 4,
         "jump_cap_kb": 4,
-        "overhead_ms": 0.135
+        "overhead_ms": 0.138
       },
       "num_feasible": 256,
       "num_evaluated": 256
@@ -25,7 +25,7 @@
       "best": {
         "start_kb": 4,
         "jump_cap_kb": 4,
-        "overhead_ms": 0.674
+        "overhead_ms": 1.217
       },
       "num_feasible": 256,
       "num_evaluated": 256
@@ -36,7 +36,7 @@
       "best": {
         "start_kb": 4,
         "jump_cap_kb": 4,
-        "overhead_ms": 0.743
+        "overhead_ms": 1.184
       },
       "num_feasible": 36,
       "num_evaluated": 36
@@ -46,10 +46,10 @@
       "d": 896,
       "best": {
         "start_kb": 8,
-        "jump_cap_kb": 8,
-        "overhead_ms": 1.344
+        "jump_cap_kb": 16,
+        "overhead_ms": 0.917
       },
-      "num_feasible": 253,
+      "num_feasible": 247,
       "num_evaluated": 256
     }
   ],
