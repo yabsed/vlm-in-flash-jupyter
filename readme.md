@@ -1,6 +1,25 @@
-# SSD의 throughput saturation을 활용한 Selective Weight Loading 개선 방안
+# SSD 처리량 포화를 고려한 타일 기반 선택적 가중치 로딩
 
 ## 1. 연구 배경과 목표
+
+### 1.1 SSD의 구조에 대해 Jeong 등이 진행한 연구 (2013)
+
+Jeong 등(2013)의 연구 결과에 따르면, 플래시 메모리는 HDD와 달리 물리적 위치와 무관하게 데이터를 빠르게 접근할 수 있기 때문에, 랜덤 접근에서 균일하고 빠른 속도를 제공하는 장점이 있다. 그러나 단일 플래시 메모리의 지속 읽기/쓰기 속도는 HDD에 비해 느린데, 이것을 보완하기 위해 대부분의 SSD는 다중 채널(multichannel) 및 다중 웨이(multiway) 구조를 채택한다. 
+
+해당 연구진은 IOMeter를 이용해 HDD와 SSD가 처리하는 request size에 따라 throughput이 어떻게 변화하는지를 측정하였다. SSD의 읽기와 쓰기 작업 모두에서, request size가 증가할수록 througput(단위 시간당 처리 용량)이 증가하다가, 특정 request size를 넘어가면 througput이 증가를 멈추는 현상이 발견되었다. 이것은 request size가 커짐에 따라 SSD가 자신의 다중 채널을 병렬적으로 사용하며 채널 활용도를 최대화한 상태에 도달했기 때문이다. 
+
+해당 연구진은 SSD의 쓰기와 읽기 작업에서 이러한 throughput saturation 현상이 어떻게 달라지는지를 분석했다. SSD의 쓰기 작업에서는 순차 접근이 랜덤 접근보다 throughput이 높게 나타나는 모습을 보였다. 그런데 SSD 읽기 작업에서는 순차 접근과 랜덤 접근이 비슷한 request size에서 throughput이 포화되었고, 포화 상태의 throughput 수준도 유사하였다. 
+
+### 1.2 I/O-Efficient Sparsification에 대해 이영기 등이 진행한 연구(2025)
+
+LLM이나 VLM과 같은 모델을 휴대용 하드웨어에서 실행하는 데 있어서의 난점은, 해당 장치의 DRAM 용량이 모델 전체를 담기에 충분하지 않은 경우가 많다는 것이다. 따라서 행렬로 구성된 모델의 가중치를 전부 DRAM에 가져오는 것이 아니라, 중요할 것으로 예상되는 행들을 선별해 DRAM으로 가져오는 방법론에 대한 연구가 진행되어 왔다. 
+
+이영기 등(2025)의 연구팀은 I/O latency가 request size의 절대적인 양에 비례해서 증가할 것이라는 기존의 Activation Sparsification 방법론의 전제 조건에 의문을 제기하며, chunk-based latency model을 새롭게 제안했다. 
+
+먼저 해당 연구팀은 
+
+
+
 
 - [ ] Selective Weight Loading이 필요한 배경을 설명한다.
 - [ ] 중요도가 높은 행만 선택할 때 읽기 구간이 분산되는 문제를 설명한다.
