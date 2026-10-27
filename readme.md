@@ -12,7 +12,7 @@ Jeong 등(2013)의 연구 결과에 따르면, 플래시 메모리는 HDD와 달
 
 ### 1.2 I/O-Efficient Sparsification에 대해 이영기 등이 진행한 연구(2025)
 
-LLM과 같은 모델을 휴대용 하드웨어에서 실행하는 데 있어서의 난점은, 장치의 DRAM 용량이 모델 전체를 담기에 충분하지 않은 경우가 많다는 것이다. 따라서 가중치는 플래시에 저장해두고, 중요할 것으로 예상되는 행들을 선별해 DRAM으로 가져오는 Activation Sparsification 방법론에 대한 연구가 진행되어 왔다. 
+LLM과 같은 모델을 휴대용 하드웨어에서 실행하는 데 있어서의 난점은, 장치의 DRAM 용량이 모델 전체를 담기에 충분하지 않은 경우가 많다는 것이다. 가중치는 플래시에 저장해두고, 중요할 것으로 예상되는 행들을 선별해 DRAM으로 가져오는 Activation Sparsification 방법론에 대한 연구가 진행되어 왔다. 
 
 이영기 등(2025)의 연구팀은 I/O latency가 request size의 절대적인 양에 비례해서 증가할 것이라는 기존 방법론의 전제 조건에 의문을 제기하였다. 같은 양의 가중치를 읽어도, 선택한 행들이 넓은 범위에 듬성하게 분포해 있다면, throughput이 낮아질 수 있다. VLM과 같이 channel의 중요도가 균일하게 분포한 모델 가중치의 경우에서는 그러한 효과가 더 두드러질 수 있다고 논문에서는 주장한다. 
 
@@ -78,6 +78,63 @@ $$
 
 ### 2.1 논문에서 제안한 문제의 실제 최적해
 
+논문이 제시한 Neuron Chunking 문제를 생각해보자. 
+
+$$
+\max_{\substack{M\in\{0,1\}^N\\1\le\|M\|_1\le R}}
+\frac{I(M)}{\widehat L_{\mathrm{table}}(M)}.
+$$
+
+$1\le R\le N$이고, 모든 길이 $1\le\ell\le R$에 대해 $T[\ell]>0$이라 하자. 
+
+행 예산 $1\le\|M\|_1\le R$ 아래에서 임의의 최적 mask $M^\star$를 생각하자. $\mathcal C(M^\star)$의 구간들은 선택된 행들을 분할하므로
+
+$$
+\begin{aligned}
+\frac{I(M^\star)}{\widehat L_{\mathrm{table}}(M^\star)}
+&=
+\sum_{C\in\mathcal C(M^\star)}
+\underbrace{
+\frac{T[|C|]}{\widehat L_{\mathrm{table}}(M^\star)}
+}_{w_C}
+\underbrace{
+\frac{\sum_{i\in C}v_i}{T[|C|]}
+}_{U(C)}\\
+&=
+\sum_{C\in\mathcal C(M^\star)}w_CU(C)
+\le
+\max_{C\in\mathcal C(M^\star)}U(C).
+\end{aligned}
+$$
+
+$w_C>0$이고 $\sum_Cw_C=1$이므로, 전체 비율은 각 구간의 비율을 latency로 가중한 평균이다. 따라서 가장 큰 구간 비율을 넘을 수 없다.
+
+$U(C)$가 가장 큰 구간 $C^\star\in\mathcal C(M^\star)$만 남긴 mask를 $\widetilde M$이라 하자. 
+
+$$1\le\|\widetilde M\|_1=|C^\star|\le\|M^\star\|_1\le R$$
+
+이므로 $\widetilde M$도 행 예산을 만족한다. 앞선 부등식에 의해 $\widetilde M$의 비율은 $M^\star$보다 작지 않고, $M^\star$의 최적성에 의해 더 클 수도 없다. 따라서 $\widetilde M$도 최적해다.
+
+따라서 단일 연속 구간으로 이루어진 최적해가 존재하며, 원래 문제는 길이가 $R$ 이하인 모든 연속 구간 중 $U(C)$를 최대화하는 구간을 찾는 문제가 된다. 
+
+$$
+\max_{\substack{M\in\{0,1\}^N\\1\le\|M\|_1\le R}}
+\frac{I(M)}{\widehat L_{\mathrm{table}}(M)}
+=
+\max_{\substack{1\le\ell\le R\\0\le j\le N-\ell}}
+U(C_{j,\ell}).
+$$
+
+오른쪽의 비교 대상은 후보 집합 $\mathcal G$에 한정되지 않는 모든 연속 구간이다. 
+
+이러한 현상은 목표함수가 정확히 $R$개의 행을 선택하는 것이 아니라, 행 수의 상한에 제약을 거는 것으로 느슨하게 정의되어 있기 때문에 발생한다. 따라서 본 연구에서는 정확히 $R$개의 행을 선택하는 더 강한 문제에 대해 논의를 이어가고자 한다.
+
+$$
+\max_{\substack{M\in\{0,1\}^N\\\|M\|_1=R}}
+\frac{I(M)}{\widehat L_{\mathrm{table}}(M)}.
+$$
+
+2.2 Two-L
 
 
 - [ ] 행별 중요도, 선택 mask, 행 예산을 정의한다.
