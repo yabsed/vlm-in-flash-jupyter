@@ -10,7 +10,43 @@
 .markdown-preview table td {
   vertical-align: middle;
 }
+.report-figure {
+  width: 80%;
+  max-width: 560px;
+  margin: 1.1em auto;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+.report-figure--wide {
+  width: 90%;
+  max-width: 680px;
+}
+.report-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+.report-figure figcaption {
+  margin-top: 0.4em;
+  font-size: 0.85em;
+  line-height: 1.45;
+  text-align: left;
+}
 @media print {
+  .report-figure {
+    width: 70%;
+    max-width: 125mm;
+    margin: 0.6em auto;
+  }
+  .report-figure--wide {
+    width: 68%;
+    max-width: 140mm;
+  }
+  .report-measurement-setup p {
+    line-height: 1.45;
+    margin-bottom: 0.6em;
+  }
   .markdown-preview table {
     break-inside: avoid;
     page-break-inside: avoid;
@@ -592,9 +628,9 @@ Hinge 모델은 큰 요청에서 비용이 요청 크기에 정비례해야 한�
 
 그림 3.1-1은 요청 크기별 처리량 중 포화 부근을 보여준다. 적합용 자료에서 처리량이 가장 높은 측정 크기는 240 KiB였다. 처리량에 3점 이동 중앙값을 적용한 뒤 최고값의 99%에 처음 도달한 크기는 233 KiB였다.
 
-<figure style="width: 80%; max-width: 560px; margin: 1.1em auto; break-inside: avoid; page-break-inside: avoid;">
-  <img src="figures/01/01_throughput.png" alt="요청 크기에 따른 처리량과 최고 처리량 및 99% 도달 위치" style="display: block; width: 100%; height: auto; margin: 0 auto;">
-  <figcaption style="margin-top: 0.4em; font-size: 0.85em; line-height: 1.45; text-align: left;"><em>그림 3.1-1. 전체·적합용·평가용 반복의 읽기 비용 중앙값으로 환산한 처리량. 수직선은 적합용 자료의 최고 처리량 위치와, 3점 이동 중앙값을 적용한 처리량의 99% 도달 위치를 나타낸다.</em></figcaption>
+<figure class="report-figure">
+  <img src="figures/01/01_throughput.png" alt="요청 크기에 따른 처리량과 최고 처리량 및 99% 도달 위치">
+  <figcaption><em>그림 3.1-1. 전체·적합용·평가용 반복의 읽기 비용 중앙값으로 환산한 처리량. 수직선은 적합용 자료의 최고 처리량 위치와, 3점 이동 중앙값을 적용한 처리량의 99% 도달 위치를 나타낸다.</em></figcaption>
 </figure>
 
 Two-line 모델의 적합 전환점은 208 KiB로 선택되었다. 이 값은 전체 측정 크기에 대한 적합 오차를 최소화한 결과이며, 위의 두 처리량 지표와는 구분한다. 적합된 비용 계수는
@@ -609,9 +645,9 @@ $$
 
 그림 3.1-2는 평가용 측정값과 각 모델의 예측 곡선을 비교한다. 표에는 전환점을 적합한 two-line 및 hinge 모델과 affine 모델의 오차를 정리하였다.
 
-<figure style="width: 80%; max-width: 560px; margin: 1.1em auto; break-inside: avoid; page-break-inside: avoid;">
-  <img src="figures/01/02_model_fit.png" alt="평가용 읽기 비용과 two-line, hinge, affine 모델의 예측 곡선" style="display: block; width: 100%; height: auto; margin: 0 auto;">
-  <figcaption style="margin-top: 0.4em; font-size: 0.85em; line-height: 1.45; text-align: left;"><em>그림 3.1-2. 요청 크기별 읽기 비용의 측정값과 모델 예측. Test profile은 평가용 반복의 중앙값이다. Two-line (free)는 표의 Two-line 모델이며, Two-line (efficiency)는 전환점을 최고 처리량 크기인 240 KiB로 고정한 비교 설정이다.</em></figcaption>
+<figure class="report-figure">
+  <img src="figures/01/02_model_fit.png" alt="평가용 읽기 비용과 two-line, hinge, affine 모델의 예측 곡선">
+  <figcaption><em>그림 3.1-2. 요청 크기별 읽기 비용의 측정값과 모델 예측. Test profile은 평가용 반복의 중앙값이다. Two-line (free)는 표의 Two-line 모델이며, Two-line (efficiency)는 전환점을 최고 처리량 크기인 240 KiB로 고정한 비교 설정이다.</em></figcaption>
 </figure>
 
 | 모델 | 전환점 (KiB) | 적합 RMSE (µs) | 평가 RMSE (µs) | 평가 MAPE (%) |
@@ -624,9 +660,9 @@ Two-line 모델은 affine 모델보다 작은 평가 오차를 보였으며, 평
 
 크기별 오차를 더 자세히 보기 위해, 그림 3.1-3에 예측값에서 평가용 측정값을 뺀 잔차를 나타내었다. 예를 들어 약 480 KiB에서는 여러 모델이 실제 읽기 비용을 낮게 예측하며, 이는 그림 3.1-1에서 나타난 처리량 하락과 대응한다.
 
-<figure style="width: 80%; max-width: 560px; margin: 1.1em auto; break-inside: avoid; page-break-inside: avoid;">
-  <img src="figures/01/03_residuals.png" alt="각 모델의 예측 비용에서 평가용 측정 비용을 뺀 잔차" style="display: block; width: 100%; height: auto; margin: 0 auto;">
-  <figcaption style="margin-top: 0.4em; font-size: 0.85em; line-height: 1.45; text-align: left;"><em>그림 3.1-3. 요청 크기별 예측 잔차. 양수는 읽기 비용의 과대 예측, 음수는 과소 예측을 의미한다.</em></figcaption>
+<figure class="report-figure">
+  <img src="figures/01/03_residuals.png" alt="각 모델의 예측 비용에서 평가용 측정 비용을 뺀 잔차">
+  <figcaption><em>그림 3.1-3. 요청 크기별 예측 잔차. 양수는 읽기 비용의 과대 예측, 음수는 과소 예측을 의미한다.</em></figcaption>
 </figure>
 
 이처럼 실측 처리량에는 요청 크기에 따른 국소적인 변동이 남아 있다. 2.2절에서 둔 일정한 포화 처리량은 이러한 변동을 단순화한 근사 조건이며, 이 실험에서는 그에 따른 오차를 평가하였다.
@@ -674,9 +710,9 @@ Global DP, Tiles, Top-$R$은 예산을 모두 채우지만, Paper는 더 적은 
 
 그림 3.2-1은 $896\times896$에서 요청 예산을 바꾸었을 때의 결과이다. 각 점은 하나의 trace이며, 같은 예산에서 중요도와 지연시간의 중앙값을 각각 구하여 연결하였다. 점선은 Global DP의 중앙값을 나타낸다. 이 곡선은 예산별 결과의 요약이며, 모든 중요도 수준에 대한 최소 지연시간 경계를 의미하지 않는다.
 
-<figure style="width: 90%; max-width: 680px; margin: 1.1em auto; break-inside: avoid; page-break-inside: avoid;">
-  <img src="figures/02/01_importance_latency_896x896.png" alt="896 × 896에서 Global DP, Paper, 타일 길이별 Tiles, Top-R의 보존 중요도와 추정 읽기 비용" style="display: block; width: 100%; height: auto; margin: 0 auto;">
-  <figcaption style="margin-top: 0.4em; font-size: 0.85em; line-height: 1.45; text-align: left;"><em>그림 3.2-1. 요청 행 비율에 따른 보존 중요도와 two-line 추정 읽기 비용. 색은 요청 비율을 나타내며, 그림의 s는 행 단위 전환점이다. Baseline/coarse와 fine 패널은 서로 다른 가로축 범위를 사용하고, 가로축은 로그 척도이다.</em></figcaption>
+<figure class="report-figure report-figure--wide">
+  <img src="figures/02/01_importance_latency_896x896.png" alt="896 × 896에서 Global DP, Paper, 타일 길이별 Tiles, Top-R의 보존 중요도와 추정 읽기 비용">
+  <figcaption><em>그림 3.2-1. 요청 행 비율에 따른 보존 중요도와 two-line 추정 읽기 비용. 색은 요청 비율을 나타내며, 그림의 s는 행 단위 전환점이다. Baseline/coarse와 fine 패널은 서로 다른 가로축 범위를 사용하고, 가로축은 로그 척도이다.</em></figcaption>
 </figure>
 
 요청 비율이 50%일 때는 $R=448$이다. 이 예산에서 네 방법의 결과를 정리하면 다음과 같다. Tiles는 $B=\lceil\ell_0\rceil=119$인 설정을 사용하였다.
@@ -705,9 +741,9 @@ $896\times128$을 제외한 세 shape에서 Tiles는 DP 비율의 약 95.8–96.
 
 그림 3.2-2는 같은 $896\times896$, 50% 예산에서 선택된 최대 연속 구간의 길이 분포이다. 인접한 타일은 하나의 구간으로 합쳐지므로, 가로축의 구간 길이는 타일 길이와 반드시 같지는 않다. 각 구간의 빈도는 전체 trace 수로 나누어, trace당 평균 구간 수로 나타내었다.
 
-<figure style="width: 90%; max-width: 680px; margin: 1.1em auto; break-inside: avoid; page-break-inside: avoid;">
-  <img src="figures/02/02_chunk_lengths_896x896.png" alt="896 × 896의 50% 요청 예산에서 선택된 최대 연속 구간의 길이 분포" style="display: block; width: 100%; height: auto; margin: 0 auto;">
-  <figcaption style="margin-top: 0.4em; font-size: 0.85em; line-height: 1.45; text-align: left;"><em>그림 3.2-2. 방법별 최대 연속 구간의 길이 분포. 점선은 전환점 118.86행을 나타낸다. 가로축은 로그 척도이며, 세로축은 trace당 구간 수 1까지 선형, 그 이상은 로그 척도이다.</em></figcaption>
+<figure class="report-figure report-figure--wide">
+  <img src="figures/02/02_chunk_lengths_896x896.png" alt="896 × 896의 50% 요청 예산에서 선택된 최대 연속 구간의 길이 분포">
+  <figcaption><em>그림 3.2-2. 방법별 최대 연속 구간의 길이 분포. 점선은 전환점 118.86행을 나타낸다. 가로축은 로그 척도이며, 세로축은 trace당 구간 수 1까지 선형, 그 이상은 로그 척도이다.</em></figcaption>
 </figure>
 
 Top-$R$의 구간은 주로 짧은 길이에 분포한다. Trace별 구간 수의 중앙값은 Top-$R$에서 208개, Global DP와 $B=119$인 Tiles에서 각각 3개였다. 2.2절의 비용 분해에 따르면, 같은 $R$에서 이 차이는 짧은 구간에 부과되는 추가 비용으로 이어진다.
@@ -734,6 +770,8 @@ DP 대비 비율 = 100 * (importance / latency) / (DP importance / DP latency).
 DP 결과는 trace_id와 fraction으로 대응시키고, shape·방법·예산별 중앙값을 구하였다.
 구간 수는 intervals의 길이, 선택 행 수는 각 [start, end) 구간의 end - start 합이다.
 -->
+
+<section class="report-measurement-setup">
 
 ### 3.3 실험 03 — 실제 선택 시간과 SSD 읽기 시간 비교
 
@@ -782,13 +820,15 @@ Paper의 후보 설정은 별도로 튜닝하였다. 최소 후보 크기와 이
 
 튜닝과 본 측정은 입력 중요도와 호출 경로가 다르므로, 튜닝의 시간 기준이 본 측정의 `selection_ms` 상한을 보장하지는 않는다. Paper는 이번에도 예산을 모두 채우지 않을 수 있다. 비교는 동일한 trace와 요청 예산을 기준으로 수행하고, 중요도는 각 방법이 반환한 mask에서 계산하였다.
 
+</section>
+
 #### 3.3.3 보존 중요도와 실제 실행 시간
 
 그림 3.3-1은 $896\times896$에서의 보존 중요도와 전체 시간 `wall_ms`를 보여준다. 각 점은 하나의 trace이며, 실선은 요청 예산별 중요도와 전체 시간의 중앙값을 각각 연결한 것이다. 점선은 Paper의 결과이다.
 
-<figure style="width: 90%; max-width: 680px; margin: 1.1em auto; break-inside: avoid; page-break-inside: avoid;">
-  <img src="figures/03/01_wall_latency_896x896.png" alt="896 × 896에서 Paper, 타일 길이별 Tiles, Top-R의 보존 중요도와 선택 및 읽기를 포함한 전체 시간" style="display: block; width: 100%; height: auto; margin: 0 auto;">
-  <figcaption style="margin-top: 0.4em; font-size: 0.85em; line-height: 1.45; text-align: left;"><em>그림 3.3-1. 요청 행 비율에 따른 보존 중요도와 실측 전체 시간. 색은 요청 비율을 나타내며, 그림의 s는 240 KiB를 행 단위로 환산한 기준이다. Baseline/coarse와 fine 패널은 서로 다른 로그 가로축 범위를 사용한다.</em></figcaption>
+<figure class="report-figure report-figure--wide">
+  <img src="figures/03/01_wall_latency_896x896.png" alt="896 × 896에서 Paper, 타일 길이별 Tiles, Top-R의 보존 중요도와 선택 및 읽기를 포함한 전체 시간">
+  <figcaption><em>그림 3.3-1. 요청 행 비율에 따른 보존 중요도와 실측 전체 시간. 색은 요청 비율을 나타내며, 그림의 s는 240 KiB를 행 단위로 환산한 기준이다. Baseline/coarse와 fine 패널은 서로 다른 로그 가로축 범위를 사용한다.</em></figcaption>
 </figure>
 
 100% 예산에서는 모든 방법이 선택 계산을 생략하므로, 그림에서 해당 점의 전체 시간이 앞선 예산보다 짧아질 수 있다. 특히 Paper의 곡선이 마지막 점에서 왼쪽으로 이동하는 것은 이 처리에 따른 결과이다. 예산별 중앙값을 연결한 곡선은 모든 중요도 수준에 대한 최소 실행 시간 경계를 의미하지 않는다.
@@ -818,9 +858,9 @@ Shape별 차이를 보기 위해, 같은 trace와 요청 예산에서 Tiles의 �
 
 그림 3.3-2는 $896\times896$, 50% 예산에서 선택된 최대 연속 구간의 길이 분포이다. 3.2절과 같이 인접한 타일은 합친 뒤 구간 길이를 계산하였으며, 빈도는 trace당 평균 구간 수로 나타내었다.
 
-<figure style="width: 90%; max-width: 680px; margin: 1.1em auto; break-inside: avoid; page-break-inside: avoid;">
-  <img src="figures/03/02_chunk_lengths_896x896.png" alt="896 × 896의 50% 요청 예산에서 실측에 사용한 mask의 최대 연속 구간 길이 분포" style="display: block; width: 100%; height: auto; margin: 0 auto;">
-  <figcaption style="margin-top: 0.4em; font-size: 0.85em; line-height: 1.45; text-align: left;"><em>그림 3.3-2. 실측에 사용한 mask의 최대 연속 구간 길이 분포. 점선은 240 KiB에 대응하는 137.14행을 나타낸다. 가로축은 로그 척도이며, 세로축은 trace당 구간 수 1까지 선형, 그 이상은 로그 척도이다.</em></figcaption>
+<figure class="report-figure report-figure--wide">
+  <img src="figures/03/02_chunk_lengths_896x896.png" alt="896 × 896의 50% 요청 예산에서 실측에 사용한 mask의 최대 연속 구간 길이 분포">
+  <figcaption><em>그림 3.3-2. 실측에 사용한 mask의 최대 연속 구간 길이 분포. 점선은 240 KiB에 대응하는 137.14행을 나타낸다. 가로축은 로그 척도이며, 세로축은 trace당 구간 수 1까지 선형, 그 이상은 로그 척도이다.</em></figcaption>
 </figure>
 
 Top-$R$에서는 짧은 구간이 많이 발생하였다. Trace별 구간 수의 중앙값은 Top-$R$에서 175.5개, Paper에서 4개, $B=138$인 Tiles에서 2.5개였다. 구간이 짧게 분산된 Top-$R$의 읽기 시간이 길게 나타난 점은 3.2절의 관찰과 같은 방향이다.
