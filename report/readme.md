@@ -1,5 +1,23 @@
 # SSD 처리량 포화를 고려한 타일 기반 선택적 가중치 로딩
 
+<style>
+.markdown-preview table th:first-child,
+.markdown-preview table td:first-child,
+.markdown-preview table .katex {
+  white-space: nowrap;
+}
+.markdown-preview table th,
+.markdown-preview table td {
+  vertical-align: middle;
+}
+@media print {
+  .markdown-preview table {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
+</style>
+
 ## 1. 연구 배경과 목표
 
 ### 1.1 SSD의 구조에 대해 Jeong 등이 진행한 연구 (2013)
@@ -755,7 +773,7 @@ Paper의 후보 설정은 별도로 튜닝하였다. 최소 후보 크기와 이
 
 실측에 사용한 최종 설정은 다음과 같다. 최소 후보 크기는 길이 증가 간격으로도 사용하였으며, 후보 최대 크기는 측정 범위의 끝인 768 KiB를 기준으로 정하였다.
 
-| $N\times D$ | Paper 최소 크기·증가 간격 (KiB) | Paper 이동 간격 상한 (KiB) | Tiles 기준 길이 $\lceil s\rceil$ (행) |
+| $N\times D$ | Paper 최소 크기<br>(KiB) | Paper 이동 간격 상한<br>(KiB) | Tiles 기준 길이<br>$\lceil s\rceil$ (행) |
 | --- | ---: | ---: | ---: |
 | $896\times128$ | 4 | 4 | 960 |
 | $896\times896$ | 4 | 4 | 138 |
@@ -787,7 +805,7 @@ Tiles는 Paper보다 중요도를 적게 보존했지만, 읽기 시간과 선�
 
 Shape별 차이를 보기 위해, 같은 trace와 요청 예산에서 Tiles의 측정값에서 Paper의 측정값을 뺀 뒤 중앙값을 구하였다. 아래 표의 Tiles는 각 shape의 $B=\lceil s\rceil$이며, 100% 예산을 포함한 32개 trace와 8개 예산의 256쌍을 사용하였다. 시간의 음수는 Tiles가 더 짧다는 뜻이며, 중요도 차이의 단위는 퍼센트포인트이다.
 
-| $N\times D$ | 중요도 차이 (pp) | 선택 시간 차이 (ms) | 읽기 시간 차이 (ms) | 전체 시간 차이 (ms) |
+| $N\times D$ | 중요도 차이<br>(pp) | 선택 시간 차이<br>(ms) | 읽기 시간 차이<br>(ms) | 전체 시간 차이<br>(ms) |
 | --- | ---: | ---: | ---: | ---: |
 | $896\times128$ | +0.5203 | −0.5688 | −0.0036 | −0.5762 |
 | $896\times896$ | −1.8209 | −3.0794 | −0.0413 | −3.1385 |
@@ -840,6 +858,7 @@ Tiles 구현: ../results/03/selectors.cpp
 
 ## 5. 재현 자료
 
-- [ ] 실험별 실행 순서와 환경을 정리한다.
-- [ ] 그림과 표에 사용한 노트북 및 결과 파일을 연결한다.
-- [ ] 보고서에 사용한 결과의 실행 시점과 설정을 기록한다.
+작성 시점의 로컬 커밋을 기준으로 하며, 시각은 한국 표준시(KST)이다.
+
+- [vlm-in-flash-jupyter](https://github.com/yabsed/vlm-in-flash-jupyter/): 커밋 `399315b873fa6703061dc114b4fd5bc20a5fd203` — 2026-10-28 04:00:39.
+- [vlm-in-flash](https://github.com/yabsed/vlm-in-flash): 커밋 `aa904c7537541c9f89df805811d6c817454efb97` — 2026-10-28 03:58:58.
