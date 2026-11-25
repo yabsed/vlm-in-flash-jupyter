@@ -6,3 +6,6 @@
 
 # Weight files left behind when 04_01 is interrupted.
 /04/tmp*/
+
+# Weight files left behind when 05_02 is interrupted.
+/05/tmp*/
