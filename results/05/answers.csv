@@ -1,0 +1,3911 @@
+question_id,method,fraction,predicted,correct
+1544,Dense,1.0,B,False
+1545,Dense,1.0,A,True
+1546,Dense,1.0,A,False
+1544,Top-R,0.3,B,False
+1545,Top-R,0.3,B,False
+1546,Top-R,0.3,B,True
+1544,Top-R,0.5,A,True
+1545,Top-R,0.5,B,False
+1546,Top-R,0.5,B,True
+1544,Top-R,0.7,B,False
+1545,Top-R,0.7,A,True
+1546,Top-R,0.7,A,False
+1544,Paper greedy,0.3,B,False
+1545,Paper greedy,0.3,B,False
+1546,Paper greedy,0.3,B,True
+1544,Paper greedy,0.5,A,True
+1545,Paper greedy,0.5,B,False
+1546,Paper greedy,0.5,B,True
+1544,Paper greedy,0.7,A,True
+1545,Paper greedy,0.7,A,True
+1546,Paper greedy,0.7,B,True
+1544,Tiles,0.3,B,False
+1545,Tiles,0.3,B,False
+1546,Tiles,0.3,B,True
+1544,Tiles,0.5,A,True
+1545,Tiles,0.5,B,False
+1546,Tiles,0.5,B,True
+1544,Tiles,0.7,B,False
+1545,Tiles,0.7,A,True
+1546,Tiles,0.7,B,True
+1205,Dense,1.0,A,True
+1206,Dense,1.0,A,False
+1207,Dense,1.0,A,True
+1205,Top-R,0.3,A,True
+1206,Top-R,0.3,A,False
+1207,Top-R,0.3,B,False
+1205,Top-R,0.5,A,True
+1206,Top-R,0.5,A,False
+1207,Top-R,0.5,A,True
+1205,Top-R,0.7,A,True
+1206,Top-R,0.7,A,False
+1207,Top-R,0.7,A,True
+1205,Paper greedy,0.3,A,True
+1206,Paper greedy,0.3,A,False
+1207,Paper greedy,0.3,B,False
+1205,Paper greedy,0.5,A,True
+1206,Paper greedy,0.5,A,False
+1207,Paper greedy,0.5,A,True
+1205,Paper greedy,0.7,A,True
+1206,Paper greedy,0.7,A,False
+1207,Paper greedy,0.7,A,True
+1205,Tiles,0.3,A,True
+1206,Tiles,0.3,A,False
+1207,Tiles,0.3,B,False
+1205,Tiles,0.5,A,True
+1206,Tiles,0.5,A,False
+1207,Tiles,0.5,A,True
+1205,Tiles,0.7,A,True
+1206,Tiles,0.7,A,False
+1207,Tiles,0.7,A,True
+1208,Dense,1.0,A,True
+1209,Dense,1.0,A,True
+1210,Dense,1.0,A,True
+1208,Top-R,0.3,A,True
+1209,Top-R,0.3,A,True
+1210,Top-R,0.3,A,True
+1208,Top-R,0.5,A,True
+1209,Top-R,0.5,A,True
+1210,Top-R,0.5,A,True
+1208,Top-R,0.7,A,True
+1209,Top-R,0.7,A,True
+1210,Top-R,0.7,A,True
+1208,Paper greedy,0.3,A,True
+1209,Paper greedy,0.3,A,True
+1210,Paper greedy,0.3,A,True
+1208,Paper greedy,0.5,A,True
+1209,Paper greedy,0.5,A,True
+1210,Paper greedy,0.5,A,True
+1208,Paper greedy,0.7,A,True
+1209,Paper greedy,0.7,A,True
+1210,Paper greedy,0.7,A,True
+1208,Tiles,0.3,A,True
+1209,Tiles,0.3,A,True
+1210,Tiles,0.3,A,True
+1208,Tiles,0.5,A,True
+1209,Tiles,0.5,A,True
+1210,Tiles,0.5,A,True
+1208,Tiles,0.7,A,True
+1209,Tiles,0.7,A,True
+1210,Tiles,0.7,A,True
+7,Dense,1.0,D,False
+8,Dense,1.0,D,False
+9,Dense,1.0,C,False
+7,Top-R,0.3,A,False
+8,Top-R,0.3,D,False
+9,Top-R,0.3,C,False
+7,Top-R,0.5,A,False
+8,Top-R,0.5,D,False
+9,Top-R,0.5,C,False
+7,Top-R,0.7,D,False
+8,Top-R,0.7,D,False
+9,Top-R,0.7,C,False
+7,Paper greedy,0.3,A,False
+8,Paper greedy,0.3,D,False
+9,Paper greedy,0.3,B,False
+7,Paper greedy,0.5,A,False
+8,Paper greedy,0.5,D,False
+9,Paper greedy,0.5,C,False
+7,Paper greedy,0.7,A,False
+8,Paper greedy,0.7,D,False
+9,Paper greedy,0.7,C,False
+7,Tiles,0.3,A,False
+8,Tiles,0.3,D,False
+9,Tiles,0.3,D,False
+7,Tiles,0.5,A,False
+8,Tiles,0.5,D,False
+9,Tiles,0.5,C,False
+7,Tiles,0.7,A,False
+8,Tiles,0.7,D,False
+9,Tiles,0.7,C,False
+1520,Dense,1.0,C,True
+1521,Dense,1.0,C,True
+1522,Dense,1.0,C,True
+1520,Top-R,0.3,C,True
+1521,Top-R,0.3,C,True
+1522,Top-R,0.3,C,True
+1520,Top-R,0.5,C,True
+1521,Top-R,0.5,C,True
+1522,Top-R,0.5,C,True
+1520,Top-R,0.7,C,True
+1521,Top-R,0.7,C,True
+1522,Top-R,0.7,C,True
+1520,Paper greedy,0.3,C,True
+1521,Paper greedy,0.3,C,True
+1522,Paper greedy,0.3,C,True
+1520,Paper greedy,0.5,C,True
+1521,Paper greedy,0.5,C,True
+1522,Paper greedy,0.5,C,True
+1520,Paper greedy,0.7,C,True
+1521,Paper greedy,0.7,C,True
+1522,Paper greedy,0.7,C,True
+1520,Tiles,0.3,C,True
+1521,Tiles,0.3,C,True
+1522,Tiles,0.3,C,True
+1520,Tiles,0.5,C,True
+1521,Tiles,0.5,C,True
+1522,Tiles,0.5,C,True
+1520,Tiles,0.7,C,True
+1521,Tiles,0.7,C,True
+1522,Tiles,0.7,C,True
+1061,Dense,1.0,A,True
+1062,Dense,1.0,A,False
+1063,Dense,1.0,B,False
+1061,Top-R,0.3,C,False
+1062,Top-R,0.3,A,False
+1063,Top-R,0.3,B,False
+1061,Top-R,0.5,A,True
+1062,Top-R,0.5,A,False
+1063,Top-R,0.5,B,False
+1061,Top-R,0.7,A,True
+1062,Top-R,0.7,A,False
+1063,Top-R,0.7,B,False
+1061,Paper greedy,0.3,C,False
+1062,Paper greedy,0.3,A,False
+1063,Paper greedy,0.3,B,False
+1061,Paper greedy,0.5,C,False
+1062,Paper greedy,0.5,A,False
+1063,Paper greedy,0.5,B,False
+1061,Paper greedy,0.7,C,False
+1062,Paper greedy,0.7,A,False
+1063,Paper greedy,0.7,B,False
+1061,Tiles,0.3,C,False
+1062,Tiles,0.3,A,False
+1063,Tiles,0.3,B,False
+1061,Tiles,0.5,C,False
+1062,Tiles,0.5,A,False
+1063,Tiles,0.5,B,False
+1061,Tiles,0.7,A,True
+1062,Tiles,0.7,A,False
+1063,Tiles,0.7,B,False
+857,Dense,1.0,D,True
+858,Dense,1.0,A,False
+859,Dense,1.0,A,False
+857,Top-R,0.3,D,True
+858,Top-R,0.3,B,False
+859,Top-R,0.3,A,False
+857,Top-R,0.5,D,True
+858,Top-R,0.5,B,False
+859,Top-R,0.5,A,False
+857,Top-R,0.7,D,True
+858,Top-R,0.7,A,False
+859,Top-R,0.7,A,False
+857,Paper greedy,0.3,D,True
+858,Paper greedy,0.3,A,False
+859,Paper greedy,0.3,A,False
+857,Paper greedy,0.5,D,True
+858,Paper greedy,0.5,B,False
+859,Paper greedy,0.5,A,False
+857,Paper greedy,0.7,D,True
+858,Paper greedy,0.7,A,False
+859,Paper greedy,0.7,A,False
+857,Tiles,0.3,D,True
+858,Tiles,0.3,A,False
+859,Tiles,0.3,A,False
+857,Tiles,0.5,D,True
+858,Tiles,0.5,B,False
+859,Tiles,0.5,A,False
+857,Tiles,0.7,D,True
+858,Tiles,0.7,A,False
+859,Tiles,0.7,A,False
+382,Dense,1.0,A,False
+383,Dense,1.0,A,True
+384,Dense,1.0,A,False
+382,Top-R,0.3,A,False
+383,Top-R,0.3,A,True
+384,Top-R,0.3,A,False
+382,Top-R,0.5,A,False
+383,Top-R,0.5,A,True
+384,Top-R,0.5,C,False
+382,Top-R,0.7,A,False
+383,Top-R,0.7,A,True
+384,Top-R,0.7,A,False
+382,Paper greedy,0.3,A,False
+383,Paper greedy,0.3,A,True
+384,Paper greedy,0.3,A,False
+382,Paper greedy,0.5,A,False
+383,Paper greedy,0.5,A,True
+384,Paper greedy,0.5,A,False
+382,Paper greedy,0.7,A,False
+383,Paper greedy,0.7,A,True
+384,Paper greedy,0.7,A,False
+382,Tiles,0.3,A,False
+383,Tiles,0.3,A,True
+384,Tiles,0.3,A,False
+382,Tiles,0.5,A,False
+383,Tiles,0.5,A,True
+384,Tiles,0.5,A,False
+382,Tiles,0.7,A,False
+383,Tiles,0.7,A,True
+384,Tiles,0.7,A,False
+1256,Dense,1.0,A,False
+1257,Dense,1.0,A,True
+1258,Dense,1.0,A,False
+1256,Top-R,0.3,B,True
+1257,Top-R,0.3,A,True
+1258,Top-R,0.3,A,False
+1256,Top-R,0.5,A,False
+1257,Top-R,0.5,A,True
+1258,Top-R,0.5,A,False
+1256,Top-R,0.7,A,False
+1257,Top-R,0.7,A,True
+1258,Top-R,0.7,A,False
+1256,Paper greedy,0.3,B,True
+1257,Paper greedy,0.3,A,True
+1258,Paper greedy,0.3,A,False
+1256,Paper greedy,0.5,A,False
+1257,Paper greedy,0.5,A,True
+1258,Paper greedy,0.5,A,False
+1256,Paper greedy,0.7,A,False
+1257,Paper greedy,0.7,A,True
+1258,Paper greedy,0.7,A,False
+1256,Tiles,0.3,B,True
+1257,Tiles,0.3,A,True
+1258,Tiles,0.3,A,False
+1256,Tiles,0.5,A,False
+1257,Tiles,0.5,A,True
+1258,Tiles,0.5,A,False
+1256,Tiles,0.7,A,False
+1257,Tiles,0.7,A,True
+1258,Tiles,0.7,A,False
+349,Dense,1.0,A,True
+350,Dense,1.0,A,False
+351,Dense,1.0,B,False
+349,Top-R,0.3,A,True
+350,Top-R,0.3,A,False
+351,Top-R,0.3,B,False
+349,Top-R,0.5,A,True
+350,Top-R,0.5,A,False
+351,Top-R,0.5,B,False
+349,Top-R,0.7,A,True
+350,Top-R,0.7,A,False
+351,Top-R,0.7,B,False
+349,Paper greedy,0.3,A,True
+350,Paper greedy,0.3,A,False
+351,Paper greedy,0.3,B,False
+349,Paper greedy,0.5,A,True
+350,Paper greedy,0.5,A,False
+351,Paper greedy,0.5,B,False
+349,Paper greedy,0.7,A,True
+350,Paper greedy,0.7,A,False
+351,Paper greedy,0.7,B,False
+349,Tiles,0.3,A,True
+350,Tiles,0.3,A,False
+351,Tiles,0.3,B,False
+349,Tiles,0.5,A,True
+350,Tiles,0.5,A,False
+351,Tiles,0.5,B,False
+349,Tiles,0.7,A,True
+350,Tiles,0.7,A,False
+351,Tiles,0.7,B,False
+1238,Dense,1.0,A,False
+1239,Dense,1.0,A,True
+1240,Dense,1.0,A,False
+1238,Top-R,0.3,A,False
+1239,Top-R,0.3,A,True
+1240,Top-R,0.3,A,False
+1238,Top-R,0.5,A,False
+1239,Top-R,0.5,A,True
+1240,Top-R,0.5,A,False
+1238,Top-R,0.7,A,False
+1239,Top-R,0.7,A,True
+1240,Top-R,0.7,A,False
+1238,Paper greedy,0.3,A,False
+1239,Paper greedy,0.3,A,True
+1240,Paper greedy,0.3,A,False
+1238,Paper greedy,0.5,A,False
+1239,Paper greedy,0.5,A,True
+1240,Paper greedy,0.5,A,False
+1238,Paper greedy,0.7,A,False
+1239,Paper greedy,0.7,A,True
+1240,Paper greedy,0.7,A,False
+1238,Tiles,0.3,A,False
+1239,Tiles,0.3,A,True
+1240,Tiles,0.3,A,False
+1238,Tiles,0.5,A,False
+1239,Tiles,0.5,A,True
+1240,Tiles,0.5,A,False
+1238,Tiles,0.7,A,False
+1239,Tiles,0.7,A,True
+1240,Tiles,0.7,A,False
+536,Dense,1.0,C,True
+537,Dense,1.0,A,True
+538,Dense,1.0,C,True
+536,Top-R,0.3,C,True
+537,Top-R,0.3,A,True
+538,Top-R,0.3,C,True
+536,Top-R,0.5,C,True
+537,Top-R,0.5,A,True
+538,Top-R,0.5,C,True
+536,Top-R,0.7,C,True
+537,Top-R,0.7,A,True
+538,Top-R,0.7,C,True
+536,Paper greedy,0.3,C,True
+537,Paper greedy,0.3,A,True
+538,Paper greedy,0.3,C,True
+536,Paper greedy,0.5,C,True
+537,Paper greedy,0.5,A,True
+538,Paper greedy,0.5,C,True
+536,Paper greedy,0.7,C,True
+537,Paper greedy,0.7,A,True
+538,Paper greedy,0.7,C,True
+536,Tiles,0.3,C,True
+537,Tiles,0.3,A,True
+538,Tiles,0.3,C,True
+536,Tiles,0.5,C,True
+537,Tiles,0.5,A,True
+538,Tiles,0.5,C,True
+536,Tiles,0.7,C,True
+537,Tiles,0.7,A,True
+538,Tiles,0.7,C,True
+1043,Dense,1.0,A,False
+1044,Dense,1.0,A,True
+1045,Dense,1.0,A,False
+1043,Top-R,0.3,A,False
+1044,Top-R,0.3,A,True
+1045,Top-R,0.3,A,False
+1043,Top-R,0.5,A,False
+1044,Top-R,0.5,A,True
+1045,Top-R,0.5,A,False
+1043,Top-R,0.7,A,False
+1044,Top-R,0.7,A,True
+1045,Top-R,0.7,A,False
+1043,Paper greedy,0.3,A,False
+1044,Paper greedy,0.3,A,True
+1045,Paper greedy,0.3,A,False
+1043,Paper greedy,0.5,A,False
+1044,Paper greedy,0.5,A,True
+1045,Paper greedy,0.5,A,False
+1043,Paper greedy,0.7,A,False
+1044,Paper greedy,0.7,A,True
+1045,Paper greedy,0.7,A,False
+1043,Tiles,0.3,A,False
+1044,Tiles,0.3,A,True
+1045,Tiles,0.3,A,False
+1043,Tiles,0.5,A,False
+1044,Tiles,0.5,A,True
+1045,Tiles,0.5,A,False
+1043,Tiles,0.7,A,False
+1044,Tiles,0.7,A,True
+1045,Tiles,0.7,A,False
+412,Dense,1.0,B,True
+413,Dense,1.0,C,True
+414,Dense,1.0,A,True
+412,Top-R,0.3,B,True
+413,Top-R,0.3,B,False
+414,Top-R,0.3,A,True
+412,Top-R,0.5,B,True
+413,Top-R,0.5,C,True
+414,Top-R,0.5,A,True
+412,Top-R,0.7,B,True
+413,Top-R,0.7,C,True
+414,Top-R,0.7,A,True
+412,Paper greedy,0.3,B,True
+413,Paper greedy,0.3,B,False
+414,Paper greedy,0.3,A,True
+412,Paper greedy,0.5,B,True
+413,Paper greedy,0.5,C,True
+414,Paper greedy,0.5,A,True
+412,Paper greedy,0.7,B,True
+413,Paper greedy,0.7,C,True
+414,Paper greedy,0.7,A,True
+412,Tiles,0.3,B,True
+413,Tiles,0.3,B,False
+414,Tiles,0.3,A,True
+412,Tiles,0.5,B,True
+413,Tiles,0.5,C,True
+414,Tiles,0.5,A,True
+412,Tiles,0.7,B,True
+413,Tiles,0.7,C,True
+414,Tiles,0.7,A,True
+788,Dense,1.0,B,False
+789,Dense,1.0,B,True
+790,Dense,1.0,A,False
+788,Top-R,0.3,B,False
+789,Top-R,0.3,C,False
+790,Top-R,0.3,A,False
+788,Top-R,0.5,B,False
+789,Top-R,0.5,C,False
+790,Top-R,0.5,A,False
+788,Top-R,0.7,B,False
+789,Top-R,0.7,B,True
+790,Top-R,0.7,A,False
+788,Paper greedy,0.3,B,False
+789,Paper greedy,0.3,B,True
+790,Paper greedy,0.3,A,False
+788,Paper greedy,0.5,B,False
+789,Paper greedy,0.5,C,False
+790,Paper greedy,0.5,A,False
+788,Paper greedy,0.7,B,False
+789,Paper greedy,0.7,B,True
+790,Paper greedy,0.7,A,False
+788,Tiles,0.3,B,False
+789,Tiles,0.3,B,True
+790,Tiles,0.3,A,False
+788,Tiles,0.5,B,False
+789,Tiles,0.5,C,False
+790,Tiles,0.5,A,False
+788,Tiles,0.7,B,False
+789,Tiles,0.7,B,True
+790,Tiles,0.7,A,False
+1202,Dense,1.0,B,True
+1203,Dense,1.0,B,True
+1204,Dense,1.0,A,True
+1202,Top-R,0.3,B,True
+1203,Top-R,0.3,B,True
+1204,Top-R,0.3,A,True
+1202,Top-R,0.5,B,True
+1203,Top-R,0.5,B,True
+1204,Top-R,0.5,A,True
+1202,Top-R,0.7,B,True
+1203,Top-R,0.7,B,True
+1204,Top-R,0.7,A,True
+1202,Paper greedy,0.3,B,True
+1203,Paper greedy,0.3,B,True
+1204,Paper greedy,0.3,A,True
+1202,Paper greedy,0.5,B,True
+1203,Paper greedy,0.5,B,True
+1204,Paper greedy,0.5,A,True
+1202,Paper greedy,0.7,B,True
+1203,Paper greedy,0.7,B,True
+1204,Paper greedy,0.7,A,True
+1202,Tiles,0.3,B,True
+1203,Tiles,0.3,B,True
+1204,Tiles,0.3,A,True
+1202,Tiles,0.5,B,True
+1203,Tiles,0.5,B,True
+1204,Tiles,0.5,A,True
+1202,Tiles,0.7,B,True
+1203,Tiles,0.7,B,True
+1204,Tiles,0.7,A,True
+206,Dense,1.0,C,True
+207,Dense,1.0,D,True
+208,Dense,1.0,B,True
+209,Dense,1.0,A,True
+210,Dense,1.0,C,False
+211,Dense,1.0,C,False
+212,Dense,1.0,D,True
+213,Dense,1.0,A,False
+214,Dense,1.0,A,False
+215,Dense,1.0,A,True
+216,Dense,1.0,A,True
+217,Dense,1.0,B,True
+206,Top-R,0.3,C,True
+207,Top-R,0.3,D,True
+208,Top-R,0.3,B,True
+209,Top-R,0.3,A,True
+210,Top-R,0.3,B,True
+211,Top-R,0.3,C,False
+212,Top-R,0.3,D,True
+213,Top-R,0.3,C,False
+214,Top-R,0.3,A,False
+215,Top-R,0.3,A,True
+216,Top-R,0.3,A,True
+217,Top-R,0.3,B,True
+206,Top-R,0.5,C,True
+207,Top-R,0.5,D,True
+208,Top-R,0.5,B,True
+209,Top-R,0.5,A,True
+210,Top-R,0.5,B,True
+211,Top-R,0.5,C,False
+212,Top-R,0.5,D,True
+213,Top-R,0.5,C,False
+214,Top-R,0.5,A,False
+215,Top-R,0.5,A,True
+216,Top-R,0.5,A,True
+217,Top-R,0.5,B,True
+206,Top-R,0.7,C,True
+207,Top-R,0.7,D,True
+208,Top-R,0.7,B,True
+209,Top-R,0.7,A,True
+210,Top-R,0.7,B,True
+211,Top-R,0.7,C,False
+212,Top-R,0.7,D,True
+213,Top-R,0.7,C,False
+214,Top-R,0.7,A,False
+215,Top-R,0.7,A,True
+216,Top-R,0.7,A,True
+217,Top-R,0.7,B,True
+206,Paper greedy,0.3,C,True
+207,Paper greedy,0.3,D,True
+208,Paper greedy,0.3,B,True
+209,Paper greedy,0.3,A,True
+210,Paper greedy,0.3,D,False
+211,Paper greedy,0.3,C,False
+212,Paper greedy,0.3,D,True
+213,Paper greedy,0.3,A,False
+214,Paper greedy,0.3,A,False
+215,Paper greedy,0.3,A,True
+216,Paper greedy,0.3,A,True
+217,Paper greedy,0.3,B,True
+206,Paper greedy,0.5,C,True
+207,Paper greedy,0.5,D,True
+208,Paper greedy,0.5,B,True
+209,Paper greedy,0.5,A,True
+210,Paper greedy,0.5,B,True
+211,Paper greedy,0.5,C,False
+212,Paper greedy,0.5,D,True
+213,Paper greedy,0.5,C,False
+214,Paper greedy,0.5,A,False
+215,Paper greedy,0.5,A,True
+216,Paper greedy,0.5,A,True
+217,Paper greedy,0.5,B,True
+206,Paper greedy,0.7,C,True
+207,Paper greedy,0.7,D,True
+208,Paper greedy,0.7,B,True
+209,Paper greedy,0.7,A,True
+210,Paper greedy,0.7,B,True
+211,Paper greedy,0.7,C,False
+212,Paper greedy,0.7,D,True
+213,Paper greedy,0.7,C,False
+214,Paper greedy,0.7,A,False
+215,Paper greedy,0.7,A,True
+216,Paper greedy,0.7,A,True
+217,Paper greedy,0.7,B,True
+206,Tiles,0.3,C,True
+207,Tiles,0.3,D,True
+208,Tiles,0.3,B,True
+209,Tiles,0.3,A,True
+210,Tiles,0.3,C,False
+211,Tiles,0.3,C,False
+212,Tiles,0.3,D,True
+213,Tiles,0.3,A,False
+214,Tiles,0.3,A,False
+215,Tiles,0.3,A,True
+216,Tiles,0.3,A,True
+217,Tiles,0.3,B,True
+206,Tiles,0.5,C,True
+207,Tiles,0.5,D,True
+208,Tiles,0.5,B,True
+209,Tiles,0.5,A,True
+210,Tiles,0.5,B,True
+211,Tiles,0.5,C,False
+212,Tiles,0.5,D,True
+213,Tiles,0.5,C,False
+214,Tiles,0.5,A,False
+215,Tiles,0.5,A,True
+216,Tiles,0.5,A,True
+217,Tiles,0.5,B,True
+206,Tiles,0.7,C,True
+207,Tiles,0.7,D,True
+208,Tiles,0.7,B,True
+209,Tiles,0.7,A,True
+210,Tiles,0.7,B,True
+211,Tiles,0.7,C,False
+212,Tiles,0.7,D,True
+213,Tiles,0.7,C,False
+214,Tiles,0.7,A,False
+215,Tiles,0.7,A,True
+216,Tiles,0.7,A,True
+217,Tiles,0.7,B,True
+971,Dense,1.0,A,True
+972,Dense,1.0,A,False
+973,Dense,1.0,C,False
+971,Top-R,0.3,A,True
+972,Top-R,0.3,A,False
+973,Top-R,0.3,A,False
+971,Top-R,0.5,A,True
+972,Top-R,0.5,A,False
+973,Top-R,0.5,C,False
+971,Top-R,0.7,A,True
+972,Top-R,0.7,A,False
+973,Top-R,0.7,C,False
+971,Paper greedy,0.3,A,True
+972,Paper greedy,0.3,A,False
+973,Paper greedy,0.3,A,False
+971,Paper greedy,0.5,A,True
+972,Paper greedy,0.5,A,False
+973,Paper greedy,0.5,C,False
+971,Paper greedy,0.7,A,True
+972,Paper greedy,0.7,A,False
+973,Paper greedy,0.7,C,False
+971,Tiles,0.3,B,False
+972,Tiles,0.3,A,False
+973,Tiles,0.3,C,False
+971,Tiles,0.5,B,False
+972,Tiles,0.5,A,False
+973,Tiles,0.5,C,False
+971,Tiles,0.7,A,True
+972,Tiles,0.7,A,False
+973,Tiles,0.7,C,False
+729,Dense,1.0,C,True
+730,Dense,1.0,C,True
+731,Dense,1.0,D,False
+729,Top-R,0.3,B,False
+730,Top-R,0.3,C,True
+731,Top-R,0.3,D,False
+729,Top-R,0.5,B,False
+730,Top-R,0.5,C,True
+731,Top-R,0.5,D,False
+729,Top-R,0.7,B,False
+730,Top-R,0.7,C,True
+731,Top-R,0.7,D,False
+729,Paper greedy,0.3,B,False
+730,Paper greedy,0.3,C,True
+731,Paper greedy,0.3,D,False
+729,Paper greedy,0.5,B,False
+730,Paper greedy,0.5,B,False
+731,Paper greedy,0.5,D,False
+729,Paper greedy,0.7,B,False
+730,Paper greedy,0.7,C,True
+731,Paper greedy,0.7,D,False
+729,Tiles,0.3,C,True
+730,Tiles,0.3,C,True
+731,Tiles,0.3,D,False
+729,Tiles,0.5,B,False
+730,Tiles,0.5,C,True
+731,Tiles,0.5,D,False
+729,Tiles,0.7,B,False
+730,Tiles,0.7,C,True
+731,Tiles,0.7,D,False
+87,Dense,1.0,C,True
+88,Dense,1.0,B,False
+89,Dense,1.0,C,True
+90,Dense,1.0,A,False
+91,Dense,1.0,C,True
+92,Dense,1.0,A,False
+93,Dense,1.0,A,False
+94,Dense,1.0,A,False
+95,Dense,1.0,B,True
+87,Top-R,0.3,A,False
+88,Top-R,0.3,B,False
+89,Top-R,0.3,A,False
+90,Top-R,0.3,A,False
+91,Top-R,0.3,B,False
+92,Top-R,0.3,A,False
+93,Top-R,0.3,A,False
+94,Top-R,0.3,A,False
+95,Top-R,0.3,B,True
+87,Top-R,0.5,A,False
+88,Top-R,0.5,B,False
+89,Top-R,0.5,A,False
+90,Top-R,0.5,B,True
+91,Top-R,0.5,C,True
+92,Top-R,0.5,A,False
+93,Top-R,0.5,A,False
+94,Top-R,0.5,A,False
+95,Top-R,0.5,B,True
+87,Top-R,0.7,C,True
+88,Top-R,0.7,B,False
+89,Top-R,0.7,C,True
+90,Top-R,0.7,B,True
+91,Top-R,0.7,C,True
+92,Top-R,0.7,A,False
+93,Top-R,0.7,A,False
+94,Top-R,0.7,A,False
+95,Top-R,0.7,B,True
+87,Paper greedy,0.3,A,False
+88,Paper greedy,0.3,B,False
+89,Paper greedy,0.3,A,False
+90,Paper greedy,0.3,A,False
+91,Paper greedy,0.3,C,True
+92,Paper greedy,0.3,A,False
+93,Paper greedy,0.3,A,False
+94,Paper greedy,0.3,B,True
+95,Paper greedy,0.3,B,True
+87,Paper greedy,0.5,C,True
+88,Paper greedy,0.5,B,False
+89,Paper greedy,0.5,C,True
+90,Paper greedy,0.5,A,False
+91,Paper greedy,0.5,C,True
+92,Paper greedy,0.5,A,False
+93,Paper greedy,0.5,A,False
+94,Paper greedy,0.5,A,False
+95,Paper greedy,0.5,B,True
+87,Paper greedy,0.7,C,True
+88,Paper greedy,0.7,B,False
+89,Paper greedy,0.7,C,True
+90,Paper greedy,0.7,B,True
+91,Paper greedy,0.7,C,True
+92,Paper greedy,0.7,A,False
+93,Paper greedy,0.7,A,False
+94,Paper greedy,0.7,A,False
+95,Paper greedy,0.7,B,True
+87,Tiles,0.3,C,True
+88,Tiles,0.3,B,False
+89,Tiles,0.3,C,True
+90,Tiles,0.3,A,False
+91,Tiles,0.3,C,True
+92,Tiles,0.3,A,False
+93,Tiles,0.3,A,False
+94,Tiles,0.3,A,False
+95,Tiles,0.3,B,True
+87,Tiles,0.5,C,True
+88,Tiles,0.5,B,False
+89,Tiles,0.5,C,True
+90,Tiles,0.5,A,False
+91,Tiles,0.5,B,False
+92,Tiles,0.5,A,False
+93,Tiles,0.5,A,False
+94,Tiles,0.5,A,False
+95,Tiles,0.5,B,True
+87,Tiles,0.7,C,True
+88,Tiles,0.7,B,False
+89,Tiles,0.7,C,True
+90,Tiles,0.7,B,True
+91,Tiles,0.7,C,True
+92,Tiles,0.7,A,False
+93,Tiles,0.7,A,False
+94,Tiles,0.7,A,False
+95,Tiles,0.7,B,True
+704,Dense,1.0,A,True
+705,Dense,1.0,A,False
+706,Dense,1.0,A,False
+704,Top-R,0.3,A,True
+705,Top-R,0.3,A,False
+706,Top-R,0.3,A,False
+704,Top-R,0.5,A,True
+705,Top-R,0.5,A,False
+706,Top-R,0.5,A,False
+704,Top-R,0.7,A,True
+705,Top-R,0.7,A,False
+706,Top-R,0.7,A,False
+704,Paper greedy,0.3,A,True
+705,Paper greedy,0.3,A,False
+706,Paper greedy,0.3,B,False
+704,Paper greedy,0.5,A,True
+705,Paper greedy,0.5,A,False
+706,Paper greedy,0.5,B,False
+704,Paper greedy,0.7,A,True
+705,Paper greedy,0.7,A,False
+706,Paper greedy,0.7,A,False
+704,Tiles,0.3,C,False
+705,Tiles,0.3,A,False
+706,Tiles,0.3,B,False
+704,Tiles,0.5,A,True
+705,Tiles,0.5,A,False
+706,Tiles,0.5,B,False
+704,Tiles,0.7,A,True
+705,Tiles,0.7,A,False
+706,Tiles,0.7,A,False
+938,Dense,1.0,C,False
+939,Dense,1.0,A,False
+940,Dense,1.0,B,False
+938,Top-R,0.3,C,False
+939,Top-R,0.3,C,False
+940,Top-R,0.3,B,False
+938,Top-R,0.5,C,False
+939,Top-R,0.5,A,False
+940,Top-R,0.5,A,False
+938,Top-R,0.7,C,False
+939,Top-R,0.7,A,False
+940,Top-R,0.7,A,False
+938,Paper greedy,0.3,C,False
+939,Paper greedy,0.3,C,False
+940,Paper greedy,0.3,D,True
+938,Paper greedy,0.5,C,False
+939,Paper greedy,0.5,A,False
+940,Paper greedy,0.5,B,False
+938,Paper greedy,0.7,C,False
+939,Paper greedy,0.7,A,False
+940,Paper greedy,0.7,A,False
+938,Tiles,0.3,C,False
+939,Tiles,0.3,C,False
+940,Tiles,0.3,B,False
+938,Tiles,0.5,C,False
+939,Tiles,0.5,A,False
+940,Tiles,0.5,B,False
+938,Tiles,0.7,C,False
+939,Tiles,0.7,A,False
+940,Tiles,0.7,A,False
+662,Dense,1.0,A,False
+663,Dense,1.0,A,True
+664,Dense,1.0,A,False
+662,Top-R,0.3,A,False
+663,Top-R,0.3,A,True
+664,Top-R,0.3,B,True
+662,Top-R,0.5,A,False
+663,Top-R,0.5,A,True
+664,Top-R,0.5,B,True
+662,Top-R,0.7,A,False
+663,Top-R,0.7,A,True
+664,Top-R,0.7,A,False
+662,Paper greedy,0.3,A,False
+663,Paper greedy,0.3,A,True
+664,Paper greedy,0.3,A,False
+662,Paper greedy,0.5,A,False
+663,Paper greedy,0.5,A,True
+664,Paper greedy,0.5,A,False
+662,Paper greedy,0.7,A,False
+663,Paper greedy,0.7,A,True
+664,Paper greedy,0.7,A,False
+662,Tiles,0.3,A,False
+663,Tiles,0.3,A,True
+664,Tiles,0.3,A,False
+662,Tiles,0.5,A,False
+663,Tiles,0.5,A,True
+664,Tiles,0.5,A,False
+662,Tiles,0.7,A,False
+663,Tiles,0.7,A,True
+664,Tiles,0.7,B,True
+1103,Dense,1.0,A,False
+1104,Dense,1.0,A,False
+1105,Dense,1.0,A,False
+1103,Top-R,0.3,B,False
+1104,Top-R,0.3,A,False
+1105,Top-R,0.3,A,False
+1103,Top-R,0.5,B,False
+1104,Top-R,0.5,A,False
+1105,Top-R,0.5,A,False
+1103,Top-R,0.7,B,False
+1104,Top-R,0.7,A,False
+1105,Top-R,0.7,A,False
+1103,Paper greedy,0.3,A,False
+1104,Paper greedy,0.3,A,False
+1105,Paper greedy,0.3,A,False
+1103,Paper greedy,0.5,B,False
+1104,Paper greedy,0.5,A,False
+1105,Paper greedy,0.5,A,False
+1103,Paper greedy,0.7,B,False
+1104,Paper greedy,0.7,A,False
+1105,Paper greedy,0.7,A,False
+1103,Tiles,0.3,A,False
+1104,Tiles,0.3,A,False
+1105,Tiles,0.3,A,False
+1103,Tiles,0.5,B,False
+1104,Tiles,0.5,A,False
+1105,Tiles,0.5,A,False
+1103,Tiles,0.7,B,False
+1104,Tiles,0.7,A,False
+1105,Tiles,0.7,A,False
+1109,Dense,1.0,A,True
+1110,Dense,1.0,A,False
+1111,Dense,1.0,C,True
+1109,Top-R,0.3,A,True
+1110,Top-R,0.3,B,True
+1111,Top-R,0.3,C,True
+1109,Top-R,0.5,A,True
+1110,Top-R,0.5,B,True
+1111,Top-R,0.5,C,True
+1109,Top-R,0.7,A,True
+1110,Top-R,0.7,A,False
+1111,Top-R,0.7,C,True
+1109,Paper greedy,0.3,A,True
+1110,Paper greedy,0.3,A,False
+1111,Paper greedy,0.3,C,True
+1109,Paper greedy,0.5,A,True
+1110,Paper greedy,0.5,A,False
+1111,Paper greedy,0.5,C,True
+1109,Paper greedy,0.7,A,True
+1110,Paper greedy,0.7,B,True
+1111,Paper greedy,0.7,C,True
+1109,Tiles,0.3,A,True
+1110,Tiles,0.3,A,False
+1111,Tiles,0.3,C,True
+1109,Tiles,0.5,A,True
+1110,Tiles,0.5,B,True
+1111,Tiles,0.5,C,True
+1109,Tiles,0.7,A,True
+1110,Tiles,0.7,A,False
+1111,Tiles,0.7,C,True
+629,Dense,1.0,D,True
+630,Dense,1.0,B,True
+631,Dense,1.0,A,False
+629,Top-R,0.3,D,True
+630,Top-R,0.3,B,True
+631,Top-R,0.3,A,False
+629,Top-R,0.5,D,True
+630,Top-R,0.5,B,True
+631,Top-R,0.5,D,False
+629,Top-R,0.7,D,True
+630,Top-R,0.7,B,True
+631,Top-R,0.7,D,False
+629,Paper greedy,0.3,D,True
+630,Paper greedy,0.3,B,True
+631,Paper greedy,0.3,D,False
+629,Paper greedy,0.5,D,True
+630,Paper greedy,0.5,B,True
+631,Paper greedy,0.5,D,False
+629,Paper greedy,0.7,D,True
+630,Paper greedy,0.7,B,True
+631,Paper greedy,0.7,D,False
+629,Tiles,0.3,D,True
+630,Tiles,0.3,B,True
+631,Tiles,0.3,A,False
+629,Tiles,0.5,D,True
+630,Tiles,0.5,B,True
+631,Tiles,0.5,D,False
+629,Tiles,0.7,D,True
+630,Tiles,0.7,B,True
+631,Tiles,0.7,D,False
+1499,Dense,1.0,C,True
+1500,Dense,1.0,C,True
+1501,Dense,1.0,B,True
+1499,Top-R,0.3,C,True
+1500,Top-R,0.3,C,True
+1501,Top-R,0.3,B,True
+1499,Top-R,0.5,C,True
+1500,Top-R,0.5,C,True
+1501,Top-R,0.5,B,True
+1499,Top-R,0.7,C,True
+1500,Top-R,0.7,C,True
+1501,Top-R,0.7,B,True
+1499,Paper greedy,0.3,C,True
+1500,Paper greedy,0.3,C,True
+1501,Paper greedy,0.3,B,True
+1499,Paper greedy,0.5,C,True
+1500,Paper greedy,0.5,C,True
+1501,Paper greedy,0.5,B,True
+1499,Paper greedy,0.7,C,True
+1500,Paper greedy,0.7,C,True
+1501,Paper greedy,0.7,B,True
+1499,Tiles,0.3,C,True
+1500,Tiles,0.3,C,True
+1501,Tiles,0.3,B,True
+1499,Tiles,0.5,C,True
+1500,Tiles,0.5,C,True
+1501,Tiles,0.5,B,True
+1499,Tiles,0.7,C,True
+1500,Tiles,0.7,C,True
+1501,Tiles,0.7,B,True
+1493,Dense,1.0,B,True
+1494,Dense,1.0,B,True
+1495,Dense,1.0,B,True
+1493,Top-R,0.3,B,True
+1494,Top-R,0.3,B,True
+1495,Top-R,0.3,B,True
+1493,Top-R,0.5,B,True
+1494,Top-R,0.5,B,True
+1495,Top-R,0.5,B,True
+1493,Top-R,0.7,B,True
+1494,Top-R,0.7,B,True
+1495,Top-R,0.7,B,True
+1493,Paper greedy,0.3,B,True
+1494,Paper greedy,0.3,B,True
+1495,Paper greedy,0.3,B,True
+1493,Paper greedy,0.5,B,True
+1494,Paper greedy,0.5,B,True
+1495,Paper greedy,0.5,B,True
+1493,Paper greedy,0.7,B,True
+1494,Paper greedy,0.7,B,True
+1495,Paper greedy,0.7,B,True
+1493,Tiles,0.3,B,True
+1494,Tiles,0.3,B,True
+1495,Tiles,0.3,B,True
+1493,Tiles,0.5,B,True
+1494,Tiles,0.5,B,True
+1495,Tiles,0.5,B,True
+1493,Tiles,0.7,B,True
+1494,Tiles,0.7,B,True
+1495,Tiles,0.7,B,True
+1424,Dense,1.0,B,True
+1425,Dense,1.0,A,False
+1426,Dense,1.0,A,True
+1424,Top-R,0.3,B,True
+1425,Top-R,0.3,B,True
+1426,Top-R,0.3,A,True
+1424,Top-R,0.5,B,True
+1425,Top-R,0.5,B,True
+1426,Top-R,0.5,A,True
+1424,Top-R,0.7,B,True
+1425,Top-R,0.7,A,False
+1426,Top-R,0.7,A,True
+1424,Paper greedy,0.3,B,True
+1425,Paper greedy,0.3,B,True
+1426,Paper greedy,0.3,A,True
+1424,Paper greedy,0.5,B,True
+1425,Paper greedy,0.5,B,True
+1426,Paper greedy,0.5,A,True
+1424,Paper greedy,0.7,B,True
+1425,Paper greedy,0.7,A,False
+1426,Paper greedy,0.7,A,True
+1424,Tiles,0.3,B,True
+1425,Tiles,0.3,B,True
+1426,Tiles,0.3,A,True
+1424,Tiles,0.5,B,True
+1425,Tiles,0.5,B,True
+1426,Tiles,0.5,A,True
+1424,Tiles,0.7,B,True
+1425,Tiles,0.7,A,False
+1426,Tiles,0.7,A,True
+1277,Dense,1.0,C,True
+1278,Dense,1.0,A,True
+1279,Dense,1.0,B,True
+1277,Top-R,0.3,C,True
+1278,Top-R,0.3,A,True
+1279,Top-R,0.3,B,True
+1277,Top-R,0.5,C,True
+1278,Top-R,0.5,A,True
+1279,Top-R,0.5,B,True
+1277,Top-R,0.7,C,True
+1278,Top-R,0.7,A,True
+1279,Top-R,0.7,B,True
+1277,Paper greedy,0.3,C,True
+1278,Paper greedy,0.3,A,True
+1279,Paper greedy,0.3,B,True
+1277,Paper greedy,0.5,C,True
+1278,Paper greedy,0.5,A,True
+1279,Paper greedy,0.5,B,True
+1277,Paper greedy,0.7,C,True
+1278,Paper greedy,0.7,A,True
+1279,Paper greedy,0.7,B,True
+1277,Tiles,0.3,C,True
+1278,Tiles,0.3,A,True
+1279,Tiles,0.3,B,True
+1277,Tiles,0.5,C,True
+1278,Tiles,0.5,A,True
+1279,Tiles,0.5,B,True
+1277,Tiles,0.7,C,True
+1278,Tiles,0.7,A,True
+1279,Tiles,0.7,B,True
+1280,Dense,1.0,B,False
+1281,Dense,1.0,A,True
+1282,Dense,1.0,B,False
+1280,Top-R,0.3,B,False
+1281,Top-R,0.3,B,False
+1282,Top-R,0.3,B,False
+1280,Top-R,0.5,B,False
+1281,Top-R,0.5,B,False
+1282,Top-R,0.5,B,False
+1280,Top-R,0.7,B,False
+1281,Top-R,0.7,B,False
+1282,Top-R,0.7,B,False
+1280,Paper greedy,0.3,B,False
+1281,Paper greedy,0.3,B,False
+1282,Paper greedy,0.3,B,False
+1280,Paper greedy,0.5,B,False
+1281,Paper greedy,0.5,B,False
+1282,Paper greedy,0.5,B,False
+1280,Paper greedy,0.7,B,False
+1281,Paper greedy,0.7,B,False
+1282,Paper greedy,0.7,B,False
+1280,Tiles,0.3,B,False
+1281,Tiles,0.3,B,False
+1282,Tiles,0.3,B,False
+1280,Tiles,0.5,B,False
+1281,Tiles,0.5,B,False
+1282,Tiles,0.5,B,False
+1280,Tiles,0.7,B,False
+1281,Tiles,0.7,B,False
+1282,Tiles,0.7,B,False
+748,Dense,1.0,B,False
+749,Dense,1.0,B,False
+750,Dense,1.0,A,True
+751,Dense,1.0,A,False
+748,Top-R,0.3,C,True
+749,Top-R,0.3,B,False
+750,Top-R,0.3,C,False
+751,Top-R,0.3,A,False
+748,Top-R,0.5,C,True
+749,Top-R,0.5,B,False
+750,Top-R,0.5,C,False
+751,Top-R,0.5,A,False
+748,Top-R,0.7,C,True
+749,Top-R,0.7,B,False
+750,Top-R,0.7,C,False
+751,Top-R,0.7,A,False
+748,Paper greedy,0.3,C,True
+749,Paper greedy,0.3,B,False
+750,Paper greedy,0.3,A,True
+751,Paper greedy,0.3,A,False
+748,Paper greedy,0.5,C,True
+749,Paper greedy,0.5,B,False
+750,Paper greedy,0.5,C,False
+751,Paper greedy,0.5,A,False
+748,Paper greedy,0.7,C,True
+749,Paper greedy,0.7,B,False
+750,Paper greedy,0.7,C,False
+751,Paper greedy,0.7,A,False
+748,Tiles,0.3,C,True
+749,Tiles,0.3,B,False
+750,Tiles,0.3,C,False
+751,Tiles,0.3,A,False
+748,Tiles,0.5,C,True
+749,Tiles,0.5,B,False
+750,Tiles,0.5,C,False
+751,Tiles,0.5,A,False
+748,Tiles,0.7,C,True
+749,Tiles,0.7,B,False
+750,Tiles,0.7,C,False
+751,Tiles,0.7,A,False
+1361,Dense,1.0,A,True
+1362,Dense,1.0,B,False
+1363,Dense,1.0,B,False
+1361,Top-R,0.3,A,True
+1362,Top-R,0.3,B,False
+1363,Top-R,0.3,B,False
+1361,Top-R,0.5,A,True
+1362,Top-R,0.5,B,False
+1363,Top-R,0.5,B,False
+1361,Top-R,0.7,A,True
+1362,Top-R,0.7,B,False
+1363,Top-R,0.7,B,False
+1361,Paper greedy,0.3,A,True
+1362,Paper greedy,0.3,B,False
+1363,Paper greedy,0.3,B,False
+1361,Paper greedy,0.5,A,True
+1362,Paper greedy,0.5,B,False
+1363,Paper greedy,0.5,B,False
+1361,Paper greedy,0.7,A,True
+1362,Paper greedy,0.7,B,False
+1363,Paper greedy,0.7,B,False
+1361,Tiles,0.3,A,True
+1362,Tiles,0.3,B,False
+1363,Tiles,0.3,B,False
+1361,Tiles,0.5,A,True
+1362,Tiles,0.5,B,False
+1363,Tiles,0.5,B,False
+1361,Tiles,0.7,A,True
+1362,Tiles,0.7,B,False
+1363,Tiles,0.7,B,False
+474,Dense,1.0,A,True
+475,Dense,1.0,A,False
+476,Dense,1.0,A,False
+474,Top-R,0.3,A,True
+475,Top-R,0.3,A,False
+476,Top-R,0.3,A,False
+474,Top-R,0.5,A,True
+475,Top-R,0.5,A,False
+476,Top-R,0.5,A,False
+474,Top-R,0.7,A,True
+475,Top-R,0.7,A,False
+476,Top-R,0.7,A,False
+474,Paper greedy,0.3,A,True
+475,Paper greedy,0.3,A,False
+476,Paper greedy,0.3,A,False
+474,Paper greedy,0.5,A,True
+475,Paper greedy,0.5,A,False
+476,Paper greedy,0.5,A,False
+474,Paper greedy,0.7,A,True
+475,Paper greedy,0.7,A,False
+476,Paper greedy,0.7,A,False
+474,Tiles,0.3,B,False
+475,Tiles,0.3,A,False
+476,Tiles,0.3,C,False
+474,Tiles,0.5,A,True
+475,Tiles,0.5,A,False
+476,Tiles,0.5,A,False
+474,Tiles,0.7,A,True
+475,Tiles,0.7,A,False
+476,Tiles,0.7,A,False
+710,Dense,1.0,A,False
+711,Dense,1.0,A,False
+712,Dense,1.0,A,False
+710,Top-R,0.3,A,False
+711,Top-R,0.3,B,True
+712,Top-R,0.3,A,False
+710,Top-R,0.5,A,False
+711,Top-R,0.5,A,False
+712,Top-R,0.5,A,False
+710,Top-R,0.7,A,False
+711,Top-R,0.7,A,False
+712,Top-R,0.7,A,False
+710,Paper greedy,0.3,A,False
+711,Paper greedy,0.3,B,True
+712,Paper greedy,0.3,A,False
+710,Paper greedy,0.5,A,False
+711,Paper greedy,0.5,A,False
+712,Paper greedy,0.5,A,False
+710,Paper greedy,0.7,A,False
+711,Paper greedy,0.7,A,False
+712,Paper greedy,0.7,A,False
+710,Tiles,0.3,A,False
+711,Tiles,0.3,A,False
+712,Tiles,0.3,A,False
+710,Tiles,0.5,A,False
+711,Tiles,0.5,B,True
+712,Tiles,0.5,A,False
+710,Tiles,0.7,A,False
+711,Tiles,0.7,A,False
+712,Tiles,0.7,A,False
+1226,Dense,1.0,B,True
+1227,Dense,1.0,A,False
+1228,Dense,1.0,A,False
+1226,Top-R,0.3,B,True
+1227,Top-R,0.3,B,False
+1228,Top-R,0.3,A,False
+1226,Top-R,0.5,B,True
+1227,Top-R,0.5,A,False
+1228,Top-R,0.5,A,False
+1226,Top-R,0.7,B,True
+1227,Top-R,0.7,A,False
+1228,Top-R,0.7,A,False
+1226,Paper greedy,0.3,B,True
+1227,Paper greedy,0.3,B,False
+1228,Paper greedy,0.3,A,False
+1226,Paper greedy,0.5,B,True
+1227,Paper greedy,0.5,B,False
+1228,Paper greedy,0.5,A,False
+1226,Paper greedy,0.7,B,True
+1227,Paper greedy,0.7,A,False
+1228,Paper greedy,0.7,A,False
+1226,Tiles,0.3,B,True
+1227,Tiles,0.3,B,False
+1228,Tiles,0.3,A,False
+1226,Tiles,0.5,B,True
+1227,Tiles,0.5,B,False
+1228,Tiles,0.5,A,False
+1226,Tiles,0.7,B,True
+1227,Tiles,0.7,A,False
+1228,Tiles,0.7,A,False
+1229,Dense,1.0,A,False
+1230,Dense,1.0,A,True
+1231,Dense,1.0,A,False
+1229,Top-R,0.3,A,False
+1230,Top-R,0.3,A,True
+1231,Top-R,0.3,A,False
+1229,Top-R,0.5,A,False
+1230,Top-R,0.5,A,True
+1231,Top-R,0.5,A,False
+1229,Top-R,0.7,A,False
+1230,Top-R,0.7,A,True
+1231,Top-R,0.7,A,False
+1229,Paper greedy,0.3,A,False
+1230,Paper greedy,0.3,A,True
+1231,Paper greedy,0.3,A,False
+1229,Paper greedy,0.5,A,False
+1230,Paper greedy,0.5,A,True
+1231,Paper greedy,0.5,A,False
+1229,Paper greedy,0.7,A,False
+1230,Paper greedy,0.7,A,True
+1231,Paper greedy,0.7,A,False
+1229,Tiles,0.3,A,False
+1230,Tiles,0.3,A,True
+1231,Tiles,0.3,A,False
+1229,Tiles,0.5,A,False
+1230,Tiles,0.5,A,True
+1231,Tiles,0.5,A,False
+1229,Tiles,0.7,A,False
+1230,Tiles,0.7,A,True
+1231,Tiles,0.7,A,False
+1124,Dense,1.0,B,False
+1125,Dense,1.0,A,False
+1126,Dense,1.0,B,False
+1124,Top-R,0.3,B,False
+1125,Top-R,0.3,A,False
+1126,Top-R,0.3,B,False
+1124,Top-R,0.5,B,False
+1125,Top-R,0.5,A,False
+1126,Top-R,0.5,B,False
+1124,Top-R,0.7,B,False
+1125,Top-R,0.7,A,False
+1126,Top-R,0.7,B,False
+1124,Paper greedy,0.3,B,False
+1125,Paper greedy,0.3,A,False
+1126,Paper greedy,0.3,B,False
+1124,Paper greedy,0.5,B,False
+1125,Paper greedy,0.5,A,False
+1126,Paper greedy,0.5,B,False
+1124,Paper greedy,0.7,B,False
+1125,Paper greedy,0.7,A,False
+1126,Paper greedy,0.7,B,False
+1124,Tiles,0.3,B,False
+1125,Tiles,0.3,A,False
+1126,Tiles,0.3,B,False
+1124,Tiles,0.5,B,False
+1125,Tiles,0.5,A,False
+1126,Tiles,0.5,B,False
+1124,Tiles,0.7,B,False
+1125,Tiles,0.7,A,False
+1126,Tiles,0.7,B,False
+43,Dense,1.0,B,True
+44,Dense,1.0,D,True
+45,Dense,1.0,D,True
+46,Dense,1.0,B,True
+47,Dense,1.0,D,True
+43,Top-R,0.3,D,False
+44,Top-R,0.3,D,True
+45,Top-R,0.3,D,True
+46,Top-R,0.3,B,True
+47,Top-R,0.3,D,True
+43,Top-R,0.5,B,True
+44,Top-R,0.5,D,True
+45,Top-R,0.5,D,True
+46,Top-R,0.5,B,True
+47,Top-R,0.5,D,True
+43,Top-R,0.7,B,True
+44,Top-R,0.7,D,True
+45,Top-R,0.7,D,True
+46,Top-R,0.7,B,True
+47,Top-R,0.7,D,True
+43,Paper greedy,0.3,D,False
+44,Paper greedy,0.3,D,True
+45,Paper greedy,0.3,D,True
+46,Paper greedy,0.3,D,False
+47,Paper greedy,0.3,D,True
+43,Paper greedy,0.5,D,False
+44,Paper greedy,0.5,D,True
+45,Paper greedy,0.5,D,True
+46,Paper greedy,0.5,B,True
+47,Paper greedy,0.5,D,True
+43,Paper greedy,0.7,B,True
+44,Paper greedy,0.7,D,True
+45,Paper greedy,0.7,D,True
+46,Paper greedy,0.7,B,True
+47,Paper greedy,0.7,D,True
+43,Tiles,0.3,D,False
+44,Tiles,0.3,C,False
+45,Tiles,0.3,D,True
+46,Tiles,0.3,D,False
+47,Tiles,0.3,D,True
+43,Tiles,0.5,B,True
+44,Tiles,0.5,D,True
+45,Tiles,0.5,D,True
+46,Tiles,0.5,B,True
+47,Tiles,0.5,D,True
+43,Tiles,0.7,B,True
+44,Tiles,0.7,D,True
+45,Tiles,0.7,D,True
+46,Tiles,0.7,B,True
+47,Tiles,0.7,D,True
+745,Dense,1.0,B,False
+746,Dense,1.0,A,False
+747,Dense,1.0,B,False
+745,Top-R,0.3,B,False
+746,Top-R,0.3,A,False
+747,Top-R,0.3,A,False
+745,Top-R,0.5,B,False
+746,Top-R,0.5,A,False
+747,Top-R,0.5,A,False
+745,Top-R,0.7,B,False
+746,Top-R,0.7,A,False
+747,Top-R,0.7,A,False
+745,Paper greedy,0.3,C,False
+746,Paper greedy,0.3,A,False
+747,Paper greedy,0.3,A,False
+745,Paper greedy,0.5,B,False
+746,Paper greedy,0.5,A,False
+747,Paper greedy,0.5,A,False
+745,Paper greedy,0.7,B,False
+746,Paper greedy,0.7,A,False
+747,Paper greedy,0.7,A,False
+745,Tiles,0.3,C,False
+746,Tiles,0.3,A,False
+747,Tiles,0.3,A,False
+745,Tiles,0.5,C,False
+746,Tiles,0.5,A,False
+747,Tiles,0.5,A,False
+745,Tiles,0.7,B,False
+746,Tiles,0.7,A,False
+747,Tiles,0.7,A,False
+298,Dense,1.0,B,False
+299,Dense,1.0,D,False
+300,Dense,1.0,D,False
+298,Top-R,0.3,B,False
+299,Top-R,0.3,D,False
+300,Top-R,0.3,D,False
+298,Top-R,0.5,B,False
+299,Top-R,0.5,D,False
+300,Top-R,0.5,D,False
+298,Top-R,0.7,B,False
+299,Top-R,0.7,D,False
+300,Top-R,0.7,D,False
+298,Paper greedy,0.3,A,False
+299,Paper greedy,0.3,D,False
+300,Paper greedy,0.3,D,False
+298,Paper greedy,0.5,B,False
+299,Paper greedy,0.5,D,False
+300,Paper greedy,0.5,D,False
+298,Paper greedy,0.7,B,False
+299,Paper greedy,0.7,D,False
+300,Paper greedy,0.7,D,False
+298,Tiles,0.3,A,False
+299,Tiles,0.3,D,False
+300,Tiles,0.3,D,False
+298,Tiles,0.5,A,False
+299,Tiles,0.5,D,False
+300,Tiles,0.5,D,False
+298,Tiles,0.7,B,False
+299,Tiles,0.7,D,False
+300,Tiles,0.7,D,False
+1349,Dense,1.0,A,False
+1350,Dense,1.0,C,False
+1351,Dense,1.0,A,False
+1349,Top-R,0.3,A,False
+1350,Top-R,0.3,C,False
+1351,Top-R,0.3,A,False
+1349,Top-R,0.5,A,False
+1350,Top-R,0.5,C,False
+1351,Top-R,0.5,A,False
+1349,Top-R,0.7,A,False
+1350,Top-R,0.7,C,False
+1351,Top-R,0.7,A,False
+1349,Paper greedy,0.3,A,False
+1350,Paper greedy,0.3,C,False
+1351,Paper greedy,0.3,A,False
+1349,Paper greedy,0.5,A,False
+1350,Paper greedy,0.5,C,False
+1351,Paper greedy,0.5,A,False
+1349,Paper greedy,0.7,A,False
+1350,Paper greedy,0.7,C,False
+1351,Paper greedy,0.7,A,False
+1349,Tiles,0.3,A,False
+1350,Tiles,0.3,C,False
+1351,Tiles,0.3,A,False
+1349,Tiles,0.5,A,False
+1350,Tiles,0.5,C,False
+1351,Tiles,0.5,A,False
+1349,Tiles,0.7,A,False
+1350,Tiles,0.7,C,False
+1351,Tiles,0.7,A,False
+1355,Dense,1.0,A,False
+1356,Dense,1.0,A,False
+1357,Dense,1.0,A,True
+1355,Top-R,0.3,B,True
+1356,Top-R,0.3,A,False
+1357,Top-R,0.3,A,True
+1355,Top-R,0.5,A,False
+1356,Top-R,0.5,A,False
+1357,Top-R,0.5,A,True
+1355,Top-R,0.7,A,False
+1356,Top-R,0.7,A,False
+1357,Top-R,0.7,A,True
+1355,Paper greedy,0.3,A,False
+1356,Paper greedy,0.3,A,False
+1357,Paper greedy,0.3,A,True
+1355,Paper greedy,0.5,A,False
+1356,Paper greedy,0.5,A,False
+1357,Paper greedy,0.5,A,True
+1355,Paper greedy,0.7,A,False
+1356,Paper greedy,0.7,A,False
+1357,Paper greedy,0.7,A,True
+1355,Tiles,0.3,A,False
+1356,Tiles,0.3,A,False
+1357,Tiles,0.3,A,True
+1355,Tiles,0.5,A,False
+1356,Tiles,0.5,A,False
+1357,Tiles,0.5,A,True
+1355,Tiles,0.7,A,False
+1356,Tiles,0.7,A,False
+1357,Tiles,0.7,A,True
+64,Dense,1.0,D,True
+65,Dense,1.0,C,True
+66,Dense,1.0,D,True
+67,Dense,1.0,C,True
+68,Dense,1.0,B,True
+69,Dense,1.0,C,False
+70,Dense,1.0,A,False
+71,Dense,1.0,A,True
+72,Dense,1.0,A,False
+73,Dense,1.0,A,False
+74,Dense,1.0,A,True
+75,Dense,1.0,A,False
+76,Dense,1.0,A,False
+64,Top-R,0.3,D,True
+65,Top-R,0.3,C,True
+66,Top-R,0.3,D,True
+67,Top-R,0.3,C,True
+68,Top-R,0.3,B,True
+69,Top-R,0.3,B,True
+70,Top-R,0.3,A,False
+71,Top-R,0.3,C,False
+72,Top-R,0.3,C,True
+73,Top-R,0.3,A,False
+74,Top-R,0.3,A,True
+75,Top-R,0.3,A,False
+76,Top-R,0.3,A,False
+64,Top-R,0.5,D,True
+65,Top-R,0.5,C,True
+66,Top-R,0.5,D,True
+67,Top-R,0.5,C,True
+68,Top-R,0.5,B,True
+69,Top-R,0.5,B,True
+70,Top-R,0.5,A,False
+71,Top-R,0.5,C,False
+72,Top-R,0.5,A,False
+73,Top-R,0.5,A,False
+74,Top-R,0.5,A,True
+75,Top-R,0.5,A,False
+76,Top-R,0.5,A,False
+64,Top-R,0.7,D,True
+65,Top-R,0.7,C,True
+66,Top-R,0.7,D,True
+67,Top-R,0.7,C,True
+68,Top-R,0.7,B,True
+69,Top-R,0.7,B,True
+70,Top-R,0.7,A,False
+71,Top-R,0.7,A,True
+72,Top-R,0.7,A,False
+73,Top-R,0.7,A,False
+74,Top-R,0.7,A,True
+75,Top-R,0.7,A,False
+76,Top-R,0.7,A,False
+64,Paper greedy,0.3,D,True
+65,Paper greedy,0.3,C,True
+66,Paper greedy,0.3,D,True
+67,Paper greedy,0.3,C,True
+68,Paper greedy,0.3,B,True
+69,Paper greedy,0.3,B,True
+70,Paper greedy,0.3,A,False
+71,Paper greedy,0.3,C,False
+72,Paper greedy,0.3,C,True
+73,Paper greedy,0.3,A,False
+74,Paper greedy,0.3,A,True
+75,Paper greedy,0.3,A,False
+76,Paper greedy,0.3,A,False
+64,Paper greedy,0.5,D,True
+65,Paper greedy,0.5,C,True
+66,Paper greedy,0.5,D,True
+67,Paper greedy,0.5,C,True
+68,Paper greedy,0.5,B,True
+69,Paper greedy,0.5,B,True
+70,Paper greedy,0.5,A,False
+71,Paper greedy,0.5,A,True
+72,Paper greedy,0.5,A,False
+73,Paper greedy,0.5,A,False
+74,Paper greedy,0.5,A,True
+75,Paper greedy,0.5,A,False
+76,Paper greedy,0.5,A,False
+64,Paper greedy,0.7,D,True
+65,Paper greedy,0.7,C,True
+66,Paper greedy,0.7,D,True
+67,Paper greedy,0.7,C,True
+68,Paper greedy,0.7,B,True
+69,Paper greedy,0.7,C,False
+70,Paper greedy,0.7,A,False
+71,Paper greedy,0.7,A,True
+72,Paper greedy,0.7,A,False
+73,Paper greedy,0.7,A,False
+74,Paper greedy,0.7,A,True
+75,Paper greedy,0.7,A,False
+76,Paper greedy,0.7,A,False
+64,Tiles,0.3,D,True
+65,Tiles,0.3,C,True
+66,Tiles,0.3,D,True
+67,Tiles,0.3,C,True
+68,Tiles,0.3,B,True
+69,Tiles,0.3,B,True
+70,Tiles,0.3,A,False
+71,Tiles,0.3,C,False
+72,Tiles,0.3,C,True
+73,Tiles,0.3,A,False
+74,Tiles,0.3,A,True
+75,Tiles,0.3,A,False
+76,Tiles,0.3,A,False
+64,Tiles,0.5,D,True
+65,Tiles,0.5,C,True
+66,Tiles,0.5,D,True
+67,Tiles,0.5,C,True
+68,Tiles,0.5,B,True
+69,Tiles,0.5,B,True
+70,Tiles,0.5,A,False
+71,Tiles,0.5,C,False
+72,Tiles,0.5,A,False
+73,Tiles,0.5,A,False
+74,Tiles,0.5,A,True
+75,Tiles,0.5,A,False
+76,Tiles,0.5,A,False
+64,Tiles,0.7,D,True
+65,Tiles,0.7,C,True
+66,Tiles,0.7,D,True
+67,Tiles,0.7,C,True
+68,Tiles,0.7,B,True
+69,Tiles,0.7,C,False
+70,Tiles,0.7,A,False
+71,Tiles,0.7,A,True
+72,Tiles,0.7,A,False
+73,Tiles,0.7,A,False
+74,Tiles,0.7,A,True
+75,Tiles,0.7,A,False
+76,Tiles,0.7,A,False
+368,Dense,1.0,A,False
+369,Dense,1.0,A,True
+370,Dense,1.0,B,True
+368,Top-R,0.3,A,False
+369,Top-R,0.3,A,True
+370,Top-R,0.3,B,True
+368,Top-R,0.5,A,False
+369,Top-R,0.5,A,True
+370,Top-R,0.5,B,True
+368,Top-R,0.7,A,False
+369,Top-R,0.7,A,True
+370,Top-R,0.7,B,True
+368,Paper greedy,0.3,A,False
+369,Paper greedy,0.3,A,True
+370,Paper greedy,0.3,B,True
+368,Paper greedy,0.5,A,False
+369,Paper greedy,0.5,A,True
+370,Paper greedy,0.5,B,True
+368,Paper greedy,0.7,A,False
+369,Paper greedy,0.7,A,True
+370,Paper greedy,0.7,B,True
+368,Tiles,0.3,A,False
+369,Tiles,0.3,A,True
+370,Tiles,0.3,B,True
+368,Tiles,0.5,A,False
+369,Tiles,0.5,A,True
+370,Tiles,0.5,B,True
+368,Tiles,0.7,A,False
+369,Tiles,0.7,A,True
+370,Tiles,0.7,B,True
+1187,Dense,1.0,A,True
+1188,Dense,1.0,A,True
+1189,Dense,1.0,D,True
+1187,Top-R,0.3,A,True
+1188,Top-R,0.3,A,True
+1189,Top-R,0.3,D,True
+1187,Top-R,0.5,A,True
+1188,Top-R,0.5,A,True
+1189,Top-R,0.5,D,True
+1187,Top-R,0.7,A,True
+1188,Top-R,0.7,A,True
+1189,Top-R,0.7,D,True
+1187,Paper greedy,0.3,D,False
+1188,Paper greedy,0.3,A,True
+1189,Paper greedy,0.3,D,True
+1187,Paper greedy,0.5,A,True
+1188,Paper greedy,0.5,A,True
+1189,Paper greedy,0.5,D,True
+1187,Paper greedy,0.7,A,True
+1188,Paper greedy,0.7,A,True
+1189,Paper greedy,0.7,D,True
+1187,Tiles,0.3,D,False
+1188,Tiles,0.3,A,True
+1189,Tiles,0.3,D,True
+1187,Tiles,0.5,A,True
+1188,Tiles,0.5,A,True
+1189,Tiles,0.5,D,True
+1187,Tiles,0.7,A,True
+1188,Tiles,0.7,A,True
+1189,Tiles,0.7,D,True
+902,Dense,1.0,B,False
+903,Dense,1.0,B,False
+904,Dense,1.0,B,False
+902,Top-R,0.3,B,False
+903,Top-R,0.3,A,False
+904,Top-R,0.3,B,False
+902,Top-R,0.5,B,False
+903,Top-R,0.5,B,False
+904,Top-R,0.5,B,False
+902,Top-R,0.7,B,False
+903,Top-R,0.7,B,False
+904,Top-R,0.7,B,False
+902,Paper greedy,0.3,B,False
+903,Paper greedy,0.3,A,False
+904,Paper greedy,0.3,C,False
+902,Paper greedy,0.5,B,False
+903,Paper greedy,0.5,B,False
+904,Paper greedy,0.5,B,False
+902,Paper greedy,0.7,B,False
+903,Paper greedy,0.7,B,False
+904,Paper greedy,0.7,B,False
+902,Tiles,0.3,A,False
+903,Tiles,0.3,A,False
+904,Tiles,0.3,C,False
+902,Tiles,0.5,B,False
+903,Tiles,0.5,B,False
+904,Tiles,0.5,B,False
+902,Tiles,0.7,B,False
+903,Tiles,0.7,B,False
+904,Tiles,0.7,B,False
+460,Dense,1.0,B,True
+461,Dense,1.0,A,True
+462,Dense,1.0,C,True
+463,Dense,1.0,A,True
+464,Dense,1.0,D,True
+460,Top-R,0.3,B,True
+461,Top-R,0.3,A,True
+462,Top-R,0.3,C,True
+463,Top-R,0.3,A,True
+464,Top-R,0.3,D,True
+460,Top-R,0.5,B,True
+461,Top-R,0.5,A,True
+462,Top-R,0.5,C,True
+463,Top-R,0.5,A,True
+464,Top-R,0.5,D,True
+460,Top-R,0.7,B,True
+461,Top-R,0.7,A,True
+462,Top-R,0.7,C,True
+463,Top-R,0.7,A,True
+464,Top-R,0.7,D,True
+460,Paper greedy,0.3,B,True
+461,Paper greedy,0.3,A,True
+462,Paper greedy,0.3,C,True
+463,Paper greedy,0.3,A,True
+464,Paper greedy,0.3,D,True
+460,Paper greedy,0.5,B,True
+461,Paper greedy,0.5,A,True
+462,Paper greedy,0.5,C,True
+463,Paper greedy,0.5,A,True
+464,Paper greedy,0.5,D,True
+460,Paper greedy,0.7,B,True
+461,Paper greedy,0.7,A,True
+462,Paper greedy,0.7,C,True
+463,Paper greedy,0.7,A,True
+464,Paper greedy,0.7,D,True
+460,Tiles,0.3,B,True
+461,Tiles,0.3,A,True
+462,Tiles,0.3,C,True
+463,Tiles,0.3,A,True
+464,Tiles,0.3,D,True
+460,Tiles,0.5,B,True
+461,Tiles,0.5,A,True
+462,Tiles,0.5,C,True
+463,Tiles,0.5,A,True
+464,Tiles,0.5,D,True
+460,Tiles,0.7,B,True
+461,Tiles,0.7,A,True
+462,Tiles,0.7,C,True
+463,Tiles,0.7,A,True
+464,Tiles,0.7,D,True
+776,Dense,1.0,A,True
+777,Dense,1.0,D,True
+778,Dense,1.0,C,True
+776,Top-R,0.3,C,False
+777,Top-R,0.3,D,True
+778,Top-R,0.3,A,False
+776,Top-R,0.5,C,False
+777,Top-R,0.5,D,True
+778,Top-R,0.5,A,False
+776,Top-R,0.7,C,False
+777,Top-R,0.7,D,True
+778,Top-R,0.7,A,False
+776,Paper greedy,0.3,C,False
+777,Paper greedy,0.3,D,True
+778,Paper greedy,0.3,A,False
+776,Paper greedy,0.5,C,False
+777,Paper greedy,0.5,D,True
+778,Paper greedy,0.5,C,True
+776,Paper greedy,0.7,C,False
+777,Paper greedy,0.7,D,True
+778,Paper greedy,0.7,A,False
+776,Tiles,0.3,C,False
+777,Tiles,0.3,D,True
+778,Tiles,0.3,C,True
+776,Tiles,0.5,C,False
+777,Tiles,0.5,D,True
+778,Tiles,0.5,C,True
+776,Tiles,0.7,C,False
+777,Tiles,0.7,D,True
+778,Tiles,0.7,C,True
+914,Dense,1.0,D,True
+915,Dense,1.0,B,True
+916,Dense,1.0,D,True
+914,Top-R,0.3,D,True
+915,Top-R,0.3,B,True
+916,Top-R,0.3,D,True
+914,Top-R,0.5,D,True
+915,Top-R,0.5,B,True
+916,Top-R,0.5,D,True
+914,Top-R,0.7,D,True
+915,Top-R,0.7,B,True
+916,Top-R,0.7,D,True
+914,Paper greedy,0.3,D,True
+915,Paper greedy,0.3,B,True
+916,Paper greedy,0.3,D,True
+914,Paper greedy,0.5,D,True
+915,Paper greedy,0.5,B,True
+916,Paper greedy,0.5,D,True
+914,Paper greedy,0.7,D,True
+915,Paper greedy,0.7,B,True
+916,Paper greedy,0.7,D,True
+914,Tiles,0.3,D,True
+915,Tiles,0.3,B,True
+916,Tiles,0.3,D,True
+914,Tiles,0.5,D,True
+915,Tiles,0.5,B,True
+916,Tiles,0.5,D,True
+914,Tiles,0.7,D,True
+915,Tiles,0.7,B,True
+916,Tiles,0.7,D,True
+1163,Dense,1.0,B,False
+1164,Dense,1.0,C,True
+1165,Dense,1.0,A,False
+1163,Top-R,0.3,B,False
+1164,Top-R,0.3,C,True
+1165,Top-R,0.3,A,False
+1163,Top-R,0.5,B,False
+1164,Top-R,0.5,C,True
+1165,Top-R,0.5,A,False
+1163,Top-R,0.7,B,False
+1164,Top-R,0.7,C,True
+1165,Top-R,0.7,A,False
+1163,Paper greedy,0.3,B,False
+1164,Paper greedy,0.3,C,True
+1165,Paper greedy,0.3,A,False
+1163,Paper greedy,0.5,B,False
+1164,Paper greedy,0.5,C,True
+1165,Paper greedy,0.5,A,False
+1163,Paper greedy,0.7,B,False
+1164,Paper greedy,0.7,C,True
+1165,Paper greedy,0.7,A,False
+1163,Tiles,0.3,B,False
+1164,Tiles,0.3,C,True
+1165,Tiles,0.3,A,False
+1163,Tiles,0.5,B,False
+1164,Tiles,0.5,C,True
+1165,Tiles,0.5,A,False
+1163,Tiles,0.7,B,False
+1164,Tiles,0.7,C,True
+1165,Tiles,0.7,A,False
+102,Dense,1.0,A,True
+103,Dense,1.0,A,False
+104,Dense,1.0,A,True
+105,Dense,1.0,A,False
+106,Dense,1.0,A,False
+107,Dense,1.0,A,False
+108,Dense,1.0,A,True
+102,Top-R,0.3,B,False
+103,Top-R,0.3,A,False
+104,Top-R,0.3,B,False
+105,Top-R,0.3,A,False
+106,Top-R,0.3,A,False
+107,Top-R,0.3,B,True
+108,Top-R,0.3,A,True
+102,Top-R,0.5,B,False
+103,Top-R,0.5,A,False
+104,Top-R,0.5,A,True
+105,Top-R,0.5,A,False
+106,Top-R,0.5,A,False
+107,Top-R,0.5,A,False
+108,Top-R,0.5,A,True
+102,Top-R,0.7,A,True
+103,Top-R,0.7,A,False
+104,Top-R,0.7,A,True
+105,Top-R,0.7,A,False
+106,Top-R,0.7,A,False
+107,Top-R,0.7,A,False
+108,Top-R,0.7,A,True
+102,Paper greedy,0.3,B,False
+103,Paper greedy,0.3,A,False
+104,Paper greedy,0.3,A,True
+105,Paper greedy,0.3,A,False
+106,Paper greedy,0.3,A,False
+107,Paper greedy,0.3,B,True
+108,Paper greedy,0.3,A,True
+102,Paper greedy,0.5,B,False
+103,Paper greedy,0.5,A,False
+104,Paper greedy,0.5,A,True
+105,Paper greedy,0.5,A,False
+106,Paper greedy,0.5,A,False
+107,Paper greedy,0.5,B,True
+108,Paper greedy,0.5,A,True
+102,Paper greedy,0.7,B,False
+103,Paper greedy,0.7,A,False
+104,Paper greedy,0.7,A,True
+105,Paper greedy,0.7,A,False
+106,Paper greedy,0.7,A,False
+107,Paper greedy,0.7,A,False
+108,Paper greedy,0.7,A,True
+102,Tiles,0.3,B,False
+103,Tiles,0.3,A,False
+104,Tiles,0.3,A,True
+105,Tiles,0.3,A,False
+106,Tiles,0.3,A,False
+107,Tiles,0.3,B,True
+108,Tiles,0.3,A,True
+102,Tiles,0.5,B,False
+103,Tiles,0.5,A,False
+104,Tiles,0.5,A,True
+105,Tiles,0.5,A,False
+106,Tiles,0.5,A,False
+107,Tiles,0.5,B,True
+108,Tiles,0.5,A,True
+102,Tiles,0.7,B,False
+103,Tiles,0.7,A,False
+104,Tiles,0.7,A,True
+105,Tiles,0.7,A,False
+106,Tiles,0.7,A,False
+107,Tiles,0.7,A,False
+108,Tiles,0.7,A,True
+109,Dense,1.0,A,True
+110,Dense,1.0,A,False
+111,Dense,1.0,A,False
+109,Top-R,0.3,A,True
+110,Top-R,0.3,B,False
+111,Top-R,0.3,A,False
+109,Top-R,0.5,A,True
+110,Top-R,0.5,A,False
+111,Top-R,0.5,A,False
+109,Top-R,0.7,A,True
+110,Top-R,0.7,A,False
+111,Top-R,0.7,A,False
+109,Paper greedy,0.3,A,True
+110,Paper greedy,0.3,B,False
+111,Paper greedy,0.3,A,False
+109,Paper greedy,0.5,A,True
+110,Paper greedy,0.5,B,False
+111,Paper greedy,0.5,A,False
+109,Paper greedy,0.7,A,True
+110,Paper greedy,0.7,A,False
+111,Paper greedy,0.7,A,False
+109,Tiles,0.3,A,True
+110,Tiles,0.3,B,False
+111,Tiles,0.3,A,False
+109,Tiles,0.5,A,True
+110,Tiles,0.5,B,False
+111,Tiles,0.5,A,False
+109,Tiles,0.7,A,True
+110,Tiles,0.7,A,False
+111,Tiles,0.7,A,False
+415,Dense,1.0,A,True
+416,Dense,1.0,B,True
+417,Dense,1.0,C,True
+418,Dense,1.0,A,True
+419,Dense,1.0,B,True
+420,Dense,1.0,A,True
+421,Dense,1.0,C,True
+422,Dense,1.0,A,False
+415,Top-R,0.3,A,True
+416,Top-R,0.3,B,True
+417,Top-R,0.3,C,True
+418,Top-R,0.3,A,True
+419,Top-R,0.3,B,True
+420,Top-R,0.3,A,True
+421,Top-R,0.3,B,False
+422,Top-R,0.3,A,False
+415,Top-R,0.5,A,True
+416,Top-R,0.5,B,True
+417,Top-R,0.5,C,True
+418,Top-R,0.5,A,True
+419,Top-R,0.5,A,False
+420,Top-R,0.5,A,True
+421,Top-R,0.5,C,True
+422,Top-R,0.5,A,False
+415,Top-R,0.7,A,True
+416,Top-R,0.7,B,True
+417,Top-R,0.7,C,True
+418,Top-R,0.7,A,True
+419,Top-R,0.7,B,True
+420,Top-R,0.7,A,True
+421,Top-R,0.7,C,True
+422,Top-R,0.7,A,False
+415,Paper greedy,0.3,A,True
+416,Paper greedy,0.3,B,True
+417,Paper greedy,0.3,C,True
+418,Paper greedy,0.3,A,True
+419,Paper greedy,0.3,A,False
+420,Paper greedy,0.3,A,True
+421,Paper greedy,0.3,B,False
+422,Paper greedy,0.3,A,False
+415,Paper greedy,0.5,A,True
+416,Paper greedy,0.5,B,True
+417,Paper greedy,0.5,C,True
+418,Paper greedy,0.5,A,True
+419,Paper greedy,0.5,B,True
+420,Paper greedy,0.5,A,True
+421,Paper greedy,0.5,C,True
+422,Paper greedy,0.5,A,False
+415,Paper greedy,0.7,A,True
+416,Paper greedy,0.7,B,True
+417,Paper greedy,0.7,C,True
+418,Paper greedy,0.7,A,True
+419,Paper greedy,0.7,B,True
+420,Paper greedy,0.7,A,True
+421,Paper greedy,0.7,C,True
+422,Paper greedy,0.7,A,False
+415,Tiles,0.3,A,True
+416,Tiles,0.3,C,False
+417,Tiles,0.3,C,True
+418,Tiles,0.3,A,True
+419,Tiles,0.3,A,False
+420,Tiles,0.3,A,True
+421,Tiles,0.3,B,False
+422,Tiles,0.3,A,False
+415,Tiles,0.5,A,True
+416,Tiles,0.5,B,True
+417,Tiles,0.5,C,True
+418,Tiles,0.5,A,True
+419,Tiles,0.5,B,True
+420,Tiles,0.5,A,True
+421,Tiles,0.5,B,False
+422,Tiles,0.5,A,False
+415,Tiles,0.7,A,True
+416,Tiles,0.7,B,True
+417,Tiles,0.7,C,True
+418,Tiles,0.7,A,True
+419,Tiles,0.7,B,True
+420,Tiles,0.7,A,True
+421,Tiles,0.7,C,True
+422,Tiles,0.7,A,False
+1313,Dense,1.0,A,False
+1314,Dense,1.0,A,False
+1315,Dense,1.0,A,False
+1313,Top-R,0.3,A,False
+1314,Top-R,0.3,A,False
+1315,Top-R,0.3,A,False
+1313,Top-R,0.5,A,False
+1314,Top-R,0.5,A,False
+1315,Top-R,0.5,A,False
+1313,Top-R,0.7,A,False
+1314,Top-R,0.7,A,False
+1315,Top-R,0.7,A,False
+1313,Paper greedy,0.3,A,False
+1314,Paper greedy,0.3,A,False
+1315,Paper greedy,0.3,A,False
+1313,Paper greedy,0.5,A,False
+1314,Paper greedy,0.5,A,False
+1315,Paper greedy,0.5,A,False
+1313,Paper greedy,0.7,A,False
+1314,Paper greedy,0.7,A,False
+1315,Paper greedy,0.7,A,False
+1313,Tiles,0.3,A,False
+1314,Tiles,0.3,A,False
+1315,Tiles,0.3,A,False
+1313,Tiles,0.5,A,False
+1314,Tiles,0.5,A,False
+1315,Tiles,0.5,A,False
+1313,Tiles,0.7,A,False
+1314,Tiles,0.7,A,False
+1315,Tiles,0.7,A,False
+1316,Dense,1.0,A,True
+1317,Dense,1.0,A,True
+1318,Dense,1.0,A,False
+1316,Top-R,0.3,A,True
+1317,Top-R,0.3,B,False
+1318,Top-R,0.3,A,False
+1316,Top-R,0.5,A,True
+1317,Top-R,0.5,A,True
+1318,Top-R,0.5,A,False
+1316,Top-R,0.7,A,True
+1317,Top-R,0.7,A,True
+1318,Top-R,0.7,A,False
+1316,Paper greedy,0.3,A,True
+1317,Paper greedy,0.3,B,False
+1318,Paper greedy,0.3,A,False
+1316,Paper greedy,0.5,A,True
+1317,Paper greedy,0.5,A,True
+1318,Paper greedy,0.5,A,False
+1316,Paper greedy,0.7,A,True
+1317,Paper greedy,0.7,A,True
+1318,Paper greedy,0.7,A,False
+1316,Tiles,0.3,A,True
+1317,Tiles,0.3,B,False
+1318,Tiles,0.3,A,False
+1316,Tiles,0.5,A,True
+1317,Tiles,0.5,A,True
+1318,Tiles,0.5,A,False
+1316,Tiles,0.7,A,True
+1317,Tiles,0.7,A,True
+1318,Tiles,0.7,A,False
+1337,Dense,1.0,A,True
+1338,Dense,1.0,A,False
+1339,Dense,1.0,C,False
+1337,Top-R,0.3,A,True
+1338,Top-R,0.3,A,False
+1339,Top-R,0.3,C,False
+1337,Top-R,0.5,A,True
+1338,Top-R,0.5,A,False
+1339,Top-R,0.5,C,False
+1337,Top-R,0.7,A,True
+1338,Top-R,0.7,A,False
+1339,Top-R,0.7,C,False
+1337,Paper greedy,0.3,A,True
+1338,Paper greedy,0.3,A,False
+1339,Paper greedy,0.3,C,False
+1337,Paper greedy,0.5,A,True
+1338,Paper greedy,0.5,A,False
+1339,Paper greedy,0.5,C,False
+1337,Paper greedy,0.7,A,True
+1338,Paper greedy,0.7,A,False
+1339,Paper greedy,0.7,C,False
+1337,Tiles,0.3,A,True
+1338,Tiles,0.3,A,False
+1339,Tiles,0.3,C,False
+1337,Tiles,0.5,A,True
+1338,Tiles,0.5,A,False
+1339,Tiles,0.5,C,False
+1337,Tiles,0.7,A,True
+1338,Tiles,0.7,A,False
+1339,Tiles,0.7,C,False
+457,Dense,1.0,A,False
+458,Dense,1.0,B,False
+459,Dense,1.0,A,True
+457,Top-R,0.3,C,True
+458,Top-R,0.3,B,False
+459,Top-R,0.3,A,True
+457,Top-R,0.5,A,False
+458,Top-R,0.5,B,False
+459,Top-R,0.5,A,True
+457,Top-R,0.7,A,False
+458,Top-R,0.7,B,False
+459,Top-R,0.7,A,True
+457,Paper greedy,0.3,C,True
+458,Paper greedy,0.3,B,False
+459,Paper greedy,0.3,A,True
+457,Paper greedy,0.5,C,True
+458,Paper greedy,0.5,B,False
+459,Paper greedy,0.5,A,True
+457,Paper greedy,0.7,C,True
+458,Paper greedy,0.7,B,False
+459,Paper greedy,0.7,A,True
+457,Tiles,0.3,C,True
+458,Tiles,0.3,B,False
+459,Tiles,0.3,A,True
+457,Tiles,0.5,C,True
+458,Tiles,0.5,B,False
+459,Tiles,0.5,A,True
+457,Tiles,0.7,C,True
+458,Tiles,0.7,B,False
+459,Tiles,0.7,A,True
+1025,Dense,1.0,A,True
+1026,Dense,1.0,A,False
+1027,Dense,1.0,C,True
+1025,Top-R,0.3,A,True
+1026,Top-R,0.3,A,False
+1027,Top-R,0.3,A,False
+1025,Top-R,0.5,A,True
+1026,Top-R,0.5,A,False
+1027,Top-R,0.5,A,False
+1025,Top-R,0.7,A,True
+1026,Top-R,0.7,A,False
+1027,Top-R,0.7,A,False
+1025,Paper greedy,0.3,A,True
+1026,Paper greedy,0.3,A,False
+1027,Paper greedy,0.3,A,False
+1025,Paper greedy,0.5,A,True
+1026,Paper greedy,0.5,A,False
+1027,Paper greedy,0.5,A,False
+1025,Paper greedy,0.7,A,True
+1026,Paper greedy,0.7,A,False
+1027,Paper greedy,0.7,A,False
+1025,Tiles,0.3,A,True
+1026,Tiles,0.3,A,False
+1027,Tiles,0.3,C,True
+1025,Tiles,0.5,A,True
+1026,Tiles,0.5,A,False
+1027,Tiles,0.5,A,False
+1025,Tiles,0.7,A,True
+1026,Tiles,0.7,A,False
+1027,Tiles,0.7,A,False
+1028,Dense,1.0,A,False
+1029,Dense,1.0,A,False
+1030,Dense,1.0,C,False
+1028,Top-R,0.3,A,False
+1029,Top-R,0.3,A,False
+1030,Top-R,0.3,A,False
+1028,Top-R,0.5,A,False
+1029,Top-R,0.5,A,False
+1030,Top-R,0.5,A,False
+1028,Top-R,0.7,A,False
+1029,Top-R,0.7,A,False
+1030,Top-R,0.7,A,False
+1028,Paper greedy,0.3,A,False
+1029,Paper greedy,0.3,A,False
+1030,Paper greedy,0.3,A,False
+1028,Paper greedy,0.5,A,False
+1029,Paper greedy,0.5,A,False
+1030,Paper greedy,0.5,A,False
+1028,Paper greedy,0.7,A,False
+1029,Paper greedy,0.7,A,False
+1030,Paper greedy,0.7,A,False
+1028,Tiles,0.3,A,False
+1029,Tiles,0.3,A,False
+1030,Tiles,0.3,A,False
+1028,Tiles,0.5,A,False
+1029,Tiles,0.5,A,False
+1030,Tiles,0.5,A,False
+1028,Tiles,0.7,A,False
+1029,Tiles,0.7,A,False
+1030,Tiles,0.7,A,False
+732,Dense,1.0,A,False
+733,Dense,1.0,A,False
+734,Dense,1.0,A,True
+735,Dense,1.0,A,False
+732,Top-R,0.3,A,False
+733,Top-R,0.3,A,False
+734,Top-R,0.3,A,True
+735,Top-R,0.3,A,False
+732,Top-R,0.5,A,False
+733,Top-R,0.5,A,False
+734,Top-R,0.5,A,True
+735,Top-R,0.5,A,False
+732,Top-R,0.7,A,False
+733,Top-R,0.7,A,False
+734,Top-R,0.7,A,True
+735,Top-R,0.7,A,False
+732,Paper greedy,0.3,A,False
+733,Paper greedy,0.3,A,False
+734,Paper greedy,0.3,A,True
+735,Paper greedy,0.3,A,False
+732,Paper greedy,0.5,A,False
+733,Paper greedy,0.5,A,False
+734,Paper greedy,0.5,A,True
+735,Paper greedy,0.5,A,False
+732,Paper greedy,0.7,A,False
+733,Paper greedy,0.7,A,False
+734,Paper greedy,0.7,A,True
+735,Paper greedy,0.7,A,False
+732,Tiles,0.3,A,False
+733,Tiles,0.3,A,False
+734,Tiles,0.3,A,True
+735,Tiles,0.3,A,False
+732,Tiles,0.5,A,False
+733,Tiles,0.5,A,False
+734,Tiles,0.5,A,True
+735,Tiles,0.5,A,False
+732,Tiles,0.7,A,False
+733,Tiles,0.7,A,False
+734,Tiles,0.7,A,True
+735,Tiles,0.7,A,False
+1472,Dense,1.0,C,False
+1473,Dense,1.0,A,False
+1474,Dense,1.0,B,False
+1472,Top-R,0.3,A,False
+1473,Top-R,0.3,A,False
+1474,Top-R,0.3,A,False
+1472,Top-R,0.5,A,False
+1473,Top-R,0.5,A,False
+1474,Top-R,0.5,A,False
+1472,Top-R,0.7,C,False
+1473,Top-R,0.7,A,False
+1474,Top-R,0.7,A,False
+1472,Paper greedy,0.3,A,False
+1473,Paper greedy,0.3,A,False
+1474,Paper greedy,0.3,A,False
+1472,Paper greedy,0.5,C,False
+1473,Paper greedy,0.5,A,False
+1474,Paper greedy,0.5,A,False
+1472,Paper greedy,0.7,C,False
+1473,Paper greedy,0.7,A,False
+1474,Paper greedy,0.7,A,False
+1472,Tiles,0.3,A,False
+1473,Tiles,0.3,A,False
+1474,Tiles,0.3,A,False
+1472,Tiles,0.5,C,False
+1473,Tiles,0.5,A,False
+1474,Tiles,0.5,B,False
+1472,Tiles,0.7,C,False
+1473,Tiles,0.7,A,False
+1474,Tiles,0.7,A,False
+142,Dense,1.0,B,True
+143,Dense,1.0,B,True
+144,Dense,1.0,A,True
+145,Dense,1.0,B,True
+146,Dense,1.0,A,True
+147,Dense,1.0,C,True
+148,Dense,1.0,A,False
+149,Dense,1.0,A,True
+150,Dense,1.0,A,False
+151,Dense,1.0,C,False
+152,Dense,1.0,A,True
+153,Dense,1.0,D,False
+154,Dense,1.0,C,True
+142,Top-R,0.3,B,True
+143,Top-R,0.3,B,True
+144,Top-R,0.3,A,True
+145,Top-R,0.3,B,True
+146,Top-R,0.3,A,True
+147,Top-R,0.3,C,True
+148,Top-R,0.3,B,True
+149,Top-R,0.3,A,True
+150,Top-R,0.3,A,False
+151,Top-R,0.3,C,False
+152,Top-R,0.3,A,True
+153,Top-R,0.3,A,True
+154,Top-R,0.3,C,True
+142,Top-R,0.5,B,True
+143,Top-R,0.5,B,True
+144,Top-R,0.5,A,True
+145,Top-R,0.5,B,True
+146,Top-R,0.5,A,True
+147,Top-R,0.5,C,True
+148,Top-R,0.5,A,False
+149,Top-R,0.5,A,True
+150,Top-R,0.5,A,False
+151,Top-R,0.5,C,False
+152,Top-R,0.5,A,True
+153,Top-R,0.5,D,False
+154,Top-R,0.5,C,True
+142,Top-R,0.7,B,True
+143,Top-R,0.7,B,True
+144,Top-R,0.7,A,True
+145,Top-R,0.7,B,True
+146,Top-R,0.7,A,True
+147,Top-R,0.7,C,True
+148,Top-R,0.7,A,False
+149,Top-R,0.7,A,True
+150,Top-R,0.7,A,False
+151,Top-R,0.7,C,False
+152,Top-R,0.7,A,True
+153,Top-R,0.7,D,False
+154,Top-R,0.7,C,True
+142,Paper greedy,0.3,B,True
+143,Paper greedy,0.3,B,True
+144,Paper greedy,0.3,A,True
+145,Paper greedy,0.3,B,True
+146,Paper greedy,0.3,A,True
+147,Paper greedy,0.3,C,True
+148,Paper greedy,0.3,B,True
+149,Paper greedy,0.3,A,True
+150,Paper greedy,0.3,A,False
+151,Paper greedy,0.3,C,False
+152,Paper greedy,0.3,A,True
+153,Paper greedy,0.3,A,True
+154,Paper greedy,0.3,A,False
+142,Paper greedy,0.5,B,True
+143,Paper greedy,0.5,B,True
+144,Paper greedy,0.5,A,True
+145,Paper greedy,0.5,B,True
+146,Paper greedy,0.5,A,True
+147,Paper greedy,0.5,C,True
+148,Paper greedy,0.5,A,False
+149,Paper greedy,0.5,A,True
+150,Paper greedy,0.5,A,False
+151,Paper greedy,0.5,C,False
+152,Paper greedy,0.5,A,True
+153,Paper greedy,0.5,D,False
+154,Paper greedy,0.5,C,True
+142,Paper greedy,0.7,B,True
+143,Paper greedy,0.7,B,True
+144,Paper greedy,0.7,A,True
+145,Paper greedy,0.7,B,True
+146,Paper greedy,0.7,A,True
+147,Paper greedy,0.7,C,True
+148,Paper greedy,0.7,A,False
+149,Paper greedy,0.7,A,True
+150,Paper greedy,0.7,B,True
+151,Paper greedy,0.7,C,False
+152,Paper greedy,0.7,A,True
+153,Paper greedy,0.7,D,False
+154,Paper greedy,0.7,C,True
+142,Tiles,0.3,B,True
+143,Tiles,0.3,B,True
+144,Tiles,0.3,A,True
+145,Tiles,0.3,B,True
+146,Tiles,0.3,A,True
+147,Tiles,0.3,C,True
+148,Tiles,0.3,B,True
+149,Tiles,0.3,A,True
+150,Tiles,0.3,A,False
+151,Tiles,0.3,C,False
+152,Tiles,0.3,A,True
+153,Tiles,0.3,A,True
+154,Tiles,0.3,C,True
+142,Tiles,0.5,B,True
+143,Tiles,0.5,B,True
+144,Tiles,0.5,A,True
+145,Tiles,0.5,D,False
+146,Tiles,0.5,A,True
+147,Tiles,0.5,C,True
+148,Tiles,0.5,A,False
+149,Tiles,0.5,A,True
+150,Tiles,0.5,A,False
+151,Tiles,0.5,C,False
+152,Tiles,0.5,A,True
+153,Tiles,0.5,D,False
+154,Tiles,0.5,C,True
+142,Tiles,0.7,B,True
+143,Tiles,0.7,B,True
+144,Tiles,0.7,A,True
+145,Tiles,0.7,B,True
+146,Tiles,0.7,A,True
+147,Tiles,0.7,C,True
+148,Tiles,0.7,A,False
+149,Tiles,0.7,A,True
+150,Tiles,0.7,A,False
+151,Tiles,0.7,C,False
+152,Tiles,0.7,A,True
+153,Tiles,0.7,D,False
+154,Tiles,0.7,C,True
+1265,Dense,1.0,A,True
+1266,Dense,1.0,A,True
+1267,Dense,1.0,A,True
+1265,Top-R,0.3,A,True
+1266,Top-R,0.3,A,True
+1267,Top-R,0.3,A,True
+1265,Top-R,0.5,A,True
+1266,Top-R,0.5,A,True
+1267,Top-R,0.5,A,True
+1265,Top-R,0.7,A,True
+1266,Top-R,0.7,A,True
+1267,Top-R,0.7,A,True
+1265,Paper greedy,0.3,A,True
+1266,Paper greedy,0.3,A,True
+1267,Paper greedy,0.3,A,True
+1265,Paper greedy,0.5,A,True
+1266,Paper greedy,0.5,A,True
+1267,Paper greedy,0.5,A,True
+1265,Paper greedy,0.7,A,True
+1266,Paper greedy,0.7,A,True
+1267,Paper greedy,0.7,A,True
+1265,Tiles,0.3,A,True
+1266,Tiles,0.3,A,True
+1267,Tiles,0.3,A,True
+1265,Tiles,0.5,A,True
+1266,Tiles,0.5,A,True
+1267,Tiles,0.5,A,True
+1265,Tiles,0.7,A,True
+1266,Tiles,0.7,A,True
+1267,Tiles,0.7,A,True
+1565,Dense,1.0,A,True
+1566,Dense,1.0,A,True
+1567,Dense,1.0,A,True
+1565,Top-R,0.3,B,False
+1566,Top-R,0.3,B,False
+1567,Top-R,0.3,B,False
+1565,Top-R,0.5,B,False
+1566,Top-R,0.5,B,False
+1567,Top-R,0.5,C,False
+1565,Top-R,0.7,A,True
+1566,Top-R,0.7,C,False
+1567,Top-R,0.7,C,False
+1565,Paper greedy,0.3,A,True
+1566,Paper greedy,0.3,C,False
+1567,Paper greedy,0.3,C,False
+1565,Paper greedy,0.5,A,True
+1566,Paper greedy,0.5,C,False
+1567,Paper greedy,0.5,C,False
+1565,Paper greedy,0.7,A,True
+1566,Paper greedy,0.7,C,False
+1567,Paper greedy,0.7,C,False
+1565,Tiles,0.3,A,True
+1566,Tiles,0.3,B,False
+1567,Tiles,0.3,B,False
+1565,Tiles,0.5,A,True
+1566,Tiles,0.5,C,False
+1567,Tiles,0.5,C,False
+1565,Tiles,0.7,A,True
+1566,Tiles,0.7,C,False
+1567,Tiles,0.7,C,False
+992,Dense,1.0,A,False
+993,Dense,1.0,B,True
+994,Dense,1.0,C,False
+992,Top-R,0.3,A,False
+993,Top-R,0.3,B,True
+994,Top-R,0.3,C,False
+992,Top-R,0.5,A,False
+993,Top-R,0.5,B,True
+994,Top-R,0.5,B,True
+992,Top-R,0.7,B,True
+993,Top-R,0.7,B,True
+994,Top-R,0.7,C,False
+992,Paper greedy,0.3,A,False
+993,Paper greedy,0.3,B,True
+994,Paper greedy,0.3,B,True
+992,Paper greedy,0.5,A,False
+993,Paper greedy,0.5,B,True
+994,Paper greedy,0.5,B,True
+992,Paper greedy,0.7,A,False
+993,Paper greedy,0.7,B,True
+994,Paper greedy,0.7,C,False
+992,Tiles,0.3,A,False
+993,Tiles,0.3,B,True
+994,Tiles,0.3,C,False
+992,Tiles,0.5,A,False
+993,Tiles,0.5,B,True
+994,Tiles,0.5,C,False
+992,Tiles,0.7,B,True
+993,Tiles,0.7,B,True
+994,Tiles,0.7,C,False
+742,Dense,1.0,C,False
+743,Dense,1.0,A,True
+744,Dense,1.0,A,False
+742,Top-R,0.3,C,False
+743,Top-R,0.3,A,True
+744,Top-R,0.3,A,False
+742,Top-R,0.5,C,False
+743,Top-R,0.5,D,False
+744,Top-R,0.5,A,False
+742,Top-R,0.7,C,False
+743,Top-R,0.7,A,True
+744,Top-R,0.7,A,False
+742,Paper greedy,0.3,C,False
+743,Paper greedy,0.3,A,True
+744,Paper greedy,0.3,A,False
+742,Paper greedy,0.5,C,False
+743,Paper greedy,0.5,A,True
+744,Paper greedy,0.5,A,False
+742,Paper greedy,0.7,C,False
+743,Paper greedy,0.7,A,True
+744,Paper greedy,0.7,A,False
+742,Tiles,0.3,C,False
+743,Tiles,0.3,A,True
+744,Tiles,0.3,A,False
+742,Tiles,0.5,C,False
+743,Tiles,0.5,A,True
+744,Tiles,0.5,A,False
+742,Tiles,0.7,C,False
+743,Tiles,0.7,A,True
+744,Tiles,0.7,A,False
+1304,Dense,1.0,A,False
+1305,Dense,1.0,A,False
+1306,Dense,1.0,B,False
+1304,Top-R,0.3,A,False
+1305,Top-R,0.3,A,False
+1306,Top-R,0.3,B,False
+1304,Top-R,0.5,A,False
+1305,Top-R,0.5,A,False
+1306,Top-R,0.5,C,False
+1304,Top-R,0.7,A,False
+1305,Top-R,0.7,A,False
+1306,Top-R,0.7,B,False
+1304,Paper greedy,0.3,A,False
+1305,Paper greedy,0.3,A,False
+1306,Paper greedy,0.3,C,False
+1304,Paper greedy,0.5,A,False
+1305,Paper greedy,0.5,A,False
+1306,Paper greedy,0.5,B,False
+1304,Paper greedy,0.7,A,False
+1305,Paper greedy,0.7,A,False
+1306,Paper greedy,0.7,C,False
+1304,Tiles,0.3,A,False
+1305,Tiles,0.3,A,False
+1306,Tiles,0.3,C,False
+1304,Tiles,0.5,B,False
+1305,Tiles,0.5,A,False
+1306,Tiles,0.5,C,False
+1304,Tiles,0.7,A,False
+1305,Tiles,0.7,A,False
+1306,Tiles,0.7,B,False
+572,Dense,1.0,A,True
+573,Dense,1.0,A,True
+574,Dense,1.0,D,False
+575,Dense,1.0,B,False
+576,Dense,1.0,A,False
+577,Dense,1.0,B,True
+572,Top-R,0.3,D,False
+573,Top-R,0.3,C,False
+574,Top-R,0.3,D,False
+575,Top-R,0.3,B,False
+576,Top-R,0.3,A,False
+577,Top-R,0.3,B,True
+572,Top-R,0.5,D,False
+573,Top-R,0.5,C,False
+574,Top-R,0.5,B,True
+575,Top-R,0.5,B,False
+576,Top-R,0.5,C,True
+577,Top-R,0.5,B,True
+572,Top-R,0.7,D,False
+573,Top-R,0.7,A,True
+574,Top-R,0.7,B,True
+575,Top-R,0.7,B,False
+576,Top-R,0.7,C,True
+577,Top-R,0.7,B,True
+572,Paper greedy,0.3,D,False
+573,Paper greedy,0.3,C,False
+574,Paper greedy,0.3,B,True
+575,Paper greedy,0.3,B,False
+576,Paper greedy,0.3,A,False
+577,Paper greedy,0.3,B,True
+572,Paper greedy,0.5,D,False
+573,Paper greedy,0.5,C,False
+574,Paper greedy,0.5,B,True
+575,Paper greedy,0.5,B,False
+576,Paper greedy,0.5,C,True
+577,Paper greedy,0.5,C,False
+572,Paper greedy,0.7,D,False
+573,Paper greedy,0.7,A,True
+574,Paper greedy,0.7,B,True
+575,Paper greedy,0.7,B,False
+576,Paper greedy,0.7,A,False
+577,Paper greedy,0.7,B,True
+572,Tiles,0.3,D,False
+573,Tiles,0.3,C,False
+574,Tiles,0.3,B,True
+575,Tiles,0.3,B,False
+576,Tiles,0.3,A,False
+577,Tiles,0.3,B,True
+572,Tiles,0.5,D,False
+573,Tiles,0.5,C,False
+574,Tiles,0.5,D,False
+575,Tiles,0.5,B,False
+576,Tiles,0.5,C,True
+577,Tiles,0.5,B,True
+572,Tiles,0.7,D,False
+573,Tiles,0.7,A,True
+574,Tiles,0.7,B,True
+575,Tiles,0.7,B,False
+576,Tiles,0.7,A,False
+577,Tiles,0.7,B,True
+397,Dense,1.0,D,True
+398,Dense,1.0,B,True
+399,Dense,1.0,C,True
+397,Top-R,0.3,D,True
+398,Top-R,0.3,B,True
+399,Top-R,0.3,C,True
+397,Top-R,0.5,D,True
+398,Top-R,0.5,B,True
+399,Top-R,0.5,C,True
+397,Top-R,0.7,D,True
+398,Top-R,0.7,B,True
+399,Top-R,0.7,C,True
+397,Paper greedy,0.3,D,True
+398,Paper greedy,0.3,B,True
+399,Paper greedy,0.3,C,True
+397,Paper greedy,0.5,D,True
+398,Paper greedy,0.5,B,True
+399,Paper greedy,0.5,C,True
+397,Paper greedy,0.7,D,True
+398,Paper greedy,0.7,B,True
+399,Paper greedy,0.7,C,True
+397,Tiles,0.3,D,True
+398,Tiles,0.3,B,True
+399,Tiles,0.3,C,True
+397,Tiles,0.5,D,True
+398,Tiles,0.5,B,True
+399,Tiles,0.5,C,True
+397,Tiles,0.7,D,True
+398,Tiles,0.7,B,True
+399,Tiles,0.7,C,True
+374,Dense,1.0,C,False
+375,Dense,1.0,A,True
+376,Dense,1.0,A,True
+377,Dense,1.0,A,False
+378,Dense,1.0,C,True
+379,Dense,1.0,D,True
+380,Dense,1.0,A,True
+381,Dense,1.0,B,False
+374,Top-R,0.3,C,False
+375,Top-R,0.3,A,True
+376,Top-R,0.3,A,True
+377,Top-R,0.3,A,False
+378,Top-R,0.3,B,False
+379,Top-R,0.3,D,True
+380,Top-R,0.3,A,True
+381,Top-R,0.3,B,False
+374,Top-R,0.5,C,False
+375,Top-R,0.5,A,True
+376,Top-R,0.5,A,True
+377,Top-R,0.5,C,True
+378,Top-R,0.5,B,False
+379,Top-R,0.5,D,True
+380,Top-R,0.5,A,True
+381,Top-R,0.5,B,False
+374,Top-R,0.7,C,False
+375,Top-R,0.7,A,True
+376,Top-R,0.7,A,True
+377,Top-R,0.7,C,True
+378,Top-R,0.7,D,False
+379,Top-R,0.7,D,True
+380,Top-R,0.7,A,True
+381,Top-R,0.7,B,False
+374,Paper greedy,0.3,C,False
+375,Paper greedy,0.3,A,True
+376,Paper greedy,0.3,A,True
+377,Paper greedy,0.3,A,False
+378,Paper greedy,0.3,B,False
+379,Paper greedy,0.3,D,True
+380,Paper greedy,0.3,A,True
+381,Paper greedy,0.3,B,False
+374,Paper greedy,0.5,C,False
+375,Paper greedy,0.5,A,True
+376,Paper greedy,0.5,A,True
+377,Paper greedy,0.5,A,False
+378,Paper greedy,0.5,B,False
+379,Paper greedy,0.5,D,True
+380,Paper greedy,0.5,A,True
+381,Paper greedy,0.5,B,False
+374,Paper greedy,0.7,C,False
+375,Paper greedy,0.7,A,True
+376,Paper greedy,0.7,A,True
+377,Paper greedy,0.7,C,True
+378,Paper greedy,0.7,D,False
+379,Paper greedy,0.7,D,True
+380,Paper greedy,0.7,A,True
+381,Paper greedy,0.7,B,False
+374,Tiles,0.3,A,False
+375,Tiles,0.3,A,True
+376,Tiles,0.3,A,True
+377,Tiles,0.3,A,False
+378,Tiles,0.3,B,False
+379,Tiles,0.3,D,True
+380,Tiles,0.3,D,False
+381,Tiles,0.3,B,False
+374,Tiles,0.5,C,False
+375,Tiles,0.5,A,True
+376,Tiles,0.5,D,False
+377,Tiles,0.5,A,False
+378,Tiles,0.5,B,False
+379,Tiles,0.5,D,True
+380,Tiles,0.5,A,True
+381,Tiles,0.5,B,False
+374,Tiles,0.7,C,False
+375,Tiles,0.7,A,True
+376,Tiles,0.7,A,True
+377,Tiles,0.7,C,True
+378,Tiles,0.7,D,False
+379,Tiles,0.7,D,True
+380,Tiles,0.7,A,True
+381,Tiles,0.7,B,False
+1217,Dense,1.0,B,True
+1218,Dense,1.0,A,True
+1219,Dense,1.0,A,True
+1217,Top-R,0.3,B,True
+1218,Top-R,0.3,A,True
+1219,Top-R,0.3,A,True
+1217,Top-R,0.5,B,True
+1218,Top-R,0.5,A,True
+1219,Top-R,0.5,A,True
+1217,Top-R,0.7,B,True
+1218,Top-R,0.7,A,True
+1219,Top-R,0.7,A,True
+1217,Paper greedy,0.3,B,True
+1218,Paper greedy,0.3,C,False
+1219,Paper greedy,0.3,A,True
+1217,Paper greedy,0.5,B,True
+1218,Paper greedy,0.5,A,True
+1219,Paper greedy,0.5,A,True
+1217,Paper greedy,0.7,B,True
+1218,Paper greedy,0.7,A,True
+1219,Paper greedy,0.7,A,True
+1217,Tiles,0.3,B,True
+1218,Tiles,0.3,C,False
+1219,Tiles,0.3,A,True
+1217,Tiles,0.5,B,True
+1218,Tiles,0.5,A,True
+1219,Tiles,0.5,A,True
+1217,Tiles,0.7,B,True
+1218,Tiles,0.7,A,True
+1219,Tiles,0.7,A,True
+1220,Dense,1.0,A,False
+1221,Dense,1.0,A,False
+1222,Dense,1.0,B,False
+1220,Top-R,0.3,A,False
+1221,Top-R,0.3,A,False
+1222,Top-R,0.3,B,False
+1220,Top-R,0.5,A,False
+1221,Top-R,0.5,A,False
+1222,Top-R,0.5,B,False
+1220,Top-R,0.7,A,False
+1221,Top-R,0.7,A,False
+1222,Top-R,0.7,B,False
+1220,Paper greedy,0.3,A,False
+1221,Paper greedy,0.3,A,False
+1222,Paper greedy,0.3,B,False
+1220,Paper greedy,0.5,A,False
+1221,Paper greedy,0.5,A,False
+1222,Paper greedy,0.5,B,False
+1220,Paper greedy,0.7,A,False
+1221,Paper greedy,0.7,A,False
+1222,Paper greedy,0.7,B,False
+1220,Tiles,0.3,A,False
+1221,Tiles,0.3,A,False
+1222,Tiles,0.3,B,False
+1220,Tiles,0.5,A,False
+1221,Tiles,0.5,A,False
+1222,Tiles,0.5,B,False
+1220,Tiles,0.7,A,False
+1221,Tiles,0.7,A,False
+1222,Tiles,0.7,B,False
+1034,Dense,1.0,A,False
+1035,Dense,1.0,B,True
+1036,Dense,1.0,B,True
+1034,Top-R,0.3,A,False
+1035,Top-R,0.3,B,True
+1036,Top-R,0.3,B,True
+1034,Top-R,0.5,A,False
+1035,Top-R,0.5,B,True
+1036,Top-R,0.5,B,True
+1034,Top-R,0.7,A,False
+1035,Top-R,0.7,B,True
+1036,Top-R,0.7,B,True
+1034,Paper greedy,0.3,A,False
+1035,Paper greedy,0.3,B,True
+1036,Paper greedy,0.3,B,True
+1034,Paper greedy,0.5,A,False
+1035,Paper greedy,0.5,B,True
+1036,Paper greedy,0.5,B,True
+1034,Paper greedy,0.7,A,False
+1035,Paper greedy,0.7,B,True
+1036,Paper greedy,0.7,B,True
+1034,Tiles,0.3,A,False
+1035,Tiles,0.3,B,True
+1036,Tiles,0.3,B,True
+1034,Tiles,0.5,A,False
+1035,Tiles,0.5,B,True
+1036,Tiles,0.5,B,True
+1034,Tiles,0.7,A,False
+1035,Tiles,0.7,B,True
+1036,Tiles,0.7,B,True
+1037,Dense,1.0,A,False
+1038,Dense,1.0,A,False
+1039,Dense,1.0,C,False
+1037,Top-R,0.3,A,False
+1038,Top-R,0.3,C,False
+1039,Top-R,0.3,C,False
+1037,Top-R,0.5,A,False
+1038,Top-R,0.5,C,False
+1039,Top-R,0.5,C,False
+1037,Top-R,0.7,A,False
+1038,Top-R,0.7,A,False
+1039,Top-R,0.7,C,False
+1037,Paper greedy,0.3,A,False
+1038,Paper greedy,0.3,A,False
+1039,Paper greedy,0.3,C,False
+1037,Paper greedy,0.5,A,False
+1038,Paper greedy,0.5,C,False
+1039,Paper greedy,0.5,C,False
+1037,Paper greedy,0.7,A,False
+1038,Paper greedy,0.7,C,False
+1039,Paper greedy,0.7,C,False
+1037,Tiles,0.3,A,False
+1038,Tiles,0.3,A,False
+1039,Tiles,0.3,C,False
+1037,Tiles,0.5,A,False
+1038,Tiles,0.5,C,False
+1039,Tiles,0.5,C,False
+1037,Tiles,0.7,C,False
+1038,Tiles,0.7,C,False
+1039,Tiles,0.7,C,False
+736,Dense,1.0,A,True
+737,Dense,1.0,C,False
+738,Dense,1.0,C,True
+736,Top-R,0.3,A,True
+737,Top-R,0.3,C,False
+738,Top-R,0.3,C,True
+736,Top-R,0.5,A,True
+737,Top-R,0.5,C,False
+738,Top-R,0.5,C,True
+736,Top-R,0.7,A,True
+737,Top-R,0.7,C,False
+738,Top-R,0.7,C,True
+736,Paper greedy,0.3,A,True
+737,Paper greedy,0.3,C,False
+738,Paper greedy,0.3,C,True
+736,Paper greedy,0.5,A,True
+737,Paper greedy,0.5,C,False
+738,Paper greedy,0.5,C,True
+736,Paper greedy,0.7,A,True
+737,Paper greedy,0.7,C,False
+738,Paper greedy,0.7,C,True
+736,Tiles,0.3,A,True
+737,Tiles,0.3,C,False
+738,Tiles,0.3,C,True
+736,Tiles,0.5,A,True
+737,Tiles,0.5,C,False
+738,Tiles,0.5,C,True
+736,Tiles,0.7,A,True
+737,Tiles,0.7,C,False
+738,Tiles,0.7,C,True
+167,Dense,1.0,B,True
+168,Dense,1.0,B,False
+169,Dense,1.0,B,False
+170,Dense,1.0,A,False
+171,Dense,1.0,B,False
+172,Dense,1.0,D,False
+173,Dense,1.0,C,True
+174,Dense,1.0,B,True
+167,Top-R,0.3,B,True
+168,Top-R,0.3,B,False
+169,Top-R,0.3,B,False
+170,Top-R,0.3,A,False
+171,Top-R,0.3,C,False
+172,Top-R,0.3,D,False
+173,Top-R,0.3,C,True
+174,Top-R,0.3,C,False
+167,Top-R,0.5,B,True
+168,Top-R,0.5,B,False
+169,Top-R,0.5,B,False
+170,Top-R,0.5,A,False
+171,Top-R,0.5,B,False
+172,Top-R,0.5,D,False
+173,Top-R,0.5,C,True
+174,Top-R,0.5,C,False
+167,Top-R,0.7,C,False
+168,Top-R,0.7,B,False
+169,Top-R,0.7,B,False
+170,Top-R,0.7,A,False
+171,Top-R,0.7,B,False
+172,Top-R,0.7,D,False
+173,Top-R,0.7,C,True
+174,Top-R,0.7,C,False
+167,Paper greedy,0.3,B,True
+168,Paper greedy,0.3,A,False
+169,Paper greedy,0.3,B,False
+170,Paper greedy,0.3,A,False
+171,Paper greedy,0.3,B,False
+172,Paper greedy,0.3,B,False
+173,Paper greedy,0.3,C,True
+174,Paper greedy,0.3,C,False
+167,Paper greedy,0.5,C,False
+168,Paper greedy,0.5,B,False
+169,Paper greedy,0.5,B,False
+170,Paper greedy,0.5,A,False
+171,Paper greedy,0.5,B,False
+172,Paper greedy,0.5,D,False
+173,Paper greedy,0.5,C,True
+174,Paper greedy,0.5,C,False
+167,Paper greedy,0.7,C,False
+168,Paper greedy,0.7,B,False
+169,Paper greedy,0.7,B,False
+170,Paper greedy,0.7,A,False
+171,Paper greedy,0.7,B,False
+172,Paper greedy,0.7,D,False
+173,Paper greedy,0.7,C,True
+174,Paper greedy,0.7,C,False
+167,Tiles,0.3,B,True
+168,Tiles,0.3,B,False
+169,Tiles,0.3,B,False
+170,Tiles,0.3,A,False
+171,Tiles,0.3,B,False
+172,Tiles,0.3,B,False
+173,Tiles,0.3,C,True
+174,Tiles,0.3,C,False
+167,Tiles,0.5,B,True
+168,Tiles,0.5,B,False
+169,Tiles,0.5,B,False
+170,Tiles,0.5,A,False
+171,Tiles,0.5,B,False
+172,Tiles,0.5,D,False
+173,Tiles,0.5,C,True
+174,Tiles,0.5,C,False
+167,Tiles,0.7,C,False
+168,Tiles,0.7,B,False
+169,Tiles,0.7,B,False
+170,Tiles,0.7,A,False
+171,Tiles,0.7,B,False
+172,Tiles,0.7,D,False
+173,Tiles,0.7,C,True
+174,Tiles,0.7,C,False
+965,Dense,1.0,A,True
+966,Dense,1.0,A,False
+967,Dense,1.0,A,True
+965,Top-R,0.3,A,True
+966,Top-R,0.3,A,False
+967,Top-R,0.3,A,True
+965,Top-R,0.5,A,True
+966,Top-R,0.5,A,False
+967,Top-R,0.5,A,True
+965,Top-R,0.7,A,True
+966,Top-R,0.7,A,False
+967,Top-R,0.7,A,True
+965,Paper greedy,0.3,A,True
+966,Paper greedy,0.3,A,False
+967,Paper greedy,0.3,A,True
+965,Paper greedy,0.5,A,True
+966,Paper greedy,0.5,A,False
+967,Paper greedy,0.5,A,True
+965,Paper greedy,0.7,A,True
+966,Paper greedy,0.7,A,False
+967,Paper greedy,0.7,A,True
+965,Tiles,0.3,A,True
+966,Tiles,0.3,A,False
+967,Tiles,0.3,A,True
+965,Tiles,0.5,A,True
+966,Tiles,0.5,A,False
+967,Tiles,0.5,A,True
+965,Tiles,0.7,A,True
+966,Tiles,0.7,A,False
+967,Tiles,0.7,A,True
+581,Dense,1.0,B,True
+582,Dense,1.0,C,True
+583,Dense,1.0,D,True
+584,Dense,1.0,C,True
+585,Dense,1.0,D,False
+586,Dense,1.0,A,False
+581,Top-R,0.3,B,True
+582,Top-R,0.3,C,True
+583,Top-R,0.3,D,True
+584,Top-R,0.3,C,True
+585,Top-R,0.3,D,False
+586,Top-R,0.3,A,False
+581,Top-R,0.5,B,True
+582,Top-R,0.5,C,True
+583,Top-R,0.5,D,True
+584,Top-R,0.5,C,True
+585,Top-R,0.5,B,True
+586,Top-R,0.5,A,False
+581,Top-R,0.7,B,True
+582,Top-R,0.7,C,True
+583,Top-R,0.7,D,True
+584,Top-R,0.7,C,True
+585,Top-R,0.7,D,False
+586,Top-R,0.7,A,False
+581,Paper greedy,0.3,B,True
+582,Paper greedy,0.3,C,True
+583,Paper greedy,0.3,D,True
+584,Paper greedy,0.3,C,True
+585,Paper greedy,0.3,D,False
+586,Paper greedy,0.3,A,False
+581,Paper greedy,0.5,B,True
+582,Paper greedy,0.5,C,True
+583,Paper greedy,0.5,D,True
+584,Paper greedy,0.5,C,True
+585,Paper greedy,0.5,D,False
+586,Paper greedy,0.5,C,True
+581,Paper greedy,0.7,B,True
+582,Paper greedy,0.7,C,True
+583,Paper greedy,0.7,D,True
+584,Paper greedy,0.7,C,True
+585,Paper greedy,0.7,D,False
+586,Paper greedy,0.7,A,False
+581,Tiles,0.3,B,True
+582,Tiles,0.3,C,True
+583,Tiles,0.3,D,True
+584,Tiles,0.3,B,False
+585,Tiles,0.3,D,False
+586,Tiles,0.3,A,False
+581,Tiles,0.5,B,True
+582,Tiles,0.5,C,True
+583,Tiles,0.5,D,True
+584,Tiles,0.5,C,True
+585,Tiles,0.5,D,False
+586,Tiles,0.5,C,True
+581,Tiles,0.7,B,True
+582,Tiles,0.7,C,True
+583,Tiles,0.7,D,True
+584,Tiles,0.7,C,True
+585,Tiles,0.7,D,False
+586,Tiles,0.7,A,False
+331,Dense,1.0,A,False
+332,Dense,1.0,B,False
+333,Dense,1.0,B,False
+331,Top-R,0.3,A,False
+332,Top-R,0.3,B,False
+333,Top-R,0.3,B,False
+331,Top-R,0.5,A,False
+332,Top-R,0.5,B,False
+333,Top-R,0.5,C,True
+331,Top-R,0.7,A,False
+332,Top-R,0.7,B,False
+333,Top-R,0.7,C,True
+331,Paper greedy,0.3,A,False
+332,Paper greedy,0.3,B,False
+333,Paper greedy,0.3,B,False
+331,Paper greedy,0.5,A,False
+332,Paper greedy,0.5,B,False
+333,Paper greedy,0.5,C,True
+331,Paper greedy,0.7,A,False
+332,Paper greedy,0.7,B,False
+333,Paper greedy,0.7,C,True
+331,Tiles,0.3,A,False
+332,Tiles,0.3,B,False
+333,Tiles,0.3,C,True
+331,Tiles,0.5,A,False
+332,Tiles,0.5,B,False
+333,Tiles,0.5,C,True
+331,Tiles,0.7,A,False
+332,Tiles,0.7,B,False
+333,Tiles,0.7,C,True
+21,Dense,1.0,A,False
+22,Dense,1.0,B,True
+23,Dense,1.0,C,True
+24,Dense,1.0,B,False
+25,Dense,1.0,B,True
+26,Dense,1.0,B,True
+27,Dense,1.0,C,True
+28,Dense,1.0,B,True
+21,Top-R,0.3,B,True
+22,Top-R,0.3,B,True
+23,Top-R,0.3,C,True
+24,Top-R,0.3,B,False
+25,Top-R,0.3,B,True
+26,Top-R,0.3,B,True
+27,Top-R,0.3,C,True
+28,Top-R,0.3,B,True
+21,Top-R,0.5,B,True
+22,Top-R,0.5,B,True
+23,Top-R,0.5,C,True
+24,Top-R,0.5,B,False
+25,Top-R,0.5,A,False
+26,Top-R,0.5,B,True
+27,Top-R,0.5,C,True
+28,Top-R,0.5,B,True
+21,Top-R,0.7,A,False
+22,Top-R,0.7,B,True
+23,Top-R,0.7,C,True
+24,Top-R,0.7,B,False
+25,Top-R,0.7,A,False
+26,Top-R,0.7,B,True
+27,Top-R,0.7,C,True
+28,Top-R,0.7,B,True
+21,Paper greedy,0.3,B,True
+22,Paper greedy,0.3,A,False
+23,Paper greedy,0.3,A,False
+24,Paper greedy,0.3,A,True
+25,Paper greedy,0.3,A,False
+26,Paper greedy,0.3,B,True
+27,Paper greedy,0.3,B,False
+28,Paper greedy,0.3,B,True
+21,Paper greedy,0.5,A,False
+22,Paper greedy,0.5,B,True
+23,Paper greedy,0.5,C,True
+24,Paper greedy,0.5,B,False
+25,Paper greedy,0.5,A,False
+26,Paper greedy,0.5,B,True
+27,Paper greedy,0.5,C,True
+28,Paper greedy,0.5,B,True
+21,Paper greedy,0.7,A,False
+22,Paper greedy,0.7,B,True
+23,Paper greedy,0.7,C,True
+24,Paper greedy,0.7,B,False
+25,Paper greedy,0.7,A,False
+26,Paper greedy,0.7,B,True
+27,Paper greedy,0.7,C,True
+28,Paper greedy,0.7,B,True
+21,Tiles,0.3,B,True
+22,Tiles,0.3,A,False
+23,Tiles,0.3,A,False
+24,Tiles,0.3,B,False
+25,Tiles,0.3,A,False
+26,Tiles,0.3,B,True
+27,Tiles,0.3,B,False
+28,Tiles,0.3,B,True
+21,Tiles,0.5,A,False
+22,Tiles,0.5,B,True
+23,Tiles,0.5,C,True
+24,Tiles,0.5,B,False
+25,Tiles,0.5,A,False
+26,Tiles,0.5,B,True
+27,Tiles,0.5,B,False
+28,Tiles,0.5,B,True
+21,Tiles,0.7,A,False
+22,Tiles,0.7,B,True
+23,Tiles,0.7,C,True
+24,Tiles,0.7,B,False
+25,Tiles,0.7,A,False
+26,Tiles,0.7,B,True
+27,Tiles,0.7,C,True
+28,Tiles,0.7,B,True
+1148,Dense,1.0,A,True
+1149,Dense,1.0,C,False
+1150,Dense,1.0,D,False
+1148,Top-R,0.3,A,True
+1149,Top-R,0.3,C,False
+1150,Top-R,0.3,D,False
+1148,Top-R,0.5,A,True
+1149,Top-R,0.5,C,False
+1150,Top-R,0.5,D,False
+1148,Top-R,0.7,A,True
+1149,Top-R,0.7,C,False
+1150,Top-R,0.7,D,False
+1148,Paper greedy,0.3,B,False
+1149,Paper greedy,0.3,C,False
+1150,Paper greedy,0.3,D,False
+1148,Paper greedy,0.5,B,False
+1149,Paper greedy,0.5,C,False
+1150,Paper greedy,0.5,D,False
+1148,Paper greedy,0.7,A,True
+1149,Paper greedy,0.7,C,False
+1150,Paper greedy,0.7,D,False
+1148,Tiles,0.3,B,False
+1149,Tiles,0.3,C,False
+1150,Tiles,0.3,D,False
+1148,Tiles,0.5,B,False
+1149,Tiles,0.5,C,False
+1150,Tiles,0.5,D,False
+1148,Tiles,0.7,A,True
+1149,Tiles,0.7,C,False
+1150,Tiles,0.7,D,False
+761,Dense,1.0,A,True
+762,Dense,1.0,B,False
+763,Dense,1.0,A,True
+764,Dense,1.0,A,False
+765,Dense,1.0,A,False
+766,Dense,1.0,A,False
+761,Top-R,0.3,C,False
+762,Top-R,0.3,B,False
+763,Top-R,0.3,A,True
+764,Top-R,0.3,A,False
+765,Top-R,0.3,B,False
+766,Top-R,0.3,C,True
+761,Top-R,0.5,C,False
+762,Top-R,0.5,B,False
+763,Top-R,0.5,A,True
+764,Top-R,0.5,A,False
+765,Top-R,0.5,B,False
+766,Top-R,0.5,C,True
+761,Top-R,0.7,C,False
+762,Top-R,0.7,B,False
+763,Top-R,0.7,A,True
+764,Top-R,0.7,A,False
+765,Top-R,0.7,B,False
+766,Top-R,0.7,A,False
+761,Paper greedy,0.3,B,False
+762,Paper greedy,0.3,B,False
+763,Paper greedy,0.3,B,False
+764,Paper greedy,0.3,A,False
+765,Paper greedy,0.3,B,False
+766,Paper greedy,0.3,A,False
+761,Paper greedy,0.5,C,False
+762,Paper greedy,0.5,B,False
+763,Paper greedy,0.5,A,True
+764,Paper greedy,0.5,A,False
+765,Paper greedy,0.5,B,False
+766,Paper greedy,0.5,A,False
+761,Paper greedy,0.7,C,False
+762,Paper greedy,0.7,B,False
+763,Paper greedy,0.7,A,True
+764,Paper greedy,0.7,A,False
+765,Paper greedy,0.7,B,False
+766,Paper greedy,0.7,A,False
+761,Tiles,0.3,B,False
+762,Tiles,0.3,B,False
+763,Tiles,0.3,B,False
+764,Tiles,0.3,A,False
+765,Tiles,0.3,A,False
+766,Tiles,0.3,A,False
+761,Tiles,0.5,C,False
+762,Tiles,0.5,B,False
+763,Tiles,0.5,B,False
+764,Tiles,0.5,A,False
+765,Tiles,0.5,B,False
+766,Tiles,0.5,C,True
+761,Tiles,0.7,C,False
+762,Tiles,0.7,B,False
+763,Tiles,0.7,A,True
+764,Tiles,0.7,A,False
+765,Tiles,0.7,B,False
+766,Tiles,0.7,A,False
+1082,Dense,1.0,A,True
+1083,Dense,1.0,C,True
+1084,Dense,1.0,B,True
+1082,Top-R,0.3,A,True
+1083,Top-R,0.3,C,True
+1084,Top-R,0.3,B,True
+1082,Top-R,0.5,A,True
+1083,Top-R,0.5,C,True
+1084,Top-R,0.5,B,True
+1082,Top-R,0.7,A,True
+1083,Top-R,0.7,C,True
+1084,Top-R,0.7,B,True
+1082,Paper greedy,0.3,A,True
+1083,Paper greedy,0.3,C,True
+1084,Paper greedy,0.3,B,True
+1082,Paper greedy,0.5,A,True
+1083,Paper greedy,0.5,C,True
+1084,Paper greedy,0.5,B,True
+1082,Paper greedy,0.7,A,True
+1083,Paper greedy,0.7,C,True
+1084,Paper greedy,0.7,B,True
+1082,Tiles,0.3,A,True
+1083,Tiles,0.3,C,True
+1084,Tiles,0.3,B,True
+1082,Tiles,0.5,A,True
+1083,Tiles,0.5,C,True
+1084,Tiles,0.5,B,True
+1082,Tiles,0.7,A,True
+1083,Tiles,0.7,C,True
+1084,Tiles,0.7,B,True
+1016,Dense,1.0,B,False
+1017,Dense,1.0,A,False
+1018,Dense,1.0,C,True
+1016,Top-R,0.3,B,False
+1017,Top-R,0.3,A,False
+1018,Top-R,0.3,C,True
+1016,Top-R,0.5,B,False
+1017,Top-R,0.5,A,False
+1018,Top-R,0.5,C,True
+1016,Top-R,0.7,B,False
+1017,Top-R,0.7,A,False
+1018,Top-R,0.7,C,True
+1016,Paper greedy,0.3,B,False
+1017,Paper greedy,0.3,A,False
+1018,Paper greedy,0.3,C,True
+1016,Paper greedy,0.5,B,False
+1017,Paper greedy,0.5,A,False
+1018,Paper greedy,0.5,C,True
+1016,Paper greedy,0.7,B,False
+1017,Paper greedy,0.7,A,False
+1018,Paper greedy,0.7,C,True
+1016,Tiles,0.3,B,False
+1017,Tiles,0.3,A,False
+1018,Tiles,0.3,C,True
+1016,Tiles,0.5,B,False
+1017,Tiles,0.5,A,False
+1018,Tiles,0.5,C,True
+1016,Tiles,0.7,B,False
+1017,Tiles,0.7,A,False
+1018,Tiles,0.7,C,True
+791,Dense,1.0,A,False
+792,Dense,1.0,A,False
+793,Dense,1.0,B,True
+791,Top-R,0.3,A,False
+792,Top-R,0.3,A,False
+793,Top-R,0.3,B,True
+791,Top-R,0.5,A,False
+792,Top-R,0.5,A,False
+793,Top-R,0.5,B,True
+791,Top-R,0.7,A,False
+792,Top-R,0.7,A,False
+793,Top-R,0.7,B,True
+791,Paper greedy,0.3,C,True
+792,Paper greedy,0.3,A,False
+793,Paper greedy,0.3,B,True
+791,Paper greedy,0.5,A,False
+792,Paper greedy,0.5,A,False
+793,Paper greedy,0.5,B,True
+791,Paper greedy,0.7,A,False
+792,Paper greedy,0.7,A,False
+793,Paper greedy,0.7,B,True
+791,Tiles,0.3,C,True
+792,Tiles,0.3,A,False
+793,Tiles,0.3,B,True
+791,Tiles,0.5,C,True
+792,Tiles,0.5,A,False
+793,Tiles,0.5,B,True
+791,Tiles,0.7,A,False
+792,Tiles,0.7,A,False
+793,Tiles,0.7,B,True
+1460,Dense,1.0,A,True
+1461,Dense,1.0,C,True
+1462,Dense,1.0,B,True
+1463,Dense,1.0,A,False
+1464,Dense,1.0,A,False
+1465,Dense,1.0,A,False
+1460,Top-R,0.3,A,True
+1461,Top-R,0.3,C,True
+1462,Top-R,0.3,B,True
+1463,Top-R,0.3,A,False
+1464,Top-R,0.3,C,False
+1465,Top-R,0.3,D,False
+1460,Top-R,0.5,A,True
+1461,Top-R,0.5,C,True
+1462,Top-R,0.5,B,True
+1463,Top-R,0.5,A,False
+1464,Top-R,0.5,A,False
+1465,Top-R,0.5,A,False
+1460,Top-R,0.7,A,True
+1461,Top-R,0.7,C,True
+1462,Top-R,0.7,B,True
+1463,Top-R,0.7,A,False
+1464,Top-R,0.7,A,False
+1465,Top-R,0.7,A,False
+1460,Paper greedy,0.3,A,True
+1461,Paper greedy,0.3,C,True
+1462,Paper greedy,0.3,B,True
+1463,Paper greedy,0.3,A,False
+1464,Paper greedy,0.3,A,False
+1465,Paper greedy,0.3,A,False
+1460,Paper greedy,0.5,A,True
+1461,Paper greedy,0.5,C,True
+1462,Paper greedy,0.5,B,True
+1463,Paper greedy,0.5,A,False
+1464,Paper greedy,0.5,A,False
+1465,Paper greedy,0.5,A,False
+1460,Paper greedy,0.7,A,True
+1461,Paper greedy,0.7,C,True
+1462,Paper greedy,0.7,B,True
+1463,Paper greedy,0.7,A,False
+1464,Paper greedy,0.7,A,False
+1465,Paper greedy,0.7,A,False
+1460,Tiles,0.3,A,True
+1461,Tiles,0.3,C,True
+1462,Tiles,0.3,B,True
+1463,Tiles,0.3,A,False
+1464,Tiles,0.3,A,False
+1465,Tiles,0.3,A,False
+1460,Tiles,0.5,A,True
+1461,Tiles,0.5,C,True
+1462,Tiles,0.5,B,True
+1463,Tiles,0.5,A,False
+1464,Tiles,0.5,A,False
+1465,Tiles,0.5,A,False
+1460,Tiles,0.7,A,True
+1461,Tiles,0.7,C,True
+1462,Tiles,0.7,B,True
+1463,Tiles,0.7,A,False
+1464,Tiles,0.7,A,False
+1465,Tiles,0.7,A,False
+1475,Dense,1.0,B,True
+1476,Dense,1.0,A,True
+1477,Dense,1.0,A,True
+1475,Top-R,0.3,D,False
+1476,Top-R,0.3,C,False
+1477,Top-R,0.3,D,False
+1475,Top-R,0.5,D,False
+1476,Top-R,0.5,C,False
+1477,Top-R,0.5,D,False
+1475,Top-R,0.7,B,True
+1476,Top-R,0.7,A,True
+1477,Top-R,0.7,A,True
+1475,Paper greedy,0.3,D,False
+1476,Paper greedy,0.3,C,False
+1477,Paper greedy,0.3,D,False
+1475,Paper greedy,0.5,D,False
+1476,Paper greedy,0.5,C,False
+1477,Paper greedy,0.5,D,False
+1475,Paper greedy,0.7,B,True
+1476,Paper greedy,0.7,A,True
+1477,Paper greedy,0.7,A,True
+1475,Tiles,0.3,B,True
+1476,Tiles,0.3,C,False
+1477,Tiles,0.3,D,False
+1475,Tiles,0.5,D,False
+1476,Tiles,0.5,C,False
+1477,Tiles,0.5,D,False
+1475,Tiles,0.7,B,True
+1476,Tiles,0.7,A,True
+1477,Tiles,0.7,A,True
+400,Dense,1.0,A,False
+401,Dense,1.0,A,False
+402,Dense,1.0,A,False
+400,Top-R,0.3,A,False
+401,Top-R,0.3,A,False
+402,Top-R,0.3,A,False
+400,Top-R,0.5,A,False
+401,Top-R,0.5,A,False
+402,Top-R,0.5,A,False
+400,Top-R,0.7,A,False
+401,Top-R,0.7,A,False
+402,Top-R,0.7,A,False
+400,Paper greedy,0.3,A,False
+401,Paper greedy,0.3,A,False
+402,Paper greedy,0.3,A,False
+400,Paper greedy,0.5,A,False
+401,Paper greedy,0.5,A,False
+402,Paper greedy,0.5,A,False
+400,Paper greedy,0.7,A,False
+401,Paper greedy,0.7,A,False
+402,Paper greedy,0.7,A,False
+400,Tiles,0.3,A,False
+401,Tiles,0.3,A,False
+402,Tiles,0.3,A,False
+400,Tiles,0.5,A,False
+401,Tiles,0.5,A,False
+402,Tiles,0.5,A,False
+400,Tiles,0.7,A,False
+401,Tiles,0.7,A,False
+402,Tiles,0.7,A,False
+1154,Dense,1.0,A,True
+1155,Dense,1.0,C,True
+1156,Dense,1.0,A,True
+1154,Top-R,0.3,A,True
+1155,Top-R,0.3,C,True
+1156,Top-R,0.3,A,True
+1154,Top-R,0.5,A,True
+1155,Top-R,0.5,C,True
+1156,Top-R,0.5,A,True
+1154,Top-R,0.7,A,True
+1155,Top-R,0.7,C,True
+1156,Top-R,0.7,A,True
+1154,Paper greedy,0.3,A,True
+1155,Paper greedy,0.3,C,True
+1156,Paper greedy,0.3,A,True
+1154,Paper greedy,0.5,B,False
+1155,Paper greedy,0.5,C,True
+1156,Paper greedy,0.5,A,True
+1154,Paper greedy,0.7,B,False
+1155,Paper greedy,0.7,C,True
+1156,Paper greedy,0.7,A,True
+1154,Tiles,0.3,A,True
+1155,Tiles,0.3,C,True
+1156,Tiles,0.3,A,True
+1154,Tiles,0.5,A,True
+1155,Tiles,0.5,C,True
+1156,Tiles,0.5,A,True
+1154,Tiles,0.7,A,True
+1155,Tiles,0.7,C,True
+1156,Tiles,0.7,A,True
+29,Dense,1.0,A,False
+30,Dense,1.0,C,True
+31,Dense,1.0,C,True
+32,Dense,1.0,A,True
+33,Dense,1.0,A,True
+34,Dense,1.0,A,False
+35,Dense,1.0,C,True
+36,Dense,1.0,A,False
+37,Dense,1.0,A,True
+38,Dense,1.0,C,False
+39,Dense,1.0,A,False
+29,Top-R,0.3,A,False
+30,Top-R,0.3,C,True
+31,Top-R,0.3,C,True
+32,Top-R,0.3,A,True
+33,Top-R,0.3,A,True
+34,Top-R,0.3,A,False
+35,Top-R,0.3,C,True
+36,Top-R,0.3,A,False
+37,Top-R,0.3,A,True
+38,Top-R,0.3,C,False
+39,Top-R,0.3,C,False
+29,Top-R,0.5,A,False
+30,Top-R,0.5,C,True
+31,Top-R,0.5,C,True
+32,Top-R,0.5,A,True
+33,Top-R,0.5,A,True
+34,Top-R,0.5,A,False
+35,Top-R,0.5,C,True
+36,Top-R,0.5,A,False
+37,Top-R,0.5,A,True
+38,Top-R,0.5,C,False
+39,Top-R,0.5,C,False
+29,Top-R,0.7,A,False
+30,Top-R,0.7,C,True
+31,Top-R,0.7,C,True
+32,Top-R,0.7,A,True
+33,Top-R,0.7,A,True
+34,Top-R,0.7,A,False
+35,Top-R,0.7,C,True
+36,Top-R,0.7,A,False
+37,Top-R,0.7,A,True
+38,Top-R,0.7,C,False
+39,Top-R,0.7,B,True
+29,Paper greedy,0.3,A,False
+30,Paper greedy,0.3,C,True
+31,Paper greedy,0.3,C,True
+32,Paper greedy,0.3,A,True
+33,Paper greedy,0.3,A,True
+34,Paper greedy,0.3,A,False
+35,Paper greedy,0.3,C,True
+36,Paper greedy,0.3,A,False
+37,Paper greedy,0.3,A,True
+38,Paper greedy,0.3,C,False
+39,Paper greedy,0.3,C,False
+29,Paper greedy,0.5,A,False
+30,Paper greedy,0.5,C,True
+31,Paper greedy,0.5,C,True
+32,Paper greedy,0.5,A,True
+33,Paper greedy,0.5,A,True
+34,Paper greedy,0.5,A,False
+35,Paper greedy,0.5,C,True
+36,Paper greedy,0.5,A,False
+37,Paper greedy,0.5,A,True
+38,Paper greedy,0.5,C,False
+39,Paper greedy,0.5,C,False
+29,Paper greedy,0.7,A,False
+30,Paper greedy,0.7,C,True
+31,Paper greedy,0.7,C,True
+32,Paper greedy,0.7,A,True
+33,Paper greedy,0.7,A,True
+34,Paper greedy,0.7,A,False
+35,Paper greedy,0.7,C,True
+36,Paper greedy,0.7,A,False
+37,Paper greedy,0.7,A,True
+38,Paper greedy,0.7,C,False
+39,Paper greedy,0.7,B,True
+29,Tiles,0.3,A,False
+30,Tiles,0.3,C,True
+31,Tiles,0.3,C,True
+32,Tiles,0.3,A,True
+33,Tiles,0.3,A,True
+34,Tiles,0.3,A,False
+35,Tiles,0.3,C,True
+36,Tiles,0.3,A,False
+37,Tiles,0.3,A,True
+38,Tiles,0.3,C,False
+39,Tiles,0.3,C,False
+29,Tiles,0.5,A,False
+30,Tiles,0.5,C,True
+31,Tiles,0.5,C,True
+32,Tiles,0.5,A,True
+33,Tiles,0.5,A,True
+34,Tiles,0.5,A,False
+35,Tiles,0.5,C,True
+36,Tiles,0.5,A,False
+37,Tiles,0.5,A,True
+38,Tiles,0.5,C,False
+39,Tiles,0.5,B,True
+29,Tiles,0.7,A,False
+30,Tiles,0.7,C,True
+31,Tiles,0.7,C,True
+32,Tiles,0.7,A,True
+33,Tiles,0.7,A,True
+34,Tiles,0.7,A,False
+35,Tiles,0.7,C,True
+36,Tiles,0.7,A,False
+37,Tiles,0.7,A,True
+38,Tiles,0.7,C,False
+39,Tiles,0.7,B,True
+40,Dense,1.0,A,False
+41,Dense,1.0,C,False
+42,Dense,1.0,A,True
+40,Top-R,0.3,A,False
+41,Top-R,0.3,C,False
+42,Top-R,0.3,C,False
+40,Top-R,0.5,A,False
+41,Top-R,0.5,C,False
+42,Top-R,0.5,C,False
+40,Top-R,0.7,A,False
+41,Top-R,0.7,C,False
+42,Top-R,0.7,B,False
+40,Paper greedy,0.3,A,False
+41,Paper greedy,0.3,C,False
+42,Paper greedy,0.3,C,False
+40,Paper greedy,0.5,A,False
+41,Paper greedy,0.5,C,False
+42,Paper greedy,0.5,B,False
+40,Paper greedy,0.7,A,False
+41,Paper greedy,0.7,C,False
+42,Paper greedy,0.7,B,False
+40,Tiles,0.3,A,False
+41,Tiles,0.3,C,False
+42,Tiles,0.3,C,False
+40,Tiles,0.5,A,False
+41,Tiles,0.5,C,False
+42,Tiles,0.5,B,False
+40,Tiles,0.7,A,False
+41,Tiles,0.7,C,False
+42,Tiles,0.7,B,False
+433,Dense,1.0,B,False
+434,Dense,1.0,A,False
+435,Dense,1.0,C,False
+433,Top-R,0.3,B,False
+434,Top-R,0.3,B,False
+435,Top-R,0.3,C,False
+433,Top-R,0.5,B,False
+434,Top-R,0.5,B,False
+435,Top-R,0.5,C,False
+433,Top-R,0.7,B,False
+434,Top-R,0.7,B,False
+435,Top-R,0.7,C,False
+433,Paper greedy,0.3,B,False
+434,Paper greedy,0.3,B,False
+435,Paper greedy,0.3,C,False
+433,Paper greedy,0.5,B,False
+434,Paper greedy,0.5,B,False
+435,Paper greedy,0.5,C,False
+433,Paper greedy,0.7,B,False
+434,Paper greedy,0.7,B,False
+435,Paper greedy,0.7,C,False
+433,Tiles,0.3,B,False
+434,Tiles,0.3,B,False
+435,Tiles,0.3,C,False
+433,Tiles,0.5,B,False
+434,Tiles,0.5,B,False
+435,Tiles,0.5,C,False
+433,Tiles,0.7,B,False
+434,Tiles,0.7,B,False
+435,Tiles,0.7,C,False
+908,Dense,1.0,B,True
+909,Dense,1.0,A,True
+910,Dense,1.0,C,True
+908,Top-R,0.3,B,True
+909,Top-R,0.3,B,False
+910,Top-R,0.3,C,True
+908,Top-R,0.5,B,True
+909,Top-R,0.5,B,False
+910,Top-R,0.5,C,True
+908,Top-R,0.7,B,True
+909,Top-R,0.7,A,True
+910,Top-R,0.7,C,True
+908,Paper greedy,0.3,B,True
+909,Paper greedy,0.3,B,False
+910,Paper greedy,0.3,C,True
+908,Paper greedy,0.5,B,True
+909,Paper greedy,0.5,B,False
+910,Paper greedy,0.5,C,True
+908,Paper greedy,0.7,B,True
+909,Paper greedy,0.7,B,False
+910,Paper greedy,0.7,C,True
+908,Tiles,0.3,B,True
+909,Tiles,0.3,B,False
+910,Tiles,0.3,C,True
+908,Tiles,0.5,B,True
+909,Tiles,0.5,B,False
+910,Tiles,0.5,C,True
+908,Tiles,0.7,B,True
+909,Tiles,0.7,B,False
+910,Tiles,0.7,C,True
+1448,Dense,1.0,B,True
+1449,Dense,1.0,A,True
+1450,Dense,1.0,A,True
+1448,Top-R,0.3,B,True
+1449,Top-R,0.3,A,True
+1450,Top-R,0.3,A,True
+1448,Top-R,0.5,B,True
+1449,Top-R,0.5,A,True
+1450,Top-R,0.5,A,True
+1448,Top-R,0.7,B,True
+1449,Top-R,0.7,A,True
+1450,Top-R,0.7,A,True
+1448,Paper greedy,0.3,A,False
+1449,Paper greedy,0.3,A,True
+1450,Paper greedy,0.3,A,True
+1448,Paper greedy,0.5,B,True
+1449,Paper greedy,0.5,A,True
+1450,Paper greedy,0.5,A,True
+1448,Paper greedy,0.7,B,True
+1449,Paper greedy,0.7,A,True
+1450,Paper greedy,0.7,A,True
+1448,Tiles,0.3,A,False
+1449,Tiles,0.3,A,True
+1450,Tiles,0.3,A,True
+1448,Tiles,0.5,B,True
+1449,Tiles,0.5,A,True
+1450,Tiles,0.5,A,True
+1448,Tiles,0.7,B,True
+1449,Tiles,0.7,A,True
+1450,Tiles,0.7,A,True
+1577,Dense,1.0,B,False
+1578,Dense,1.0,B,False
+1579,Dense,1.0,B,False
+1577,Top-R,0.3,B,False
+1578,Top-R,0.3,B,False
+1579,Top-R,0.3,B,False
+1577,Top-R,0.5,B,False
+1578,Top-R,0.5,B,False
+1579,Top-R,0.5,B,False
+1577,Top-R,0.7,B,False
+1578,Top-R,0.7,B,False
+1579,Top-R,0.7,A,True
+1577,Paper greedy,0.3,B,False
+1578,Paper greedy,0.3,B,False
+1579,Paper greedy,0.3,B,False
+1577,Paper greedy,0.5,B,False
+1578,Paper greedy,0.5,B,False
+1579,Paper greedy,0.5,B,False
+1577,Paper greedy,0.7,B,False
+1578,Paper greedy,0.7,B,False
+1579,Paper greedy,0.7,B,False
+1577,Tiles,0.3,B,False
+1578,Tiles,0.3,B,False
+1579,Tiles,0.3,B,False
+1577,Tiles,0.5,B,False
+1578,Tiles,0.5,B,False
+1579,Tiles,0.5,B,False
+1577,Tiles,0.7,B,False
+1578,Tiles,0.7,A,True
+1579,Tiles,0.7,A,True
+454,Dense,1.0,B,False
+455,Dense,1.0,C,True
+456,Dense,1.0,B,True
+454,Top-R,0.3,C,True
+455,Top-R,0.3,A,False
+456,Top-R,0.3,B,True
+454,Top-R,0.5,C,True
+455,Top-R,0.5,A,False
+456,Top-R,0.5,B,True
+454,Top-R,0.7,C,True
+455,Top-R,0.7,C,True
+456,Top-R,0.7,B,True
+454,Paper greedy,0.3,C,True
+455,Paper greedy,0.3,A,False
+456,Paper greedy,0.3,B,True
+454,Paper greedy,0.5,C,True
+455,Paper greedy,0.5,A,False
+456,Paper greedy,0.5,B,True
+454,Paper greedy,0.7,C,True
+455,Paper greedy,0.7,C,True
+456,Paper greedy,0.7,B,True
+454,Tiles,0.3,C,True
+455,Tiles,0.3,A,False
+456,Tiles,0.3,B,True
+454,Tiles,0.5,C,True
+455,Tiles,0.5,C,True
+456,Tiles,0.5,B,True
+454,Tiles,0.7,C,True
+455,Tiles,0.7,C,True
+456,Tiles,0.7,B,True
+1397,Dense,1.0,B,True
+1398,Dense,1.0,A,True
+1399,Dense,1.0,A,True
+1400,Dense,1.0,B,False
+1401,Dense,1.0,A,True
+1402,Dense,1.0,A,True
+1397,Top-R,0.3,B,True
+1398,Top-R,0.3,A,True
+1399,Top-R,0.3,A,True
+1400,Top-R,0.3,B,False
+1401,Top-R,0.3,A,True
+1402,Top-R,0.3,A,True
+1397,Top-R,0.5,B,True
+1398,Top-R,0.5,A,True
+1399,Top-R,0.5,A,True
+1400,Top-R,0.5,B,False
+1401,Top-R,0.5,A,True
+1402,Top-R,0.5,B,False
+1397,Top-R,0.7,B,True
+1398,Top-R,0.7,A,True
+1399,Top-R,0.7,A,True
+1400,Top-R,0.7,B,False
+1401,Top-R,0.7,A,True
+1402,Top-R,0.7,A,True
+1397,Paper greedy,0.3,B,True
+1398,Paper greedy,0.3,A,True
+1399,Paper greedy,0.3,A,True
+1400,Paper greedy,0.3,B,False
+1401,Paper greedy,0.3,A,True
+1402,Paper greedy,0.3,A,True
+1397,Paper greedy,0.5,B,True
+1398,Paper greedy,0.5,A,True
+1399,Paper greedy,0.5,A,True
+1400,Paper greedy,0.5,B,False
+1401,Paper greedy,0.5,A,True
+1402,Paper greedy,0.5,B,False
+1397,Paper greedy,0.7,B,True
+1398,Paper greedy,0.7,A,True
+1399,Paper greedy,0.7,A,True
+1400,Paper greedy,0.7,B,False
+1401,Paper greedy,0.7,A,True
+1402,Paper greedy,0.7,A,True
+1397,Tiles,0.3,B,True
+1398,Tiles,0.3,A,True
+1399,Tiles,0.3,A,True
+1400,Tiles,0.3,B,False
+1401,Tiles,0.3,A,True
+1402,Tiles,0.3,A,True
+1397,Tiles,0.5,B,True
+1398,Tiles,0.5,A,True
+1399,Tiles,0.5,A,True
+1400,Tiles,0.5,B,False
+1401,Tiles,0.5,A,True
+1402,Tiles,0.5,A,True
+1397,Tiles,0.7,B,True
+1398,Tiles,0.7,A,True
+1399,Tiles,0.7,A,True
+1400,Tiles,0.7,B,False
+1401,Tiles,0.7,A,True
+1402,Tiles,0.7,A,True
+1391,Dense,1.0,D,True
+1392,Dense,1.0,B,True
+1393,Dense,1.0,A,True
+1394,Dense,1.0,A,False
+1395,Dense,1.0,A,True
+1396,Dense,1.0,A,False
+1391,Top-R,0.3,A,False
+1392,Top-R,0.3,B,True
+1393,Top-R,0.3,B,False
+1394,Top-R,0.3,A,False
+1395,Top-R,0.3,A,True
+1396,Top-R,0.3,A,False
+1391,Top-R,0.5,D,True
+1392,Top-R,0.5,B,True
+1393,Top-R,0.5,A,True
+1394,Top-R,0.5,A,False
+1395,Top-R,0.5,A,True
+1396,Top-R,0.5,A,False
+1391,Top-R,0.7,D,True
+1392,Top-R,0.7,B,True
+1393,Top-R,0.7,A,True
+1394,Top-R,0.7,A,False
+1395,Top-R,0.7,A,True
+1396,Top-R,0.7,A,False
+1391,Paper greedy,0.3,D,True
+1392,Paper greedy,0.3,B,True
+1393,Paper greedy,0.3,B,False
+1394,Paper greedy,0.3,D,False
+1395,Paper greedy,0.3,A,True
+1396,Paper greedy,0.3,A,False
+1391,Paper greedy,0.5,D,True
+1392,Paper greedy,0.5,B,True
+1393,Paper greedy,0.5,A,True
+1394,Paper greedy,0.5,A,False
+1395,Paper greedy,0.5,A,True
+1396,Paper greedy,0.5,A,False
+1391,Paper greedy,0.7,D,True
+1392,Paper greedy,0.7,B,True
+1393,Paper greedy,0.7,A,True
+1394,Paper greedy,0.7,A,False
+1395,Paper greedy,0.7,A,True
+1396,Paper greedy,0.7,A,False
+1391,Tiles,0.3,D,True
+1392,Tiles,0.3,C,False
+1393,Tiles,0.3,B,False
+1394,Tiles,0.3,A,False
+1395,Tiles,0.3,A,True
+1396,Tiles,0.3,A,False
+1391,Tiles,0.5,D,True
+1392,Tiles,0.5,B,True
+1393,Tiles,0.5,A,True
+1394,Tiles,0.5,A,False
+1395,Tiles,0.5,A,True
+1396,Tiles,0.5,A,False
+1391,Tiles,0.7,D,True
+1392,Tiles,0.7,B,True
+1393,Tiles,0.7,A,True
+1394,Tiles,0.7,A,False
+1395,Tiles,0.7,A,True
+1396,Tiles,0.7,A,False
+821,Dense,1.0,C,False
+822,Dense,1.0,C,False
+823,Dense,1.0,A,True
+821,Top-R,0.3,C,False
+822,Top-R,0.3,C,False
+823,Top-R,0.3,A,True
+821,Top-R,0.5,C,False
+822,Top-R,0.5,C,False
+823,Top-R,0.5,A,True
+821,Top-R,0.7,C,False
+822,Top-R,0.7,C,False
+823,Top-R,0.7,A,True
+821,Paper greedy,0.3,C,False
+822,Paper greedy,0.3,C,False
+823,Paper greedy,0.3,A,True
+821,Paper greedy,0.5,C,False
+822,Paper greedy,0.5,C,False
+823,Paper greedy,0.5,A,True
+821,Paper greedy,0.7,C,False
+822,Paper greedy,0.7,C,False
+823,Paper greedy,0.7,A,True
+821,Tiles,0.3,C,False
+822,Tiles,0.3,C,False
+823,Tiles,0.3,A,True
+821,Tiles,0.5,C,False
+822,Tiles,0.5,C,False
+823,Tiles,0.5,A,True
+821,Tiles,0.7,C,False
+822,Tiles,0.7,C,False
+823,Tiles,0.7,A,True
