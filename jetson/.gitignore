@@ -1,0 +1,5 @@
+# Local Python environment.
+/.venv/
+
+# Generated profiling data.
+/01/profile_blob.data
