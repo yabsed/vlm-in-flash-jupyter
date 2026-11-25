@@ -3,3 +3,6 @@
 
 # Generated profiling data.
 /01/profile_blob.data
+
+# Weight files left behind when 04_01 is interrupted.
+/04/tmp*/
