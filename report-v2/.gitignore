@@ -1,0 +1,53 @@
+# LaTeX build files. The sources and main.pdf are tracked.
+
+# Core
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+
+# Bibliography
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+
+# Engines and viewers
+*.xdv
+*.dvi
+*.synctex.gz
+*.synctex(busy)
+*.pdfsync
+
+# Other packages
+*.nav
+*.snm
+*.vrb
+*.idx
+*.ilg
+*.ind
+*.glo
+*.gls
+*.glg
+*.acn
+*.acr
+*.alg
+*.loa
+*.lol
+*.thm
+*.tdo
+*.xwm
+
+# Build folders
+/build/
+/out/
+_minted*/
+
+# Editors
+*.swp
+*~
+.DS_Store

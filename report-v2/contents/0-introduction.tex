@@ -1,0 +1,38 @@
+\chapter{서론}\label{chap:introduction}
+
+\section{연구 배경}\label{sec:intro-background}
+
+휴대용 기기에서 대형 언어 모델(LLM)이나 시각-언어 모델(VLM)을 실행할 때에는 DRAM 용량이 모델 전체를 담기에 부족한 경우가 많다. 이에 가중치를 플래시에 저장해 두고, 입력마다 중요할 것으로 예상되는 행만 선택하여 DRAM으로 읽어 오는 방법이 연구되어 왔다 \cite{alizadeh2024}. 이 방법에서는 어떤 행을 선택하는지에 따라 플래시에서 읽는 시간이 달라진다.
+
+SSD의 처리량은 요청 크기가 커질수록 증가하다가 일정 크기에서 포화된다 \cite{jeong2013}. 따라서 같은 수의 행을 읽더라도 선택한 행이 연속되어 있을수록 읽기 시간이 짧다. Yang 등 \cite{yang2025}의 Neuron Chunking은 이 점을 반영하여 연속 구간의 길이별 읽기 비용을 측정하고, 추정 읽기 시간당 보존 중요도가 높은 구간부터 선택하는 greedy 방법을 제안하였다.
+
+본 논문은 Neuron Chunking의 다음 두 가지 점에서 출발한다.
+
+\begin{itemize}
+\item \textbf{문제의 최적해}: Neuron Chunking이 제안한 최적화 문제는 행 수의 상한만 제약한다. 이 경우 단일 연속 구간이 항상 최적해가 되어, 행 예산을 채우는 여러 구간의 선택을 평가하는 기준이 되지 못한다.
+\item \textbf{선택 시간}: Greedy 방법은 여러 길이와 위치의 후보 구간에 점수를 매기고 정렬한다. 본 논문의 측정에서 $896\times896$ 가중치 행렬의 행 절반을 선택하는 데 1.04 ms가 걸렸고, 그 행들을 SSD에서 읽는 데에는 0.38 ms가 걸렸다(\ref{sec:exp-real}절).
+\end{itemize}
+
+\section{연구 내용}\label{sec:intro-contributions}
+
+본 논문의 내용은 다음과 같다.
+
+\begin{enumerate}
+\item Neuron Chunking 문제의 최적해가 단일 연속 구간임을 보이고, 정확히 $R$개의 행을 선택하는 문제로 다시 정의한다(\ref{sec:single-chunk}절).
+\item 처리량 포화를 두 직선으로 근사한 two-line 지연 모델을 도입한다. 이 모델에서 읽기 비용은 행 수에 비례하는 비용과 짧은 구간의 추가 비용으로 분해된다(\ref{sec:two-line}절).
+\item 동적계획법과 Dinkelbach 방법으로 최적 mask를 구하는 Global DP를 제시한다(\ref{sec:dp}절).
+\item 일정 길이의 타일을 단위로 행을 선택하는 Tiles를 제안한다. 계산 시간은 평균 $O(N)$이다(\ref{sec:tiles}절).
+\item 모든 구간의 길이가 전환점 이상이면, Top-$R$ 대비 중요도 보존율이 최적 비율 대비 달성률의 하한이 됨을 보인다(\ref{sec:guarantee}절).
+\end{enumerate}
+
+노트북의 NVMe SSD에서 수행한 실험의 결과는 다음과 같다.
+
+\begin{itemize}
+\item \textbf{비용 모델}: Two-line 모델의 test MAPE는 3.4\%였다.
+\item \textbf{최적해와의 비교}: $896\times896$ 가중치 행렬의 50\% 예산에서 Tiles는 최적 비율의 95.9\%에, Neuron Chunking의 greedy 방법은 96.8\%에 도달하였다.
+\item \textbf{실제 시간}: 같은 shape와 예산에서 두 방법의 읽기 시간은 비슷하였고, Tiles의 선택 시간은 약 100분의 1, 선택과 읽기를 합한 전체 시간은 약 3분의 1이었다. Tiles의 보존 중요도는 3.6\%p 낮았다.
+\end{itemize}
+
+\section{논문의 구성}\label{sec:intro-outline}
+
+\ref{chap:background}장에서는 SSD의 처리량 포화와 Neuron Chunking을 정리한다. \ref{chap:method}장에서는 문제를 다시 정의하고 two-line 모델, Global DP, Tiles와 최적값에 대한 보장을 제시한다. \ref{chap:experiments}장에서는 비용 모델의 적합, 비용 모델에서의 선택 방법 비교, 실제 시간 측정의 세 실험을 다룬다. \ref{chap:conclusion}장에서 결론을 맺는다. 실험을 재현하는 자료는 부록에 정리하였다.

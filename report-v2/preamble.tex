@@ -1,0 +1,152 @@
+% Adapted from the preamble of https://github.com/SyphonArch/snucse-thesis for a thesis written in Korean.
+
+% Import commonly used packages
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{geometry}
+\usepackage[HWP]{dhucs-interword}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{setspace}
+
+% PDF Metadata
+\usepackage[hidelinks]{hyperref}
+
+% A line break in a title is a space in the PDF metadata.
+\pdfstringdefDisableCommands{\def\\{ }}
+
+\hypersetup{
+  pdfauthor={\AuthorKo},
+  pdftitle={\ThesisTitleKo},
+  pdfsubject={\ThesisTitle},
+  pdfkeywords={서울대학교, 공과대학, 컴퓨터공학부, 졸업논문, SNU, ENG, CSE, thesis}
+}
+
+\geometry{
+  a4paper,
+  top=30mm,
+  bottom=30mm, % Increase bottom margin for better footer placement
+  left=25mm,
+  right=25mm,
+  footskip=15mm % Space for the footer
+}
+
+% Line spacing: 170% of the 11pt font size (18.7pt), the minimum the guideline allows.
+\setstretch{1.375}
+
+% Korean names
+\renewcommand{\contentsname}{목차}
+\renewcommand{\figurename}{그림}
+\renewcommand{\tablename}{표}
+\renewcommand{\bibname}{참고문헌}
+
+% Chapter: 제 1 장 제목, centered, 16pt
+\titleformat{\chapter}[block]
+  {\centering\normalfont\fontsize{16pt}{16pt}\bfseries} % Centered, bold font
+  {제 \thechapter{} 장}                                  % Chapter number format
+  {10pt}                                                 % Space between number and title
+  {}
+
+\titlespacing*{\chapter}
+  {0pt}    % Indentation from the left margin
+  {-30pt}  % Space before the chapter title (negative value to reduce)
+  {20pt}   % Space after the chapter title
+
+% Section: 제 1 절 제목, 14pt
+\titleformat{\section}
+  {\normalfont\fontsize{14pt}{14pt}\bfseries}
+  {제 \arabic{section} 절}
+  {10pt}
+  {}
+
+% Subsection: 1.1.1 제목, 12pt
+\titleformat{\subsection}
+  {\normalfont\fontsize{12pt}{12pt}\bfseries}
+  {\thesubsection}
+  {10pt}
+  {}
+
+% Table of contents: the same numbering as the headings
+\newcommand{\LastNumber}[1]{\expandafter\TakeLastNumber#1\relax}
+\def\TakeLastNumber#1.#2\relax{#2} % 2.3 -> 3
+
+\titlecontents{chapter}[0pt]
+  {\addvspace{0.8em}\bfseries}
+  {제 \thecontentslabel{} 장\quad}
+  {}
+  {\hfill\contentspage}
+
+\titlecontents{section}[1.5em]
+  {}
+  {제 \LastNumber{\thecontentslabel} 절\quad}
+  {}
+  {\titlerule*[0.6em]{.}\contentspage}
+
+\titlecontents{subsection}[3.5em]
+  {}
+  {\thecontentslabel\quad}
+  {}
+  {\titlerule*[0.6em]{.}\contentspage}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.6em}
+
+% Figures and tables float, so the text keeps filling the page when one does not fit.
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.8}
+\setcounter{topnumber}{3}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}
+
+% Floats on a page of their own start at the top of the page.
+\makeatletter
+\setlength{\@fptop}{0pt}
+\setlength{\@fpsep}{16pt plus 2pt}
+\makeatother
+
+% Abstract page layout
+\newcommand{\KoreanAbstractHeader}{%
+\chapter*{국문초록}
+\addcontentsline{toc}{chapter}{국문초록}
+}
+
+% Title block and author block for the English abstract
+\newcommand{\EnglishAbstractHeader}{%
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+\vspace*{-1.1cm}
+{
+\centering
+\setstretch{1}
+\fontsize{22pt}{28pt}\selectfont \ThesisTitle \\
+}
+
+\vspace*{0.5cm}
+
+{
+\flushright
+\setstretch{1.1}
+\fontsize{14pt}{16pt}\selectfont
+\AuthorEn \\
+Department of Computer Science and Engineering \\
+The Undergraduate School \\
+Seoul National University \\
+}
+\vspace*{0.3cm}
+}
+
+% Keywords line at the bottom of each abstract
+\newcommand{\KoreanKeywords}[1]{%
+\vspace*{1cm}
+\textbf{주요어: #1}}
+
+\newcommand{\EnglishKeywords}[1]{%
+\vfill
+\textbf{Keywords: #1}}

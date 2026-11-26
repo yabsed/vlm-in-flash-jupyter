@@ -1,0 +1,41 @@
+\chapter*{부록: 재현 자료}\label{chap:appendix}
+\addcontentsline{toc}{chapter}{부록: 재현 자료}
+
+% Tables in the appendix are numbered A.1, A.2, ...
+\setcounter{table}{0}
+\renewcommand{\thetable}{A.\arabic{table}}
+
+\ref{chap:experiments}장의 결과를 생성한 Jupyter 노트북과 실행 코드, 측정 데이터, 분석 결과는 다음 저장소에 있다.
+
+\begin{center}
+\url{https://github.com/yabsed/vlm-in-flash-jupyter}
+\end{center}
+
+Neuron Chunking의 greedy 방법과 \ref{sec:exp-real}절의 SSD reader에는 원 논문의 공개 구현\footnote{\url{https://github.com/snuhcs/vlm-flash}}을 사용하였다.
+
+각 절의 결과를 생성한 노트북은 표~\ref{tab:notebooks}\와 같다. 경로는 이 저장소의 \texttt{results} 폴더를 기준으로 한다.
+
+\begin{table}[htbp]
+    \centering
+    \caption{절별 노트북}
+    \label{tab:notebooks}
+    \begin{tabular}{lll}
+        \toprule
+        절 & 노트북 & 내용 \\
+        \midrule
+        \ref{sec:exp-latency} & \texttt{01/01\_01\_measure\_chunk\_latency} & 읽기 비용 측정 \\
+                              & \texttt{01/01\_02\_chunk\_latency} & 모델의 적합과 평가 \\
+        \midrule
+        \ref{sec:exp-model}   & \texttt{02/02\_01\_capture\_traces} & 중요도 수집 \\
+                              & \texttt{02/02\_02\_global\_oracle} & Global DP \\
+                              & \texttt{02/02\_03\_selector\_sweep} & Paper, Tiles, Top-$R$ \\
+                              & \texttt{02/02\_04\_analyze\_oracle} & 그림~\ref{fig:model-importance} \\
+                              & \texttt{02/02\_06\_report\_numbers} & 표~\ref{tab:model-50} \\
+        \midrule
+        \ref{sec:exp-real}    & \texttt{03/03\_01\_tune\_paper} & Paper의 후보 설정 \\
+                              & \texttt{03/03\_02\_measure\_latency} & 선택·읽기 시간 측정 \\
+                              & \texttt{03/03\_03\_compare\_methods} & 그림~\ref{fig:real-selection}--\ref{fig:real-wall}, 표~\ref{tab:real-diff} \\
+                              & \texttt{03/03\_05\_report\_numbers} & 표~\ref{tab:real-50} \\
+        \bottomrule
+    \end{tabular}
+\end{table}
