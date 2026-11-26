@@ -4,6 +4,6 @@
 
 본 보고서는 일정 길이의 타일을 단위로 행을 선택하는 Tiles를 VLM 전체에 적용하고, 영상 질문에 대한 정확도와 프레임당 로딩 시간을 Jetson Orin Nano에서 측정한다. 이를 위해 선택 방법을 모델 전체에 적용할 때 필요한 두 가지 준비 과정을 수식으로 정리한다. 하나는 자주 활성화되는 행을 플래시에서 인접하게 두는 hot--cold 재배열이고, 다른 하나는 가중치 행렬마다 읽을 행의 수를 정하는 TEAL의 탐색이다.
 
-LLaVA-OneVision-Qwen2-0.5B와 TempCompass의 질문 391개로 측정하였다. 가중치의 30--70\%를 읽을 때 Tiles와 Neuron Chunking의 greedy 방법은 정확도 차이가 0.5\%p 이내였고, 프레임당 읽기 시간도 110--200 ms로 비슷하였다. 선택 시간은 Tiles가 프레임당 약 7 ms, greedy 방법이 99--106 ms였다. 그 결과 선택과 읽기를 합한 로딩 시간은 Tiles가 117--203 ms로 greedy 방법의 56--66\%였고, 모든 가중치를 읽는 266 ms보다 항상 짧았다. Greedy 방법은 가중치의 70\%를 읽을 때 308 ms로 이를 넘었다.
+LLaVA-OneVision-Qwen2-0.5B와 TempCompass의 질문 391개로 측정하였다. 가중치의 30--70\%를 읽을 때 Tiles와 Neuron Chunking의 greedy 방법은 정확도 차이가 최대 0.5\%p였고, 프레임당 읽기 시간도 110--200 ms로 비슷하였다. 선택 시간은 Tiles가 프레임당 약 7 ms, greedy 방법이 99--106 ms였다. 그 결과 선택과 읽기를 합한 로딩 시간은 Tiles가 117--203 ms로 greedy 방법의 56--66\%였고, 모든 가중치를 읽는 266 ms보다 항상 짧았다. Greedy 방법은 가중치의 70\%를 읽을 때 308 ms로 이를 넘었다.
 
 \KoreanKeywords{선택적 가중치 로딩, 시각-언어 모델, activation sparsification, hot--cold 재배열, SSD 처리량 포화, on-device 추론}
