@@ -793,13 +793,13 @@ $896\times128$은 별도로 해석할 필요가 있다. 행렬 전체는 224 KiB
 
 <!--
 작성 근거: 기존 노트북의 코드와 저장된 결과를 읽어 작성하였으며 실험은 재실행하지 않았다.
-입력 수집: ../results/02/02_01_capture_traces.ipynb
-비율 최적해: ../results/02/02_02_global_oracle.ipynb
-선택 방법과 설정: ../results/02/02_03_selector_sweep.ipynb
-그림 3.2-1: ../results/02/02_04_analyze_oracle.ipynb, cells[16].outputs[1].data[image/png]
-그림 3.2-2: ../results/02/02_05_chunk_lengths.ipynb, cells[18].outputs[1].data[image/png], FRACTION = 0.5
+입력 수집: ../../results/02/02_01_capture_traces.ipynb
+비율 최적해: ../../results/02/02_02_global_oracle.ipynb
+선택 방법과 설정: ../../results/02/02_03_selector_sweep.ipynb
+그림 3.2-1: ../../results/02/02_04_analyze_oracle.ipynb, cells[16].outputs[1].data[image/png]
+그림 3.2-2: ../../results/02/02_05_chunk_lengths.ipynb, cells[18].outputs[1].data[image/png], FRACTION = 0.5
 두 PNG는 저장된 출력에서 그대로 추출하였다.
-표와 본문의 수치: ../results/02/oracle_reference.csv 및 selector_results.csv
+표와 본문의 수치: ../../results/02/oracle_reference.csv 및 selector_results.csv
 보존 중요도 = 100 * importance / importance_total.
 DP 대비 비율 = 100 * (importance / latency) / (DP importance / DP latency).
 DP 결과는 trace_id와 fraction으로 대응시키고, shape·방법·예산별 중앙값을 구하였다.
@@ -920,21 +920,21 @@ Top-$R$에서는 짧은 구간이 많이 발생하였다. Trace별 구간 수의
 
 <!--
 작성 근거: 기존 노트북, 환경 기록, 저장된 CSV와 그림을 읽어 작성하였다. 측정 실험은 재실행하지 않았으며, 종류별 시간 그림과 차이 표는 저장된 CSV로 분석 노트북을 다시 실행하였다.
-Paper 튜닝: ../results/03/03_01_tune_paper.ipynb
-측정: ../results/03/03_02_measure_latency.ipynb
-실측 환경·튜닝 설정: ../results/03/environment.json
-그림 3.3-1(a): ../results/03/03_03_compare_methods.ipynb, selection_ms-plot 셀의 두 번째 image/png 출력
-그림 3.3-1(b): ../results/03/03_03_compare_methods.ipynb, io_ms-plot 셀의 두 번째 image/png 출력
-그림 3.3-1(c): ../results/03/03_03_compare_methods.ipynb, wall_ms-plot 셀의 두 번째 image/png 출력
-그림 3.3-2: ../results/03/03_04_chunk_lengths.ipynb, cells[19].outputs[1].data[image/png], FRACTION = 0.5
+Paper 튜닝: ../../results/03/03_01_tune_paper.ipynb
+측정: ../../results/03/03_02_measure_latency.ipynb
+실측 환경·튜닝 설정: ../../results/03/environment.json
+그림 3.3-1(a): ../../results/03/03_03_compare_methods.ipynb, selection_ms-plot 셀의 두 번째 image/png 출력
+그림 3.3-1(b): ../../results/03/03_03_compare_methods.ipynb, io_ms-plot 셀의 두 번째 image/png 출력
+그림 3.3-1(c): ../../results/03/03_03_compare_methods.ipynb, wall_ms-plot 셀의 두 번째 image/png 출력
+그림 3.3-2: ../../results/03/03_04_chunk_lengths.ipynb, cells[19].outputs[1].data[image/png], FRACTION = 0.5
 PNG는 각 노트북의 저장된 출력에서 그대로 추출하였다.
-수치: ../results/03/cases.csv, timings.csv
+수치: ../../results/03/cases.csv, timings.csv
 시간은 case_id별로 30회 반복의 중앙값을 구한 뒤 cases.csv에 결합하였다.
 50% 예산 표는 n = d = 896, fraction = 0.5에서 방법별 32개 trace의 중앙값이다.
 Shape별 차이 표는 trace_id와 fraction을 맞춰 Tiles (1s) - Paper greedy (GPU sort)를 계산한 뒤 각 shape의 256쌍에 대한 중앙값을 구하였다.
 중요도와 구간 수는 cases.csv의 retained_pct, runs를 사용하였다.
 Reader의 시간 범위·분할·정렬 처리: ../vlm-flash/src/vlmflash/csrc/native.cc
-Tiles 구현: ../results/03/selectors.cpp
+Tiles 구현: ../../results/03/selectors.cpp
 -->
 
 ## 4. 재현 자료
