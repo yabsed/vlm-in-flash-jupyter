@@ -225,12 +225,12 @@ Top-$R$은 중요도를 가장 많이 보존하지만, 추정 읽기 비용이 �
 나머지 세 shape에서도 같은 50\% 예산에서 Tiles와 Paper의 DP 대비 비율은 모두 95\%를 넘었고, Top-$R$은 27\%에 미치지 못하였다. Tiles와 Paper를 비교하면, 네 shape 중 세 곳에서 Paper의 비율이 약 1--2\%p 높았다.
 
 % 작성 근거: 기존 노트북의 코드와 저장된 결과를 읽어 작성하였으며 실험은 재실행하지 않았다.
-% 입력 수집: ../results/02/02_01_capture_traces.ipynb
-% 비율 최적해: ../results/02/02_02_global_oracle.ipynb
-% 선택 방법과 설정: ../results/02/02_03_selector_sweep.ipynb
-% 그림 fig:model-importance: ../results/02/02_04_analyze_oracle.ipynb, cells[16].outputs[1].data[image/png]
+% 입력 수집: ../../results/02/02_01_capture_traces.ipynb
+% 비율 최적해: ../../results/02/02_02_global_oracle.ipynb
+% 선택 방법과 설정: ../../results/02/02_03_selector_sweep.ipynb
+% 그림 fig:model-importance: ../../results/02/02_04_analyze_oracle.ipynb, cells[16].outputs[1].data[image/png]
 % PNG는 저장된 출력에서 그대로 추출하였다.
-% 표와 본문의 수치: ../results/02/02_06_report_numbers.ipynb (oracle_reference.csv 및 selector_results.csv에서 계산)
+% 표와 본문의 수치: ../../results/02/02_06_report_numbers.ipynb (oracle_reference.csv 및 selector_results.csv에서 계산)
 % 보존 중요도 = 100 * importance / importance_total.
 % DP 대비 비율 = 100 * (importance / latency) / (DP importance / DP latency).
 % DP 결과는 trace_id와 fraction으로 대응시키고, shape·방법·예산별 중앙값을 구하였다.
@@ -376,17 +376,17 @@ Paper의 선택 시간은 후보를 얼마나 촘촘하게 만드는지에 따�
 읽기 시간은 모든 shape에서 Tiles가 조금 길었으나, 그 차이는 가장 큰 $4864\times896$에서도 0.11 ms였다. 선택 시간의 차이가 이보다 훨씬 커서, 전체 시간은 모든 shape에서 Tiles가 짧았다. 보존 중요도는 $896\times128$을 제외한 세 shape에서 Tiles가 약 1--2\%p 낮았다.
 
 % 작성 근거: 기존 노트북, 환경 기록, 저장된 CSV와 그림을 읽어 작성하였다. 측정 실험은 재실행하지 않았으며, 종류별 시간 그림과 차이 표는 저장된 CSV로 분석 노트북을 다시 실행하였다.
-% Paper 튜닝: ../results/03/03_01_tune_paper.ipynb
-% 측정: ../results/03/03_02_measure_latency.ipynb
-% 실측 환경·튜닝 설정: ../results/03/environment.json
-% 그림 fig:real-selection: ../results/03/03_03_compare_methods.ipynb, selection_ms-plot 셀의 두 번째 image/png 출력
-% 그림 fig:real-io: ../results/03/03_03_compare_methods.ipynb, io_ms-plot 셀의 두 번째 image/png 출력
-% 그림 fig:real-wall: ../results/03/03_03_compare_methods.ipynb, wall_ms-plot 셀의 두 번째 image/png 출력
+% Paper 튜닝: ../../results/03/03_01_tune_paper.ipynb
+% 측정: ../../results/03/03_02_measure_latency.ipynb
+% 실측 환경·튜닝 설정: ../../results/03/environment.json
+% 그림 fig:real-selection: ../../results/03/03_03_compare_methods.ipynb, selection_ms-plot 셀의 두 번째 image/png 출력
+% 그림 fig:real-io: ../../results/03/03_03_compare_methods.ipynb, io_ms-plot 셀의 두 번째 image/png 출력
+% 그림 fig:real-wall: ../../results/03/03_03_compare_methods.ipynb, wall_ms-plot 셀의 두 번째 image/png 출력
 % PNG는 각 노트북의 저장된 출력에서 그대로 추출하였다.
-% 50% 예산 표의 수치: ../results/03/03_05_report_numbers.ipynb (cases.csv, timings.csv에서 계산)
+% 50% 예산 표의 수치: ../../results/03/03_05_report_numbers.ipynb (cases.csv, timings.csv에서 계산)
 % 시간은 case_id별로 30회 반복의 중앙값을 구한 뒤 cases.csv에 결합하였다.
 % 50% 예산 표는 n = d = 896, fraction = 0.5에서 방법별 32개 trace의 중앙값이다.
-% Shape별 차이: ../results/03/03_03_compare_methods.ipynb, 4. Paired differences 출력의 Tiles (1s) 행. trace_id와 fraction을 맞춰 Tiles (1s) - Paper greedy (GPU sort)를 계산한 뒤 각 shape의 256쌍에 대한 중앙값을 구하였다. 표에는 소수 둘째 자리까지 적었다.
+% Shape별 차이: ../../results/03/03_03_compare_methods.ipynb, 4. Paired differences 출력의 Tiles (1s) 행. trace_id와 fraction을 맞춰 Tiles (1s) - Paper greedy (GPU sort)를 계산한 뒤 각 shape의 256쌍에 대한 중앙값을 구하였다. 표에는 소수 둘째 자리까지 적었다.
 % 중요도는 cases.csv의 retained_pct를 사용하였다.
-% Reader의 시간 범위·분할·정렬 처리: ../vlm-flash/src/vlmflash/csrc/native.cc
-% Tiles 구현: ../results/03/selectors.cpp
+% Reader의 시간 범위·분할·정렬 처리: ../../vlm-flash/src/vlmflash/csrc/native.cc
+% Tiles 구현: ../../results/03/selectors.cpp
