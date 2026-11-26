@@ -1,0 +1,37 @@
+\chapter{서론}\label{chap:introduction}
+
+\section{연구 배경}\label{sec:intro-background}
+
+휴대용 기기에서 시각-언어 모델(VLM)을 실행할 때에는 DRAM 용량이 모델 전체를 담기에 부족한 경우가 많다. 이에 가중치를 플래시에 저장해 두고, 입력마다 중요할 것으로 예상되는 행만 선택하여 DRAM으로 읽어 오는 방법이 연구되어 왔다 \cite{alizadeh2024}. 영상을 입력으로 받는 VLM은 프레임이 들어올 때마다 언어 모델을 한 번 실행하므로, 행을 선택하고 읽는 일이 프레임마다 모든 가중치 행렬에서 반복된다.
+
+SSD의 처리량은 요청 크기가 커질수록 증가하다가 일정 크기에서 포화된다 \cite{jeong2013}. 따라서 같은 수의 행을 읽더라도 선택한 행이 연속되어 있을수록 읽기 시간이 짧다. Yang 등 \cite{yang2025}의 Neuron Chunking은 이 점을 반영하여, 추정 읽기 시간당 중요도가 높은 연속 구간부터 선택하는 greedy 방법을 제안하였다.
+
+선행 연구 \cite{seol2026}는 일정 길이의 타일을 단위로 행을 선택하는 Tiles를 제안하고, 가중치 행렬 하나를 대상으로 greedy 방법과 비교하였다. 노트북의 SSD에서 두 방법의 읽기 시간은 비슷하였고, 행을 선택하는 시간은 Tiles가 약 100분의 1이었다. 그러나 이 비교에는 다음 두 가지가 빠져 있었다.
+
+\begin{itemize}
+\item \textbf{모델의 정확도}: 선택 방법을 mask가 보존하는 중요도로 평가하였다. 선택한 행만 사용한 모델이 질문에 맞게 답하는지는 확인하지 않았다.
+\item \textbf{모델과 장치}: 중요도는 텍스트만 다루는 언어 모델에서 수집하였고, 측정은 노트북 한 대에서 수행하였다. Neuron Chunking이 대상으로 삼은 것은 VLM과 embedded 장치이다.
+\end{itemize}
+
+\section{연구 내용}\label{sec:intro-contributions}
+
+본 보고서는 Tiles를 VLM의 모든 가중치 행렬에 적용하고, Neuron Chunking이 평가에 사용한 장치인 Jetson Orin Nano에서 모델의 정확도와 프레임당 시간을 측정한다. 내용은 다음과 같다.
+
+\begin{enumerate}
+\item 비교하는 세 가지 선택 방법인 Top-$R$, Neuron Chunking의 greedy 방법, Tiles를 같은 표기로 정리한다(\ref{sec:selectors}절).
+\item 선택 방법을 모델 전체에 적용할 때 필요한 두 준비 과정을 수식으로 정리한다. 자주 활성화되는 행을 인접하게 저장하는 hot--cold 재배열(\ref{sec:hot-cold}절)과, 가중치 행렬마다 읽을 행의 수를 정하는 TEAL의 탐색(\ref{sec:budgets}절)이다.
+\item LLaVA-OneVision-Qwen2-0.5B에 영상을 입력하면서 프레임마다 행을 선택하고, 영상 질문의 정확도와 선택한 행을 SSD에서 읽는 프레임당 시간을 측정한다(\ref{chap:experiments}장).
+\end{enumerate}
+
+전체 가중치의 30\%, 50\%, 70\%를 읽는 세 조건에서 얻은 결과는 다음과 같다.
+
+\begin{itemize}
+\item \textbf{정확도}: 같은 조건에서 Tiles와 greedy 방법의 정확도 차이는 0.5\%p 이내였고, 같은 질문끼리 짝지은 차이의 95\% 신뢰구간은 모두 $\pm3$\%p 안에 있었다.
+\item \textbf{읽기 시간}: Tiles와 greedy 방법의 프레임당 읽기 시간은 110--200 ms로 비슷하였고, 모든 가중치를 읽는 262 ms보다 짧았다. Top-$R$은 모든 가중치를 읽는 것보다 3.3--4.0배 오래 걸렸다.
+\item \textbf{로딩 시간}: 프레임당 선택 시간은 Tiles가 약 7 ms, greedy 방법이 99--106 ms였다. 선택과 읽기를 합한 로딩 시간은 Tiles가 greedy 방법의 56--66\%였다. Tiles는 세 조건 모두에서 모든 가중치를 읽는 것보다 빨랐고, greedy 방법은 70\% 조건에서 더 느렸다.
+\item \textbf{논문과의 비교}: Top-$R$과 greedy 방법의 정확도는 여섯 조건 모두에서 Neuron Chunking 논문의 값과 1\%p 미만으로 차이 났다.
+\end{itemize}
+
+\section{보고서의 구성}\label{sec:intro-outline}
+
+\ref{chap:background}장에서는 선택적 가중치 로딩, 구간 읽기 비용, VLM의 프레임 단위 추론을 정리한다. \ref{chap:method}장에서는 세 가지 선택 방법과 hot--cold 재배열, projection별 행 예산의 탐색을 다룬다. \ref{chap:experiments}장에서는 실험 설정과 측정 방법, 결과를 다룬다. \ref{chap:conclusion}장에서 결론을 맺는다. 실험을 재현하는 자료는 부록에 정리하였다.

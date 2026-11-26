@@ -1,0 +1,47 @@
+\chapter{배경}\label{chap:background}
+
+이 장에서는 본 보고서의 바탕이 되는 세 가지를 정리한다. \ref{sec:sparsification}절은 가중치의 일부 행만 읽어 추론하는 방법을, \ref{sec:chunk-cost}절은 선택한 행을 SSD에서 읽는 비용을, \ref{sec:frame-appending}절은 VLM이 영상을 프레임 단위로 처리하는 과정을 다룬다.
+
+\section{선택적 가중치 로딩}\label{sec:sparsification}
+
+언어 모델의 attention과 MLP는 선형 projection으로 이루어진다. 입력 채널이 $N$개, 출력 채널이 $D$개인 projection 하나를 생각하자. 입력 채널 $i$에 곱해지는 $D$개의 가중치를 $w_i\in\mathbb R^D$라 하면, 입력 $x\in\mathbb R^N$에 대한 출력은
+\[
+y=\sum_{i=0}^{N-1}x_iw_i
+\]
+이다. 플래시에는 $w_i$를 $i$번째 \textbf{행}으로 저장한다. 가중치는 플래시에서 $N$개의 행이 차례로 놓인 형태가 되며, 사용할 입력 채널을 고르는 것은 읽을 행을 고르는 것과 같다.
+
+선택 mask를 $M\in\{0,1\}^N$라 하자. $M_i=1$이면 $i$번째 행을 읽는다. 선택한 행만으로 계산한 출력은
+\[
+\hat y=\sum_{i=0}^{N-1}M_ix_iw_i
+\]
+이며, 이는 선택되지 않은 입력 채널을 0으로 두고 모든 행으로 계산한 값과 같다. 모든 행을 읽었을 때와의 차이는 $y-\hat y=\sum_{i:M_i=0}x_iw_i$이므로, activation의 크기가 작은 채널의 행부터 제외한다 \cite{alizadeh2024,liu2025}.
+
+토큰 수가 $H$인 입력에서 토큰 $t$의 채널 $i$번째 activation을 $a_{t,i}$라 하자. 행 $i$의 \textbf{중요도}와 mask가 보존하는 중요도를 다음과 같이 정의한다 \cite{yang2025}.
+\[
+v_i=\frac1H\sum_{t=1}^{H}|a_{t,i}|,
+\qquad
+I(M)=\sum_{i=0}^{N-1}v_iM_i
+\]
+읽을 행의 수를 \textbf{행 예산} $R$이라 한다. 중요도가 가장 큰 $R$개 행을 선택하는 방법을 \textbf{Top-$R$}이라 부른다. Top-$R$의 mask는 $R$개 행을 선택하는 mask 가운데 $I(M)$이 가장 크다.
+
+\section{SSD의 처리량 포화와 구간 읽기 비용}\label{sec:chunk-cost}
+
+SSD는 여러 채널의 플래시 메모리를 병렬로 사용한다. 요청 크기가 커질수록 더 많은 채널이 함께 쓰여 처리량이 증가하고, 채널 활용도가 최대에 이르는 크기를 넘으면 처리량은 더 늘지 않는다 \cite{jeong2013}. 따라서 같은 양의 데이터라도 작은 요청 여러 개로 나누어 읽는 것보다 큰 요청 하나로 읽는 것이 빠르다.
+
+Neuron Chunking \cite{yang2025}은 이 성질을 읽기 비용의 모델로 나타내었다. mask $M$에서 선택된 행들을 최대 연속 구간으로 분해하고 그 집합을 $\mathcal C(M)$이라 하자. 길이가 $\ell$인 구간 하나를 읽는 비용을 $T(\ell)$이라 하면, mask의 읽기 비용은 구간별 비용의 합이다.
+\[
+L(M)=\sum_{C\in\mathcal C(M)}T(|C|)
+\]
+$T(\ell)$은 장치에서 요청 크기별로 미리 측정해 둔다. 예를 들어 행 $\{1,2,4,6,7\}$을 선택하면 구간은 $\{1,2\}$, $\{4\}$, $\{6,7\}$의 세 개이고, 읽기 비용은 $L(M)=2T(2)+T(1)$이다. 구간 $C$가 보존하는 중요도는 $I(C)=\sum_{i\in C}v_i$로 쓴다.
+
+\section{VLM의 프레임 단위 추론}\label{sec:frame-appending}
+
+VLM은 영상의 프레임을 토큰으로 바꾸는 vision tower와, 그 토큰과 텍스트를 읽고 답을 쓰는 언어 모델로 이루어진다. 영상이 연속해서 들어올 때 언어 모델은 다음 세 단계로 실행된다 \cite{yang2025}.
+
+\begin{enumerate}
+\item \textbf{Prefill}: 영상 앞에 오는 텍스트를 읽고 key--value cache를 만든다.
+\item \textbf{Frame appending}: 프레임이 들어올 때마다 그 프레임의 토큰을 읽고 cache에 덧붙인다. 프레임 하나가 언어 모델의 실행 한 번이다.
+\item \textbf{Decoding}: 질문을 읽고 답을 한 토큰씩 생성한다.
+\end{enumerate}
+
+본 보고서가 다루는 행의 선택은 frame appending 단계의 것이다. 프레임 하나를 읽을 때 언어 모델의 각 projection은 그 프레임의 토큰들로 중요도를 계산하고, 읽을 행을 선택하여 플래시에서 읽는다. 프레임 하나가 가중치를 기다리는 시간은 모든 projection에서 행을 선택하는 시간과 읽는 시간을 더한 값이며, 본 보고서는 이를 프레임의 \textbf{로딩 시간}이라 부른다. 선택은 프레임마다 projection의 수만큼 반복된다.

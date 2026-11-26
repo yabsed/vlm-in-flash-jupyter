@@ -1,0 +1,204 @@
+\chapter{방법}\label{chap:method}
+
+이 장에서는 비교하는 행 선택 방법(\ref{sec:selectors}절)과, 선택 방법을 모델 전체에 적용하기 위한 두 준비 과정을 다룬다. \ref{sec:hot-cold}절의 hot--cold 재배열은 행을 플래시에 저장하는 순서를 정하고, \ref{sec:budgets}절의 탐색은 projection마다 행 예산을 정한다. 두 과정은 추론 전에, 평가에 쓰지 않는 calibration 자료로 한 번 수행한다.
+
+\section{행 선택 방법}\label{sec:selectors}
+
+선택 방법은 projection 하나의 중요도 $v_0,\ldots,v_{N-1}$과 행 예산 $R$을 받아 mask $M$을 반환한다. 시작 행이 $j$이고 길이가 $\ell$인 구간을
+\[
+C_{j,\ell}=\{j,j+1,\ldots,j+\ell-1\},
+\qquad 0\le j\le N-\ell
+\]
+로 쓴다. 비교하는 방법은 \ref{sec:sparsification}절의 Top-$R$과 다음 두 가지이다.
+
+\subsection{Neuron Chunking의 greedy 방법}\label{sec:paper-greedy}
+
+Neuron Chunking \cite{yang2025}은 여러 길이와 위치의 후보 구간을 만들고, 읽기 비용당 중요도가 높은 후보부터 선택한다. 이하 이 방법을 \textbf{Paper}라 부른다.
+
+행 단위로 환산한 최소·최대 후보 길이를 $\ell_{\min},\ell_{\max}$, 시작 위치의 이동 간격 상한을 $J$라 하자. 후보 집합 $\mathcal G$는 다음 $(j,\ell)$ 쌍이 정하는 구간 $C_{j,\ell}$로 이루어진다.
+\[
+\begin{aligned}
+\ell&=k\,\ell_{\min}\le\min(\ell_{\max},N),&\qquad k&=1,2,\ldots\\
+j&=m\min(\ell,J)\le N-\ell,&\qquad m&=0,1,\ldots
+\end{aligned}
+\]
+각 후보의 점수는
+\[
+U(C)=\frac{I(C)}{T(|C|)}
+\]
+이다. 후보를 점수가 높은 순서로 검토하며, 이미 선택한 행과 겹치지 않고 잔여 예산을 넘지 않는 후보를 mask에 더한다. 이 방법은 $R$보다 적은 행을 선택할 수 있다.
+
+$\ell_{\min}$과 $J$가 작을수록 후보가 촘촘해지고, 점수를 계산하고 정렬할 후보의 수가 늘어난다.
+
+\subsection{Tiles}\label{sec:tiles}
+
+Tiles \cite{seol2026}는 일정 길이의 타일을 단위로 행을 선택하고, 남은 예산을 연속 구간 하나로 채운다. 타일 길이를 양의 정수 $B$라 하고, 행 예산을
+\[
+R=KB+r,
+\qquad
+K=\left\lfloor\frac RB\right\rfloor,
+\qquad
+0\le r<B
+\]
+로 나눈다. mask는 다음 순서로 구성한다.
+
+\begin{enumerate}
+\item 행을 길이 $B$의 타일로 나눈다. 첫 타일의 시작 행을 $0$으로 둔 배치 $\mathcal T_1$과 $d=\lfloor B/2\rfloor$로 둔 배치 $\mathcal T_2$를 만든다.
+\[
+\mathcal T_1=\{C_{0,B},C_{B,B},C_{2B,B},\ldots\},
+\qquad
+\mathcal T_2=\{C_{d,B},C_{d+B,B},C_{d+2B,B},\ldots\}
+\]
+끝 행이 $N-1$을 넘는 타일은 제외한다.
+\item 각 배치에서 중요도 $I(C)$가 큰 $K$개 타일을 선택한다.
+\item $r>0$이면 선택한 타일과 겹치지 않는 길이 $r$의 구간 가운데 중요도가 가장 큰 것을 추가한다.
+\item 예산을 채운 mask 가운데 $I(M)/L(M)$이 큰 것을 반환한다.
+\end{enumerate}
+
+$R<B$이면 $K=0$이므로, 중요도가 가장 큰 길이 $R$의 구간 하나가 선택된다. Tiles가 반환하는 mask는 항상 정확히 $R$개 행을 선택한다.
+
+\textbf{타일 길이}는 SSD의 처리량이 포화하는 크기에 맞춘다. 읽기 비용을 측정한 요청 크기 가운데 KiB당 비용이 가장 작은 크기를 $z_\ast$ KiB, 한 행의 크기를 $w$ KiB라 하면
+\[
+B=\left\lceil\frac{z_\ast}{w}\right\rceil
+\]
+이다. 타일 하나의 크기가 $z_\ast$ KiB 이상이므로, 선택한 타일은 KiB당 비용이 낮은 큰 요청으로 읽힌다. 이렇게 고른 mask의 중요도--읽기 비용 비율이 같은 행 수에서의 최적값에 가깝다는 점은 선행 연구 \cite{seol2026}에서 확인하였다.
+
+\textbf{계산량}에서 세 방법은 표~\ref{tab:selectors}\와 같이 다르다. Tiles는 중요도의 누적합과 상위 $K$개 타일의 부분 선택만 사용하며, 고정된 $B$에서 평균 $O(N)$ 시간이 걸린다.
+
+\begin{table}[htbp]
+    \centering
+    \caption{세 가지 선택 방법}
+    \label{tab:selectors}
+    \begin{tabular}{llll}
+        \toprule
+        방법 & 선택 단위 & 행 수 & 주요 계산 \\
+        \midrule
+        Top-$R$ & 행 & $R$ & 중요도 $N$개의 정렬 \\
+        Paper & 후보 구간 & $R$ 이하 & 후보 $|\mathcal G|$개의 점수 계산과 정렬 \\
+        Tiles & 타일과 잔여 구간 하나 & $R$ & 누적합, 상위 $K$개 타일의 부분 선택 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\section{Hot--cold 재배열}\label{sec:hot-cold}
+
+Paper와 Tiles는 플래시에서 인접한 행들을 한 구간으로 함께 읽는다. 따라서 구간이 보존하는 중요도는 어떤 행들이 서로 인접해 저장되어 있는지에 따라 달라진다. Neuron Chunking \cite{yang2025}은 추론 전에 행의 저장 순서를 바꾸어, 자주 활성화되는 행들이 서로 인접하도록 한다.
+
+\subsection{순서의 계산}\label{sec:hot-cold-order}
+
+Calibration 자료의 입력을 $e=1,\ldots,E$로 나타내고, 입력 $e$에서 계산한 행 $i$의 중요도를 $v_i^{(e)}$라 하자. 입력 $e$에서 중요도가 상위 절반에 드는 행을 \textbf{활성 행}이라 하고 그 집합을 $\mathcal A^{(e)}$라 하면, 행 $i$의 활성 횟수는
+\[
+c_i=\sum_{e=1}^{E}\mathbf 1\bigl[i\in\mathcal A^{(e)}\bigr]
+\]
+이다. 활성 횟수가 큰 행부터 나열하는 순열 $\pi$를 구한다.
+\[
+\boxed{c_{\pi(0)}\ge c_{\pi(1)}\ge\cdots\ge c_{\pi(N-1)}}
+\]
+활성 횟수가 같은 행들은 원래의 순서를 유지한다. 순서의 앞쪽에는 활성 횟수가 큰 hot 행이, 뒤쪽에는 활성 횟수가 작은 cold 행이 놓인다.
+
+이 순서에서는 모든 길이 $\ell$에 대해
+\[
+\sum_{j=0}^{\ell-1}c_{\pi(j)}=\max_{|S|=\ell}\sum_{i\in S}c_i
+\]
+가 성립한다. 즉 앞에서부터 $\ell$개의 위치에는, 행 $\ell$개의 집합 가운데 calibration 자료에서 활성 횟수의 합이 가장 큰 집합이 놓인다. $c_i/E$를 행 $i$가 활성일 확률의 추정값으로 보면, 앞에서부터 $\ell$개의 위치를 한 구간으로 읽는 것은 행 $\ell$개를 읽는 어떤 방법보다 활성 행을 평균적으로 많이 담는다.
+
+\subsection{저장과 선택}\label{sec:hot-cold-use}
+
+플래시의 $j$번째 위치에는 원래의 $\pi(j)$번째 행을 저장한다. 추론할 때에는 중요도에 같은 순열을 적용하여, $j$번째 위치의 중요도를
+\[
+u_j=v_{\pi(j)}
+\]
+로 둔다. 선택 방법은 $v$ 대신 $u$를 받아 저장 위치에 대한 mask $M$을 구성하고, 구간 $\mathcal C(M)$과 읽기 비용 $L(M)$은 저장 위치를 기준으로 계산한다. $M_j=1$이면 입력 채널 $\pi(j)$를 사용한다. 선택 방법 자체는 바뀌지 않으며, 입력으로 받는 중요도의 순서만 달라진다.
+
+재배열이 바꾸는 것은 방법에 따라 다르다.
+
+\begin{itemize}
+\item \textbf{Top-$R$}: 선택되는 행의 집합은 저장 순서와 무관하므로 $I(M)$은 그대로이다. 달라지는 것은 그 행들이 이루는 구간과 읽기 비용 $L(M)$이다.
+\item \textbf{Paper와 Tiles}: 후보 구간 $C_{j,\ell}$이 담는 행이 $\pi(j),\ldots,\pi(j+\ell-1)$로 바뀐다. 구간의 읽기 비용 $T(\ell)$은 그대로이고, 구간이 보존하는 중요도가 $I(C_{j,\ell})=\sum_{k=j}^{j+\ell-1}v_{\pi(k)}$로 달라진다.
+\end{itemize}
+
+\subsection{계산 예}\label{sec:hot-cold-example}
+
+행이 $N=6$개, 입력이 $E=4$개인 경우를 생각하자. 각 입력의 활성 행은 중요도 상위 3개이며, 표~\ref{tab:hot-cold-example}에 점으로 표시하였다.
+
+\begin{table}[htbp]
+    \centering
+    \caption{Hot--cold 순서의 계산 예. 점은 그 입력에서 활성인 행이다.}
+    \label{tab:hot-cold-example}
+    \begin{tabular}{ccccccc}
+        \toprule
+        행 $i$ & 입력 1 & 입력 2 & 입력 3 & 입력 4 & 활성 횟수 $c_i$ & 저장 위치 \\
+        \midrule
+        0 &           &           & $\bullet$ &           & 1 & 4 \\
+        1 & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ & 4 & 0 \\
+        2 &           &           &           &           & 0 & 5 \\
+        3 & $\bullet$ &           &           & $\bullet$ & 2 & 2 \\
+        4 & $\bullet$ & $\bullet$ & $\bullet$ &           & 3 & 1 \\
+        5 &           & $\bullet$ &           & $\bullet$ & 2 & 3 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+활성 횟수가 큰 순서로 나열하면 $\pi=(1,4,3,5,0,2)$이다. 행 3과 행 5는 활성 횟수가 같으므로 원래의 순서를 따른다.
+
+새 입력에서 Top-3이 행 $\{1,3,4\}$를 선택한다고 하자. 원래 순서에서 이 행들은 구간 $\{1\}$과 $\{3,4\}$로 나뉘고, 읽기 비용은 $T(1)+T(2)$이다. Hot--cold 순서에서는 세 행이 위치 0, 1, 2에 놓여 구간 하나가 되고, 읽기 비용은 $T(3)$이다.
+
+\section{Projection별 행 예산}\label{sec:budgets}
+
+\ref{sec:selectors}절의 방법들은 projection 하나와 그 행 예산 $R$에 대해 정의되었다. 모델에는 projection이 여러 개 있으므로, 전체 가중치 가운데 읽을 비율 $f$가 주어지면 이를 projection별 예산으로 나누어야 한다. 가장 단순한 방법은 모든 projection이 자신의 행 중 $f$의 비율을 읽는 것이다. 그러나 행을 줄였을 때 출력이 달라지는 정도는 projection마다 다르다. Neuron Chunking은 Liu 등 \cite{liu2025}이 TEAL에서 제안한 block 단위의 탐색으로 예산을 정한다.
+
+\subsection{문제}\label{sec:budgets-problem}
+
+Transformer block 하나에는 attention과 MLP를 이루는 일곱 개의 projection이 있다. Projection $p$의 행 수를 $N_p$, 행당 원소 수를 $D_p$라 하고, 이 projection이 자신의 행 중 $f_p$의 비율을 읽는다고 하자. 행 예산은
+\[
+R_p=\max\{1,\lfloor f_pN_p\rfloor\}
+\]
+이고, block이 읽는 가중치의 비율은 $f_p$를 가중치 수로 가중한 평균
+\[
+F(f_1,\ldots,f_7)=\frac{\sum_pN_pD_pf_p}{\sum_pN_pD_p}
+\]
+이다.
+
+Block에 같은 입력을 주었을 때, 모든 행을 사용한 출력을 $y$, 각 projection이 중요도가 가장 큰 $R_p$개 행만 사용한 출력을 $\hat y$라 하자. Block의 오차를
+\[
+E(f_1,\ldots,f_7)=\lVert\hat y-y\rVert_2
+\]
+로 정의한다. 요청 비율 $f$에 대해 풀고자 하는 문제는 다음과 같다.
+\[
+\boxed{
+\min_{f_1,\ldots,f_7}E(f_1,\ldots,f_7)
+\qquad\text{subject to}\qquad
+F(f_1,\ldots,f_7)\le f
+}
+\]
+
+\subsection{Greedy 탐색}\label{sec:budgets-search}
+
+TEAL의 탐색은 모든 행을 읽는 상태에서 출발하여, 오차가 가장 작게 유지되는 projection의 비율을 한 단계씩 낮춘다.
+
+\begin{enumerate}
+\item 모든 $p$에서 $f_p=1$로 시작한다.
+\item 일곱 개의 $p$ 각각에 대해, $f_p$ 하나만 $\delta_p$만큼 낮추었을 때의 오차 $E_p$를 계산한다.
+\item $E_p$가 가장 작은 $p$의 $f_p$를 $\delta_p$만큼 낮춘다.
+\item $F\le f$가 될 때까지 2--3을 반복한다.
+\end{enumerate}
+
+낮추면 행이 하나도 남지 않게 되는 projection은 2의 후보에서 제외한다.
+
+간격 $\delta_p$는 TEAL과 같이 projection의 가중치 수에 반비례하도록 둔다. 기준으로 삼는 projection을 $p=1$, 그 간격을 $\alpha$라 하면
+\[
+\delta_p=\alpha\,\frac{N_1D_1}{N_pD_p}
+\]
+이다. 이때 어느 projection을 낮추든 한 단계에서 $F$가 줄어드는 양은
+\[
+\boxed{
+\displaystyle
+\frac{N_pD_p\,\delta_p}{\sum_{p'}N_{p'}D_{p'}}
+=\frac{\alpha N_1D_1}{\sum_{p'}N_{p'}D_{p'}}
+}
+\]
+로 같다. 따라서 각 단계는 같은 양의 가중치를 덜 읽는 일곱 가지 방법 가운데 block의 출력을 가장 적게 바꾸는 것을 고른다. 2의 비교에 읽는 양은 관여하지 않고 오차만 쓰인다.
+
+탐색은 block마다 따로 수행하며, 모든 block에 같은 $f$를 준다. 각 block의 입력으로는 앞의 block들이 모든 행을 사용했을 때의 값을 준다. 종류가 같은 projection이라도 block에 따라 다른 예산을 받는다.
+
+TEAL에서 이 탐색은 activation의 원소 가운데 0으로 만드는 비율을 행렬마다 정하는 데 쓰인다. 여기서는 Neuron Chunking의 용법에 맞추어 읽는 행의 비율로 적었다.
