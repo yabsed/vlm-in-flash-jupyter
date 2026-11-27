@@ -1,0 +1,97 @@
+\section{Tiles}
+
+% Tiles in the example with B = 4: two layouts, the K = 2 most important tiles of each.
+\begin{frame}{길이 $B\ge\ell_0$인 타일로 고르면 읽기 비용은 최소다}
+  \begin{canvas}
+
+    \def\th{0.5} % height of a tile
+
+    % Importance of every row
+    \drawvalues{\maskNone}
+    \node[label, anchor = east, text = muted] at (\boxleft - 0.3,                  \boxbase + 0.5 * \boxsize) {중요도 $v_i$};
+    \node[label, anchor = west, text = muted] at (\boxleft + 16 * \boxsize + 0.27, \boxbase + 0.5 * \boxsize) {$B=4,\ K=2$};
+
+    % Layout 1 starts at row 0, layout 2 at row floor(B / 2) = 2. Each tile: first row / importance / selected
+    \foreach \y/\tiles in {3.7/{0/15/0, 4/16/1, 8/22/1, 12/12/0}, 2.75/{2/17/1, 6/8/0, 10/27/1}} {
+      \foreach \start/\importance/\bit in \tiles {
+        \ifnum\bit=1
+          \path[fill = imp, rounded corners = 1.5pt] ({\boxleft + \start * \boxsize + 0.04}, \y) rectangle ++(4 * \boxsize - 0.08, \th);
+          \node[num on]  at ({\boxleft + (\start + 2) * \boxsize}, \y + 0.5 * \th) {\importance};
+        \else
+          \path[fill = off, rounded corners = 1.5pt] ({\boxleft + \start * \boxsize + 0.04}, \y) rectangle ++(4 * \boxsize - 0.08, \th);
+          \node[num off] at ({\boxleft + (\start + 2) * \boxsize}, \y + 0.5 * \th) {\importance};
+        \fi
+      }
+    }
+
+    % The shift of the second layout
+    \draw[bracket, tip] (\boxleft + 0.04, 2.75 + 0.5 * \th) -- (\boxleft + 2 * \boxsize - 0.02, 2.75 + 0.5 * \th);
+
+    % The mask of the better layout
+    \drawmask{\maskFour}{\boxleft}{1.8}{\boxsize}{0.3}
+
+    % Names of the rows
+    \node[label, anchor = east] at (\boxleft - 0.3, 3.7  + 0.5 * \th) {배치 1};
+    \node[label, anchor = east] at (\boxleft - 0.3, 2.75 + 0.5 * \th) {배치 2\quad\insoft{$\lfloor B/2\rfloor$}};
+    \node[label, anchor = east] at (\boxleft - 0.3, 1.95)             {$M_{\mathrm{Tiles}}$};
+
+    % Importance of the mask of each layout, and the latency of both
+    \node[label, anchor = west, text = muted] at (\boxleft + 16 * \boxsize + 0.27, 3.7  + 0.5 * \th) {$I=38$};
+    \node[label, anchor = west, text = imp]   at (\boxleft + 16 * \boxsize + 0.27, 2.75 + 0.5 * \th) {$I=44$};
+    \node[label, anchor = west, text = lat]   at (\boxleft + 16 * \boxsize + 0.27, 1.95)             {$L=\alpha R=16$};
+
+    % The rule
+    \node[label, anchor = west, text = muted, align = left] at (\boxleft - 0.05, 0.75) {%
+      $R=KB+r$\quad 중요도가 큰 타일 $K$개를 고르고, 남는 $r$행은 연속 구간 하나로 채운다.\\[0.6mm]
+      두 배치 중 $I/L$이 큰 쪽을 쓴다.};
+
+  \end{canvas}
+\end{frame}
+
+
+% The tile length moves the mask from the most importance to the least latency.
+\begin{frame}{타일이 길어지면 중요도 최대에서 지연 최소로 옮겨 간다}
+  \begin{canvas}
+
+    % Sizes
+    \def\cw{0.34}  % size of one box
+    \def\il{8.3}   % left edge of the importance bars
+    \def\el{10.45} % left edge of the efficiency bars
+    \def\bw{1.7}   % length of a full bar
+
+    % Headers
+    \node[label, anchor = south west, text = imp] at (\il - 0.05, 5.0) {중요도\ \ $I/I_T$};
+    \node[label, anchor = south west, text = lat] at (\el - 0.05, 5.0) {효율\ \ $\alpha R/L$};
+    \node[label, anchor = south east]             at (13.65, 5.0)      {$q/q^\star$};
+
+    % Tile length / mask / importance kept (%) / efficiency (%) / ratio reached (%) / height of the row
+    \foreach \tile/\mask/\kept/\efficiency/\reached/\y in {1/\maskTop/100/57/68/4.35, 2/\maskTwo/93/80/89/3.4, 4/\maskFour/80/100/96/2.45, 8/\maskEight/69/100/83/1.5} {
+
+      \edef\bits{\mask}
+      \drawmask{\bits}{\boxleft}{\y}{\cw}{0.4}
+
+      \node[font = \small, anchor = west] at (-0.05, \y + 0.2) {$B=\tile$};
+
+      % Importance kept, relative to Top-R
+      \path[cell off]         (\il, \y + 0.03) rectangle ++(\bw, 0.34);
+      \path[cell, fill = imp] (\il, \y + 0.03) rectangle ++(\kept / 100 * \bw, 0.34);
+      \node[label, anchor = east, text = white] at (\il + \kept / 100 * \bw - 0.02, \y + 0.2) {\kept};
+
+      % Rows read per unit of latency, relative to the bound 1 / alpha
+      \path[cell off]         (\el, \y + 0.03) rectangle ++(\bw, 0.34);
+      \path[cell, fill = lat] (\el, \y + 0.03) rectangle ++(\efficiency / 100 * \bw, 0.34);
+      \node[label, anchor = east, text = white] at (\el + \efficiency / 100 * \bw - 0.02, \y + 0.2) {\efficiency};
+
+      % Ratio I / L, relative to the optimum
+      \node[font = \small, anchor = east] at (13.65, \y + 0.2) {\reached\,\%};
+    }
+
+    % The two ends
+    \node[label, anchor = west, text = muted] at (1.15, 4.35 + 0.2) {Top-$R$};
+    \node[label, anchor = west, text = muted] at (1.15, 2.45 + 0.2) {$=\ell_0$};
+
+    % The guarantee: the two bars multiply to a lower bound of the last column.
+    \node[font = \small, anchor = east] at (13.65, 0.7) {$\dfrac{q(M)}{q^\star}\;\ge\;\inimp{\dfrac{I(M)}{I_T}}\cdot\inlat{\dfrac{\alpha R}{L(M)}}$};
+
+  \end{canvas}
+\end{frame}

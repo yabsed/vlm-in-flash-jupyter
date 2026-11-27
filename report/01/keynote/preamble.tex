@@ -1,0 +1,130 @@
+% Preamble of the keynote: fonts, colours, frame layout, and the example shared by the slides.
+
+% Korean text. NanumGothic is a static font; the variable Noto fonts of this laptop fail in xdvipdfmx.
+\usepackage{kotex}
+\setsansfont      {NanumGothic}[BoldFont = NanumGothic Bold]
+\setsanshangulfont{NanumGothic}[BoldFont = NanumGothic Bold]
+
+% Mathematics in a serif face, so that I, l and 1 stay apart
+\usefonttheme{professionalfonts}
+\usepackage{unicode-math}
+\setmathfont{STIX Two Math}
+
+% Figures
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, decorations.pathreplacing}
+
+% Colours: orange is importance and selected rows, blue is latency. Everything else is grey.
+\definecolor{ink}    {HTML}{22262B}
+\definecolor{muted}  {HTML}{8A9099}
+\definecolor{dim}    {HTML}{6F7781}
+\definecolor{hair}   {HTML}{C9CED4}
+\definecolor{off}    {HTML}{E8EAED}
+\definecolor{imp}    {HTML}{D9531E}
+\definecolor{impsoft}{HTML}{F5D3C2}
+\definecolor{lat}    {HTML}{2B5C8A}
+\definecolor{latsoft}{HTML}{D2DFEB}
+
+% Text in one of the colours. The names avoid \lat and \minus, which unicode-math defines as symbols.
+\newcommand{\inimp} [1]{{\color{imp}#1}}
+\newcommand{\inlat} [1]{{\color{lat}#1}}
+\newcommand{\insoft}[1]{{\color{muted}#1}}
+
+% NanumGothic has no minus sign; the one of the math font is used in text.
+\newcommand{\minussign}{\ensuremath{-}}
+
+% Frame layout: the section name above the title, the frame number in the corner.
+\setbeamertemplate{navigation symbols}{}
+\setbeamersize{text margin left = 12mm, text margin right = 12mm}
+\setbeamercolor{normal text}{fg = ink, bg = white}
+
+\setbeamertemplate{frametitle}{%
+  \vspace{7.5mm}%
+  {\scriptsize\color{muted}\insertsectionhead}\par
+  \vspace{0.8mm}%
+  {\fontsize{13pt}{16pt}\selectfont\bfseries\color{ink}\insertframetitle}\par
+  \vspace{1.5mm}%
+}
+
+\setbeamertemplate{footline}{%
+  \hfill{\scriptsize\color{muted}\insertframenumber}\hspace{12mm}\vspace{5mm}%
+}
+
+% Every figure is drawn on one canvas of the text width, so that what the slides share stays in place.
+\newenvironment{canvas}
+  {\begin{tikzpicture}\useasboundingbox (0, 0) rectangle (13.6, 5.45);}
+  {\end{tikzpicture}}
+
+% Shared drawing styles
+\tikzset{
+  cell/.style      = {draw = white, line width = 0.8pt},
+  cell on/.style   = {cell, fill = imp},
+  cell off/.style  = {cell, fill = off},
+  num on/.style    = {text = white, font = \small\bfseries},
+  num off/.style   = {text = dim, font = \small},
+  label/.style     = {font = \footnotesize},
+  axis/.style      = {draw = ink, line width = 0.5pt},
+  thin line/.style = {draw = hair, line width = 0.5pt},
+  bracket/.style   = {draw = muted, line width = 0.5pt},
+  brace/.style     = {draw = muted, line width = 0.5pt, decorate, decoration = {brace, amplitude = 3.5pt}},
+  tip/.style       = {-{Stealth[length = 4pt, width = 3.5pt]}},
+}
+
+% The example of the slides: N = 16 rows, exactly R = 8 of them selected.
+% Importance v_i of each row
+\def\toyV{8,3,0,4,9,4,2,1,4,1,8,9,1,9,1,1}
+
+% Masks of the example. Tiles with B = 1 is Top-R, and with B = 8 it is one chunk.
+\def\maskNone {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
+\def\maskTop  {1,0,0,1,1,1,0,0,1,0,1,1,0,1,0,0}
+\def\maskTwo  {1,1,0,0,1,1,0,0,0,0,1,1,1,1,0,0}
+\def\maskFour {0,0,1,1,1,1,0,0,0,0,1,1,1,1,0,0}
+\def\maskEight{0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0}
+\def\maskOpt  {0,0,0,1,1,1,1,0,0,0,1,1,1,1,0,0}
+
+% The chunks of the Top-R mask: start / length / importance I[C] / latency T[|C|] / latency of the chunks before it
+\def\toyChunks{0/1/8/5/0, 3/3/17/7/5, 8/1/4/5/12, 10/2/17/6/17, 13/1/9/5/23}
+
+% Where the N boxes of the example sit on the canvas: left edge, bottom edge, size of one box
+\def\boxleft{2.5}
+\def\boxbase{4.75}
+\def\boxsize{0.53}
+
+% \drawmask{mask}{x}{y}{cell width}{cell height} draws the N boxes of a mask from (x, y).
+\newcommand{\drawmask}[5]{%
+  \foreach \bit [count = \k from 0] in #1 {
+    \ifnum\bit=1
+      \path[cell on]  ({#2 + \k * #4}, {#3}) rectangle ++({#4}, {#5});
+    \else
+      \path[cell off] ({#2 + \k * #4}, {#3}) rectangle ++({#4}, {#5});
+    \fi
+  }%
+}
+
+% \drawvalues{mask} draws the N boxes of the example with the importance of each row written in its box.
+% In the mask, 1 is a selected row and 2 is a selected row drawn pale.
+\newcommand{\drawvalues}[1]{%
+  \foreach \val [count = \k from 0] in \toyV {
+    \pgfmathtruncatemacro\bit{{#1}[\k]}
+    \ifcase\bit
+      \path[cell off]             ({\boxleft + \k * \boxsize}, \boxbase) rectangle ++(\boxsize, \boxsize);
+      \node[num off]              at ({\boxleft + (\k + 0.5) * \boxsize}, {\boxbase + 0.5 * \boxsize}) {\val};
+    \or
+      \path[cell on]              ({\boxleft + \k * \boxsize}, \boxbase) rectangle ++(\boxsize, \boxsize);
+      \node[num on]               at ({\boxleft + (\k + 0.5) * \boxsize}, {\boxbase + 0.5 * \boxsize}) {\val};
+    \or
+      \path[cell, fill = impsoft] ({\boxleft + \k * \boxsize}, \boxbase) rectangle ++(\boxsize, \boxsize);
+      \node[num on, text = imp]   at ({\boxleft + (\k + 0.5) * \boxsize}, {\boxbase + 0.5 * \boxsize}) {\val};
+    \fi
+  }%
+}
+
+% \drawbrackets marks the chunks of the Top-R mask below the boxes.
+\newcommand{\drawbrackets}{%
+  \foreach \start/\len/\importance/\latency/\before in \toyChunks {
+    \draw[bracket] ({\boxleft + \start * \boxsize + 0.06},          {\boxbase - 0.08})
+                -- ({\boxleft + \start * \boxsize + 0.06},          {\boxbase - 0.18})
+                -- ({\boxleft + (\start + \len) * \boxsize - 0.06}, {\boxbase - 0.18})
+                -- ({\boxleft + (\start + \len) * \boxsize - 0.06}, {\boxbase - 0.08});
+  }%
+}

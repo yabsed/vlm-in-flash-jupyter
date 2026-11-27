@@ -1,0 +1,89 @@
+\section{행 선택}
+
+% The product y = aW. Element i of the row vector meets row i of the matrix.
+\begin{frame}{값이 큰 원소와 만나는 행만 읽는다}
+  \begin{canvas}
+
+    % Sizes
+    \def\cw{0.5}   % width of one element of a
+    \def\ab{0.85}  % bottom edge of a
+    \def\rh{0.235} % height of one row of W
+    \def\wl{9.0}   % left edge of W
+    \def\ww{3.0}   % width of W
+    \def\wt{5.55}  % top edge of W
+
+    % Activation of each channel, paired with 1 when its magnitude is among the R largest
+    \def\toyA{8/1, \minussign3/0, 0/0, 4/1, \minussign9/1, 4/1, \minussign2/0, 1/0, \minussign4/1, 1/0, 8/1, 9/1, \minussign1/0, \minussign9/1, 1/0, 1/0}
+
+    \foreach \val/\bit [count = \k from 0] in \toyA {
+
+      % Centre of element k of a, and of row k of W
+      \pgfmathsetmacro\xc{(\k + 0.5) * \cw}
+      \pgfmathsetmacro\yc{\wt - (\k + 0.5) * \rh}
+
+      \ifnum\bit=1
+        \draw[draw = imp, line width = 1pt, rounded corners = 3pt] (\xc, \ab + \cw) -- (\xc, \yc) -- (\wl, \yc);
+        \path[cell on]  (\wl, \yc - 0.5 * \rh) rectangle ++(\ww, \rh);
+        \path[cell on]  (\k * \cw, \ab) rectangle ++(\cw, \cw);
+        \node[num on]   at (\xc, \ab + 0.5 * \cw) {\val};
+      \else
+        \draw[thin line, rounded corners = 3pt] (\xc, \ab + \cw) -- (\xc, \yc) -- (\wl, \yc);
+        \path[cell off] (\wl, \yc - 0.5 * \rh) rectangle ++(\ww, \rh);
+        \path[cell off] (\k * \cw, \ab) rectangle ++(\cw, \cw);
+        \node[num off]  at (\xc, \ab + 0.5 * \cw) {\val};
+      \fi
+    }
+
+    % Output y, below W and to the right of a
+    \foreach \k in {0, ..., 5} {
+      \path[cell off] (\wl + \k * \cw, \ab) rectangle ++(\cw, \cw);
+    }
+    \draw[bracket, tip] (16 * \cw + 0.14, \ab + 0.5 * \cw) -- (\wl - 0.14, \ab + 0.5 * \cw);
+    \draw[bracket, tip] (\wl + 0.5 * \ww, \wt - 16 * \rh - 0.1) -- (\wl + 0.5 * \ww, \ab + \cw + 0.1);
+
+    % Names
+    \node[label, anchor = north west] at (-0.05, \ab - 0.1)       {$a$\quad\insoft{활성값}};
+    \node[label, anchor = north west] at (\wl - 0.05, \ab - 0.1)  {$y=\sum_i a_iW_i$};
+
+    \node[label, anchor = west] at (\wl + \ww + 0.12, \wt - 0.5 * \rh)  {\insoft{$W_0$}};
+    \node[label, anchor = west] at (\wl + \ww + 0.12, \wt - 15.5 * \rh) {\insoft{$W_{N-1}$}};
+    \node[label, anchor = west, align = left] at (\wl + \ww + 0.12, \wt - 8 * \rh) {$W$\\[0.3mm]\insoft{가중치}};
+
+  \end{canvas}
+\end{frame}
+
+
+% The mask: N boxes, R of them coloured. Each coloured chunk has a length, an importance and a latency.
+\begin{frame}{Mask는 $N$개의 행 중 $R$개를 색칠한 것이다}
+  \begin{canvas}
+
+    \drawvalues{\maskTop}
+    \drawbrackets
+
+    \node[label, anchor = east, text = muted] at (\boxleft - 0.3,                 \boxbase + 0.5 * \boxsize) {중요도 $v_i$};
+    \node[label, anchor = west, text = muted] at (\boxleft + 16 * \boxsize + 0.27, \boxbase + 0.5 * \boxsize) {$N=16,\ R=8$};
+
+    % Each chunk C of the mask: its length, its importance and its latency
+    \foreach \start/\len/\importance/\latency/\before in \toyChunks {
+      \pgfmathsetmacro\xm{\boxleft + (\start + 0.5 * \len) * \boxsize}
+
+      \node[font = \small, text = muted]        at (\xm, 3.8) {\len};
+      \node[font = \small\bfseries, text = imp] at (\xm, 2.8) {\importance};
+      \node[font = \small\bfseries, text = lat] at (\xm, 1.8) {\latency};
+    }
+
+    % Importance and latency of the mask are sums over its chunks.
+    \foreach \x in {3.825, 5.945, 7.6675, 8.9925} {
+      \node[font = \small, text = imp] at (\x, 2.8) {$+$};
+      \node[font = \small, text = lat] at (\x, 1.8) {$+$};
+    }
+
+    \node[label, anchor = east, text = muted] at (\boxleft - 0.3, 3.8) {길이 $|C|$};
+    \node[label, anchor = east, text = imp]   at (\boxleft - 0.3, 2.8) {중요도 $I[C]$};
+    \node[label, anchor = east, text = lat]   at (\boxleft - 0.3, 1.8) {지연시간 $T[|C|]$};
+
+    \node[label, anchor = west, text = imp] at (\boxleft + 16 * \boxsize + 0.27, 2.8) {$=55=I(M)$};
+    \node[label, anchor = west, text = lat] at (\boxleft + 16 * \boxsize + 0.27, 1.8) {$=28=L(M)$};
+
+  \end{canvas}
+\end{frame}

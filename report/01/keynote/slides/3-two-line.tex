@@ -1,0 +1,99 @@
+\section{Two-line 모델}
+
+% The cost of one chunk, and the tangent from the origin.
+% The slope of a ray from the origin is the cost per row; it is least on the tangent.
+\begin{frame}{$\ell_0$ 이상의 길이는 모두 원점에서 그은 접선 위에 있다}
+  \begin{canvas}
+
+    % The example: alpha = 2, lambda = 1, ell_0 = 4, so T(l) = l + 4 below 4 rows and 2l from 4 rows.
+    \begin{scope}[shift = {(1.0, 0.75)}, x = 0.76cm, y = 0.235cm]
+
+      % Extra cost of a short chunk: the gap between the cost and the tangent
+      \fill[latsoft] (0, 0) -- (0, 4) -- (4, 8) -- cycle;
+
+      % Rays from the origin through the short lengths. The slope of a ray is the cost per row.
+      \foreach \len/\cost/\slope in {1/5/5, 2/6/3, 3/7/2.33} {
+        \draw[thin line] (0, 0) -- ({18.6 * \len / \cost}, 18.6);
+        \node[label, anchor = south, text = muted] at ({18.6 * \len / \cost}, 18.7) {\slope};
+      }
+      \node[label, anchor = south east, text = muted] at ({18.6 / 5 - 0.45}, 18.7) {기울기 $T(\ell)/\ell$};
+      \node[label, anchor = south]                    at (9.3, 18.7)               {$\alpha=2$};
+
+      % Axes
+      \draw[axis, tip] (0, 0) -- (10.1, 0);
+      \draw[axis, tip] (0, 0) -- (0, 19.9);
+      \node[label, anchor = north] at (10.0, -0.5)  {$\ell$};
+      \node[label, anchor = east]  at (-0.15, 15.5) {$T(\ell)$};
+
+      % Turning point
+      \draw[thin line, dash pattern = on 2pt off 2pt] (4, 0) -- (4, 8);
+      \node[label, anchor = north] at (4, -0.5)  {$\ell_0$};
+      \node[label, anchor = east]  at (-0.15, 4) {$\lambda\ell_0$};
+
+      % The tangent from the origin, and the two lines
+      \draw[draw = ink, line width = 0.6pt, dash pattern = on 3pt off 2pt] (0, 0) -- (4, 8);
+      \draw[draw = lat, line width = 1.3pt, line join = round] (0, 4) -- (4, 8) -- (9.3, 18.6);
+
+      % Cost of each length: hollow above the tangent, filled on it
+      \foreach \len/\cost in {1/5, 2/6, 3/7} {
+        \path[draw = lat, line width = 0.9pt, fill = white] (\len, \cost) circle[radius = 1.9pt];
+      }
+      \foreach \len/\cost in {4/8, 5/10, 6/12, 7/14, 8/16, 9/18} {
+        \fill[lat] (\len, \cost) circle[radius = 2.2pt];
+      }
+
+      \node[label, anchor = west, text = lat] (extra) at (2.55, 1.9) {추가 비용};
+      \draw[draw = lat, line width = 0.5pt] (extra.west) -- (1.25, 3.55);
+
+    \end{scope}
+
+    % The model, and what the tangent says
+    \node[font = \small, anchor = west] at (9.3, 4.85) {$T(\ell)=\alpha\ell+\inlat{\lambda\,(\ell_0-\ell)_+}$};
+
+    \node[font = \small, anchor = west] at (9.3, 3.3)  {$\dfrac{T(\ell)}{\ell}\;\ge\;\alpha$};
+    \node[label, anchor = west]         at (9.35, 2.5) {등호는 $\ell\ge\ell_0$인 모든 길이};
+
+    \node[label, anchor = west, text = muted] at (9.35, 0.95) {$\alpha=2,\ \ \lambda=1,\ \ \ell_0=4$};
+
+  \end{canvas}
+\end{frame}
+
+
+% The cost of a mask: alpha R, plus the shortfall of every chunk shorter than ell_0.
+\begin{frame}{모든 구간이 $\ell_0$ 이상이면 읽기 비용은 최소인 $\alpha R$이다}
+  \begin{canvas}
+
+    % Sizes
+    \def\cw{0.4}  % size of one box
+    \def\bl{7.3}  % left edge of the cost bars
+    \def\bs{0.18} % length of a bar per unit of cost
+
+    % Three masks with R = 8 rows: five short chunks, two chunks of ell_0 rows, one chunk
+    \drawmask{\maskTop}  {0}{4.15}{\cw}{\cw}
+    \drawmask{\maskOpt}  {0}{2.95}{\cw}{\cw}
+    \drawmask{\maskEight}{0}{1.75}{\cw}{\cw}
+
+    % alpha R = 16 is paid by every mask.
+    \foreach \y/\total in {4.15/28, 2.95/16, 1.75/16} {
+      \path[cell, fill = lat] (\bl, \y) rectangle ++(16 * \bs, \cw);
+      \node[num on] at (\bl + 8 * \bs, \y + 0.5 * \cw) {16};
+      \node[font = \small, anchor = west] at (\bl + \total * \bs + 0.15, \y + 0.5 * \cw) {$L=\total$};
+    }
+
+    % Extra cost lambda (ell_0 - |C|) of each short chunk of the first mask: start / length / extra / extra of the chunks before it
+    \foreach \start/\len/\extra/\before in {0/1/3/0, 3/3/1/3, 8/1/3/4, 10/2/2/7, 13/1/3/9} {
+      \node[label, text = lat, anchor = south] at ({(\start + 0.5 * \len) * \cw}, 4.15 + \cw) {$+\extra$};
+      \path[cell, fill = latsoft]              ({\bl + (16 + \before) * \bs}, 4.15) rectangle ++(\extra * \bs, \cw);
+      \node[label, text = lat]                 at ({\bl + (16 + \before + 0.5 * \extra) * \bs}, 4.15 + 0.5 * \cw) {\extra};
+    }
+
+    % Headers of the two parts of the cost
+    \node[label, anchor = south, text = lat] at (\bl + 8 * \bs,  4.15 + \cw + 0.02) {$\alpha R$};
+    \node[label, anchor = south, text = lat] at (\bl + 22 * \bs, 4.15 + \cw + 0.02) {$\lambda\sum_C(\ell_0-|C|)_+$};
+
+    % The decomposition
+    \node[font = \small, anchor = west]       at (-0.08, 0.55) {$L(M)=\alpha R+\inlat{\lambda\displaystyle\sum_{C}(\ell_0-|C|)_+}\;\ge\;\alpha R$};
+    \node[label, anchor = east, text = muted] at (13.6, 0.55)  {$\alpha=2,\ \ \lambda=1,\ \ \ell_0=4$};
+
+  \end{canvas}
+\end{frame}

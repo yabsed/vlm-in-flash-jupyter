@@ -1,0 +1,168 @@
+\section{Global DP}
+
+% At a price q per unit of latency, every chunk has a score I[C] - q T[|C|], and the scores add up.
+\begin{frame}{비율 $I/L$ 대신 $I-qL$을 최대화한다}
+  \begin{canvas}
+
+    % Sizes
+    \def\base{2.25} % baseline of the bars
+    \def\bh{0.1}    % height of a bar per unit
+
+    \drawvalues{\maskTop}
+    \drawbrackets
+
+    % Each chunk: its importance beside q times its latency, with q = 2
+    \foreach \start/\len/\importance/\latency/\before in \toyChunks {
+
+      \pgfmathsetmacro\xm{\boxleft + (\start + 0.5 * \len) * \boxsize}
+      \pgfmathtruncatemacro\price{2 * \latency}
+      \pgfmathtruncatemacro\score{\importance - \price}
+
+      \fill[imp] (\xm - 0.3,  \base) rectangle (\xm - 0.02, {\base + \importance * \bh});
+      \fill[lat] (\xm + 0.02, \base) rectangle (\xm + 0.3,  {\base + \price * \bh});
+      \node[label, anchor = south, text = imp, inner sep = 1.5pt] at (\xm - 0.16, {\base + \importance * \bh}) {\importance};
+      \node[label, anchor = south, text = lat, inner sep = 1.5pt] at (\xm + 0.16, {\base + \price * \bh})      {\price};
+
+      % A chunk whose ratio is below q has a negative score.
+      \ifnum\score>0
+        \node[font = \small\bfseries]               at (\xm, \base - 0.45) {$+\score$};
+      \else
+        \node[font = \small\bfseries, text = muted] at (\xm, \base - 0.45) {$\score$};
+      \fi
+    }
+
+    \draw[axis] (\boxleft, \base) -- (\boxleft + 16 * \boxsize, \base);
+
+    % Names of the two bars and of the score
+    \node[label, anchor = east, text = imp] at (\boxleft - 0.3, \base + 1.2)  {$I[C]$};
+    \node[label, anchor = east, text = lat] at (\boxleft - 0.3, \base + 0.65) {$q\,T[|C|]$};
+    \node[label, anchor = east]             at (\boxleft - 0.3, \base - 0.45) {$I[C]-q\,T[|C|]$};
+
+    \node[label, anchor = west, text = muted] at (\boxleft + 16 * \boxsize + 0.27, \base + 0.9)  {$q=2$};
+    \node[label, anchor = west]               at (\boxleft + 16 * \boxsize + 0.27, \base - 0.45) {$=-1$};
+
+    % The sign tells whether the ratio reaches q, and the scores add up over the chunks.
+    \node[font = \small, anchor = west] at (-0.08, 0.6) {$\dfrac{I(M)}{L(M)}\ge q\iff I(M)-qL(M)\ge0$};
+    \node[font = \small, anchor = east] at (13.6, 0.6)  {$I(M)-qL(M)=\displaystyle\sum_{C}\bigl(I[C]-q\,T[|C|]\bigr)$};
+
+  \end{canvas}
+\end{frame}
+
+
+% The recurrence: split a mask at its last unselected row.
+\begin{frame}{마지막 0의 왼쪽은 DP로, 오른쪽은 누적합과 two-line으로}
+  \begin{canvas}
+
+    % Sizes
+    \def\cw{0.6}   % size of one box of the large mask
+    \def\mb{3.55}  % bottom edge of the large mask
+    \def\sw{0.28}  % size of one box of the small masks
+    \def\sl{9.3}   % left edge of the small masks
+
+    \node[label, anchor = west] at (-0.05, 5.2) {$D_{z,r}$\quad\insoft{앞의 $z+r$개 행에서 $r$개를 고를 때 $I-qL$의 최댓값}};
+
+    % The first z + r rows: a part already solved, the last 0, and the last chunk
+    \foreach \bit [count = \k from 0] in {1, 0, 0, 1, 1, 0, 1} {
+      \ifnum\bit=1
+        \path[cell, fill = impsoft] (\k * \cw, \mb) rectangle ++(\cw, \cw);
+      \else
+        \path[cell off]             (\k * \cw, \mb) rectangle ++(\cw, \cw);
+      \fi
+    }
+    \path[draw = ink, line width = 0.8pt, fill = white] (7 * \cw + 0.04, \mb + 0.04) rectangle ++(\cw - 0.08, \cw - 0.08);
+    \node[font = \small\bfseries] at (7.5 * \cw, \mb + 0.5 * \cw) {0};
+    \foreach \k in {8, ..., 12} {
+      \path[cell on] (\k * \cw, \mb) rectangle ++(\cw, \cw);
+    }
+    \node[label, anchor = south, text = muted] at (7.5 * \cw, \mb + \cw + 0.05) {마지막 0};
+
+    % Left of the last 0: a smaller problem. Right of it: one chunk of r - t rows.
+    \draw[brace, decoration = {mirror}] (0.04, \mb - 0.12) -- (7 * \cw - 0.04, \mb - 0.12);
+    \draw[brace, decoration = {mirror}] (8 * \cw + 0.04, \mb - 0.12) -- (13 * \cw - 0.04, \mb - 0.12);
+
+    \node[anchor = north, font = \small] at (3.5 * \cw,  \mb - 0.32) {$D_{z-1,\,t}$};
+    \node[anchor = north, font = \small] at (10.5 * \cw, \mb - 0.32) {$\inimp{P_{z+r}-P_{z+t}}\;-\;q\,\inlat{T(r-t)}$};
+
+    \node[label, anchor = north, text = muted]      at (3.5 * \cw,   \mb - 0.95) {DP 표};
+    \node[label, anchor = north east, text = imp] at (10.55 * \cw, \mb - 0.95) {중요도는 누적합};
+    \node[label, anchor = north west, text = lat] at (10.95 * \cw, \mb - 0.95) {지연은 two-line};
+
+    % Every position of the last 0 is one candidate.
+    \foreach \len in {0, ..., 4} {
+      \pgfmathsetmacro\y{\mb + 0.32 - \len * 0.42}
+      \pgfmathtruncatemacro\zero{12 - \len}
+
+      \path[cell off] (\sl, \y) rectangle ++(\zero * \sw, \sw);
+      \path[draw = ink, line width = 0.6pt, fill = white] (\sl + \zero * \sw + 0.03, \y + 0.03) rectangle ++(\sw - 0.06, \sw - 0.06);
+      \ifnum\len>0
+        \foreach \k in {1, ..., \len} {
+          \path[cell on] (\sl + \zero * \sw + \k * \sw, \y) rectangle ++(\sw, \sw);
+        }
+      \fi
+    }
+    \node[label, anchor = south west, text = muted] at (\sl - 0.05, \mb + 0.32 + \sw + 0.05) {마지막 0의 위치마다 후보 하나};
+    \node[label, text = muted]                      at (\sl + 6.5 * \sw, \mb + 0.32 - 4 * 0.42 - 0.22) {$\vdots$};
+
+    % The recurrence
+    \node[anchor = west] at (-0.08, 0.8) {$D_{z,r}=\displaystyle\max_{0\le t\le r}\Bigl\{\,D_{z-1,\,t}+\inimp{P_{z+r}-P_{z+t}}-q\,\inlat{T(r-t)}\Bigr\}$};
+    \node[label, anchor = east, text = muted] at (13.6, 0.8) {표의 크기 $(N-R+1)(R+1)$};
+
+  \end{canvas}
+\end{frame}
+
+
+% Every mask is a line in q. F is their upper envelope, and its zero is the best ratio.
+\begin{frame}{$F(q)=0$이 되는 $q$가 최적 비율이다}
+  \begin{canvas}
+
+    % The point (q, value) of the plot. q = 1 is at the left edge.
+    \begin{scope}[shift = {(-2.1, 1.55)}, x = 3.0cm, y = 0.088cm]
+
+      % One line I - qL per mask; where it reaches 0 is the ratio I / L of the mask.
+      \begin{scope}
+        \clip (1, -12) rectangle (3.3, 36);
+
+        \foreach \importance/\latency in {54/24, 50/21, 45/17, 45/18, 44/16, 51/20, 49/22, 42/19, 53/32, 50/36} {
+          \draw[thin line] (1, {\importance - \latency}) -- (3.3, {\importance - 3.3 * \latency});
+        }
+
+        % Top-R, and the best single chunk of R rows
+        \draw[draw = muted, line width = 0.7pt] (1, {55 - 28}) -- (3.3, {55 - 3.3 * 28});
+        \draw[draw = muted, line width = 0.7pt] (1, {38 - 16}) -- (3.3, {38 - 3.3 * 16});
+
+        % F(q): the largest value over all masks. Its last piece is the line of the optimum.
+        \draw[draw = ink, line width = 1.5pt, line join = round] (1, 32) -- (1.5, 22) -- (3.3, {46 - 3.3 * 16});
+      \end{scope}
+
+      % Axes
+      \draw[axis, tip] (1, 0)   -- (3.4, 0);
+      \draw[axis]      (1, -12) -- (1, 36);
+      \node[label, anchor = north]      at (3.38, -1.5) {$q$};
+      \node[label, anchor = south west] at (0.98, 36.3) {$I(M)-qL(M)$};
+      \node[font = \small, anchor = south west] at (1.24, 27) {$F(q)$};
+
+      % One step from q_0: up to F(q_0), then down the line of the mask that attains it
+      \draw[draw = ink, line width = 0.6pt, dash pattern = on 2pt off 1.5pt] (2.375, 0) -- (2.375, 8);
+      \draw[draw = imp, line width = 1.5pt, tip] (2.375, 8) -- (2.862, 0.21);
+      \node[label, anchor = south west, inner sep = 1.5pt] at (2.39, 8.6) {$F(q_0)$};
+
+      % Ratios of Top-R, of the best single chunk, and of the optimum
+      \fill[muted] (1.9643, 0) circle[radius = 1.8pt];
+      \fill[ink]   (2.375,  0) circle[radius = 1.8pt];
+      \fill[imp]   (2.875,  0) circle[radius = 2.2pt];
+      \node[label, anchor = north, text = muted, fill = white, inner sep = 1.5pt] at (1.9643, -2) {Top-$R$};
+      \node[label, anchor = north, fill = white, inner sep = 1.5pt]               at (2.375,  -2) {$q_0$};
+      \node[label, anchor = south west, text = imp, inner sep = 1.5pt]            at (2.9,    1)  {$q_1=q^\star$};
+
+    \end{scope}
+
+    % What the figure says
+    \node[font = \small, anchor = west] at (8.9, 4.6) {$F(q)=\displaystyle\max_{\|M\|_1=R}\bigl\{I(M)-qL(M)\bigr\}$};
+    \node[label, anchor = west, text = muted, align = left] at (8.95, 3.6) {mask 하나가 직선 하나\\[0.4mm]$q$를 고정하면 DP가 $F(q)$를 구한다};
+
+    \node[font = \small, anchor = west] at (8.9, 2.5)  {$F(q^\star)=0$};
+    \node[font = \small, anchor = west] at (8.9, 1.55)  {$q_{k+1}=\dfrac{I(M_k)}{L(M_k)}$};
+    \node[label, anchor = west, text = muted] at (8.95, 0.75) {$M_k$\ \ $q_k$에서 DP가 고른 mask};
+
+  \end{canvas}
+\end{frame}

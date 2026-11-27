@@ -1,0 +1,59 @@
+\section{Neuron Chunking 문제}
+
+% Each chunk is a bar: its width is the latency, its height the ratio, its area the importance.
+% The ratio of the mask is the mean height of the bars, so the tallest bar alone is at least as good.
+\begin{frame}{행 수의 상한만 두면 구간 하나가 최적이다}
+  \begin{canvas}
+
+    % Sizes
+    \def\sx{0.302857} % width per unit of latency: the 28 units of the mask span the 16 boxes
+    \def\sy{0.72}     % height per unit of ratio
+    \def\base{1.75}   % baseline of the bars
+
+    % The chunk with the largest ratio keeps its colour.
+    \def\maskBest{2,0,0,2,2,2,0,0,2,0,1,1,0,2,0,0}
+    \drawvalues{\maskBest}
+    \drawbrackets
+
+    % The bar of each chunk, in the order of the chunks
+    \foreach \start/\len/\importance/\latency/\before [count = \c] in \toyChunks {
+
+      \pgfmathsetmacro\xa{\boxleft + \before * \sx}
+      \pgfmathsetmacro\xb{\boxleft + (\before + \latency) * \sx}
+      \pgfmathsetmacro\xm{\boxleft + (\before + 0.5 * \latency) * \sx}
+      \pgfmathsetmacro\ytop{\base + \importance / \latency * \sy}
+
+      \ifnum\c=4
+        \path[cell on]              (\xa, \base) rectangle (\xb, \ytop);
+        \node[num on]               at (\xm, {0.5 * (\base + \ytop)}) {\importance};
+      \else
+        \path[cell, fill = impsoft] (\xa, \base) rectangle (\xb, \ytop);
+        \node[num on, text = imp]   at (\xm, {0.5 * (\base + \ytop)}) {\importance};
+      \fi
+
+      \node[label, anchor = north, text = lat] at (\xm, \base - 0.08) {\latency};
+    }
+
+    % Axes of the bars
+    \draw[axis] (\boxleft, \base) -- (\boxleft + 28 * \sx, \base);
+    \foreach \ratio in {1, 2, 3} {
+      \draw[axis] (\boxleft - 0.07, {\base + \ratio * \sy}) -- (\boxleft, {\base + \ratio * \sy});
+      \node[label, anchor = east, text = muted] at (\boxleft - 0.1, {\base + \ratio * \sy}) {\ratio};
+    }
+
+    \node[label, anchor = east]             at (\boxleft - 0.55, \base + 1.5 * \sy) {높이\ \ $\dfrac{I[C]}{T[|C|]}$};
+    \node[label, anchor = east, text = lat] at (\boxleft - 0.55, \base - 0.28)      {너비\ \ $T[|C|]$};
+
+    % Ratio of the whole mask, the mean height of the bars, and ratio of the tallest bar alone
+    \draw[draw = ink, line width = 0.6pt, dash pattern = on 3pt off 2pt] (\boxleft, {\base + 1.9643 * \sy}) -- (\boxleft + 28 * \sx + 0.15, {\base + 1.9643 * \sy});
+    \draw[draw = imp, line width = 0.6pt, dash pattern = on 3pt off 2pt] (\boxleft, {\base + 2.8333 * \sy}) -- (\boxleft + 28 * \sx + 0.15, {\base + 2.8333 * \sy});
+
+    \node[label, anchor = west]             at (\boxleft + 28 * \sx + 0.27, {\base + 1.9643 * \sy}) {전체\ \ $1.96$};
+    \node[label, anchor = west, text = imp] at (\boxleft + 28 * \sx + 0.27, {\base + 2.8333 * \sy}) {구간 하나\ \ $2.83$};
+
+    % The inequality, and the problem of the rest of the talk
+    \node[font = \small, anchor = west] at (-0.08, 0.5) {$\dfrac{I(M)}{L(M)}=\displaystyle\sum_{C}\frac{T[|C|]}{L(M)}\cdot\frac{I[C]}{T[|C|]}\;\le\;\max_{C}\frac{I[C]}{T[|C|]}$};
+    \node[font = \small, anchor = east] at (13.65, 0.5) {$\|M\|_1\le R\ \ \longrightarrow\ \ \|M\|_1=R$};
+
+  \end{canvas}
+\end{frame}
